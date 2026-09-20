@@ -1,0 +1,436 @@
+:root {
+  --font-body: 'Inter', sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --radius-card: 20px;
+  --radius-img: 16px;
+  --radius-pill: 999px;
+}
+
+/* ============ CLASSIC THEME ============ */
+[data-theme="classic"] {
+  --bg-canvas: #FAF7F2;
+  --bg-surface: #FFFFFF;
+  --bg-surface-hover: #f0fdf4;
+  --bg-contrast: #071912;
+  --bg-contrast-hover: #0A2218;
+
+  --text-primary: #1C2823;
+  --text-secondary: #52665A;
+  --text-accent: #15803D;
+
+  --text-primary-c: #F0F7F4;
+  --text-secondary-c: #A3BFB2;
+  --text-accent-c: #4ADE80;
+
+  --brand: #16A34A;
+  --brand-hover: #15803D;
+  --brand-text: #FFFFFF;
+
+  --border: #E2ECE6;
+  --border-c: #153326;
+  --border-focus: #15803D;
+
+  --shadow: 0 1px 2px rgba(28, 40, 35, .05), 0 8px 24px rgba(28, 40, 35, .04);
+  --box-shadow: 0 8px 20px -4px rgba(28, 40, 35, 0.3), 0 6px 12px -6px rgba(28, 40, 35, 0.3);
+
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* ============ CYBERPUNK THEME ============ */
+[data-theme="cyberpunk"] {
+  --bg-canvas: #0D0E12;
+  --bg-surface: #101218;
+  --bg-surface-hover: #22262f;
+  --bg-contrast: #050507;
+  --bg-contrast-hover: #0a0a0d;
+
+  --text-primary: #EAF6F8;
+  --text-secondary: #8FA3AC;
+  --text-accent: #00F0FF;
+
+  --text-primary-c: #EAF6F8;
+  --text-secondary-c: #8FA3AC;
+  --text-accent-c: #FCEE09;
+
+  --brand: #FCEE09;
+  --brand-hover: #00F0FF;
+  --brand-text: #0D0E12;
+
+  --border: #00949d;
+  --border-c: #F0FF33;
+  --border-focus: #00F0FF;
+
+  --shadow: 0 0 0 1px rgba(0, 240, 255, .08), 0 0 24px rgba(0, 240, 255, .05);
+  --font-display: 'JetBrains Mono', monospace;
+}
+
+/* ============ GOLDEN THEME ============ */
+[data-theme="golden"] {
+  --bg-canvas: #0F0E13;
+  --bg-surface: #17151d;
+  --bg-surface-hover: #26221b; 
+  --bg-contrast: #0A0910;
+  --bg-contrast-hover: #100e17;
+
+  --text-primary: #F5EFDD;
+  --text-secondary: #B3A98F;
+  --text-accent: #FDE047;
+
+  --text-primary-c: #F5EFDD;
+  --text-secondary-c: #B3A98F;
+  --text-accent-c: #EAB308;
+
+  --brand: #EAB308;
+  --brand-hover: #FACC15;
+  --brand-text: #1a1408;
+
+  --border: #2a2620;
+  --border-c: #FFFFFF1A;
+  --border-focus: #EAB308;
+
+  --shadow: 0 1px 1px rgba(0, 0, 0, .4), 0 12px 32px rgba(0, 0, 0, .35);
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg-canvas);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  transition: background-color .4s ease, color .4s ease;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Cyberpunk scanline backdrop */
+[data-theme="cyberpunk"] body::before {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(0,240,255,.035) 0px, rgba(0,240,255,.035) 1px, transparent 1px, transparent 3px),
+    linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+  background-size: auto, 44px 44px, 44px 44px;
+}
+
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow);
+  transition: transform .25s ease, border-color .25s ease, background-color .25s ease, box-shadow .25s ease;
+}
+
+.card_s {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow);
+  transition: transform .25s ease, border-color .25s ease, background-color .25s ease, box-shadow .25s ease;
+  overflow: visible;
+}
+
+.card_s:hover { 
+  transform: translateY(-4px);
+  border-color: var(--brand);
+  background: var(--bg-surface-hover);
+  box-shadow: var(--box-shadow);
+}
+
+.card_s img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: var(--bg-surface-hover);   
+  border-radius: var(--radius-img);
+}
+
+.card_s .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--radius-img);
+  transition: transform .25s ease;
+}
+
+.card_s:hover img {
+  transform: scale(1.03);
+}
+
+[data-theme="cyberpunk"] .card_s img {
+  border-radius: 0 !important;
+}
+
+.card-contrast {
+  background: var(--bg-contrast);
+  border: 1px solid var(--border-c);
+  color: var(--text-secondary-c);
+  --text-primary: var(--text-primary-c);
+  --text-secondary: var(--text-secondary-c);
+  --text-accent: var(--text-accent-c);
+}
+.card-contrast h1, .card-contrast h2, .card-contrast h3 { color: var(--text-primary-c); }
+
+/* Golden glass panels */
+[data-theme="golden"] .card {
+  background: linear-gradient(160deg, rgba(255,255,255,.045), rgba(255,255,255,.01));
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--border-c);
+}
+[data-theme="golden"] .card-contrast {
+  background: linear-gradient(160deg, rgba(234,179,8,.08), rgba(15,14,19,.6));
+  backdrop-filter: blur(18px);
+}
+
+/* Cyberpunk angular corners */
+[data-theme="cyberpunk"] .card,
+[data-theme="cyberpunk"] .card_s,
+[data-theme="cyberpunk"] .img,
+[data-theme="cyberpunk"] .btn,
+[data-theme="cyberpunk"] .tag,
+[data-theme="cyberpunk"] .card-contrast {
+  border-radius: 2px;
+  clip-path: polygon(0 10px, 10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+}
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 24px; border-radius: 12px;
+  font-weight: 600; font-size: .94rem;
+  transition: background-color .2s ease, border-color .2s ease, transform .15s ease, box-shadow .2s ease;
+  white-space: nowrap;
+}
+.btn:active { transform: scale(.97); }
+.btn-primary { background: var(--brand); color: var(--brand-text); }
+.btn-primary:hover { background: var(--brand-hover); }
+[data-theme="cyberpunk"] .btn-primary { font-family: var(--font-display); box-shadow: 0 0 18px color-mix(in srgb, var(--brand) 45%, transparent); }
+[data-theme="golden"] .btn-primary { background: linear-gradient(135deg,#FACC15,#B45309); box-shadow: 0 0 0 1px rgba(255,255,255,.15) inset, 0 8px 20px rgba(234,179,8,.25); }
+[data-theme="golden"] .btn-primary:hover { filter: brightness(1.08); }
+
+.btn-outline { background: transparent; border: 1px solid var(--brand); color: var(--text-primary); }
+.btn-outline:hover { background: var(--bg-surface-hover); border-color: var(--brand-hover); }
+.btn-small { padding: 9px 16px; font-size: .85rem; border-radius: 9px; }
+
+.tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: .78rem; font-weight: 500;
+  padding: 6px 12px; border-radius: var(--radius-pill);
+  border: 1px solid var(--border); color: var(--text-accent);
+  background: var(--bg-surface);
+}
+[data-theme="cyberpunk"] .tag { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .04em; font-size: .7rem; }
+
+.status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--brand); position: relative; flex-shrink: 0; }
+.status-dot::after {
+  content: ''; position: absolute; inset: -4px; border-radius: 50%;
+  border: 1px solid var(--brand); opacity: .5;
+  animation: pulse-ring 2.2s ease-out infinite;
+}
+@keyframes pulse-ring { 0% { transform: scale(.6); opacity: .6; } 100% { transform: scale(1.8); opacity: 0; } }
+
+.wrap { max-width: 1152px; margin: 0 auto; padding: 0 24px; }
+section { padding: 88px 0; position: relative; z-index: 1; }
+@media (max-width: 768px) { section { padding: 60px 0; } }
+
+.fade-up { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* Theme dropdown */
+.theme-menu {
+  position: absolute; top: calc(100% + 10px); right: 0;
+  background: var(--bg-surface); border: 1px solid var(--border);
+  border-radius: 14px; box-shadow: var(--shadow);
+  min-width: 200px; padding: 6px; display: none; z-index: 60;
+}
+.theme-menu.open { display: block; }
+.theme-option {
+  display: flex; align-items: center; gap: 10px;
+  width: 100%; padding: 10px 12px; border-radius: 9px;
+  font-size: .88rem; color: var(--text-primary); background: transparent; border: none; text-align: left;
+}
+.theme-option:hover { background: var(--bg-surface-hover); }
+.theme-swatch { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; border: 1px solid rgba(0,0,0,.1); }
+
+/* Language switcher */
+.lang-switch {
+  display: flex; align-items: center; border: 1px solid var(--border);
+  border-radius: var(--radius-pill); padding: 3px; gap: 2px; flex-shrink: 0;
+}
+[data-theme="cyberpunk"] .lang-switch { border-radius: 2px; }
+.lang-btn {
+  padding: 6px 11px; border-radius: var(--radius-pill); border: none; background: transparent;
+  font-size: .76rem; font-weight: 700; letter-spacing: .02em; color: var(--text-secondary);
+  cursor: pointer; transition: background-color .2s ease, color .2s ease;
+}
+[data-theme="cyberpunk"] .lang-btn { border-radius: 1px; font-family: var(--font-display); }
+.lang-btn[aria-pressed="true"] { background: var(--brand); color: var(--brand-text); }
+
+/* Toast */
+#toast {
+  position: fixed; bottom: 28px; left: 50%; transform: translate(-50%, 20px);
+  background: var(--bg-contrast); color: var(--text-primary-c);
+  border: 1px solid var(--border-c);
+  padding: 12px 20px; border-radius: 12px; font-size: .88rem; font-weight: 500;
+  opacity: 0; pointer-events: none; transition: opacity .25s ease, transform .25s ease;
+  z-index: 100; display: flex; align-items: center; gap: 8px;
+}
+#toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* Timeline */
+.timeline { position: relative; padding-left: 30px; }
+.timeline::before { content: ''; position: absolute; left: 5px; top: 6px; bottom: 6px; width: 1px; background: var(--border); }
+.timeline-item { position: relative; padding-bottom: 32px; }
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: ''; position: absolute; left: -30px; top: 22px; width: 11px; height: 11px; border-radius: 50%;
+  background: var(--bg-canvas); border: 2px solid var(--brand);
+}
+
+.accordion-body { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+.accordion.open .accordion-body { max-height: 400px; }
+
+/* Accordion plus/minus icon */
+.accordion-icon { position: relative; width: 18px; height: 18px; flex-shrink: 0; }
+.accordion-icon .bar { position: absolute; background: currentColor; border-radius: 2px; }
+.accordion-icon .bar-h { top: 50%; left: 0; width: 100%; height: 2px; transform: translateY(-50%); }
+.accordion-icon .bar-v { left: 50%; top: 0; width: 2px; height: 100%; transform: translateX(-50%); transition: transform .3s ease; }
+.accordion.open .accordion-icon .bar-v { transform: translateX(-50%) scaleY(0); }
+
+.accordion-trigger { cursor: pointer; background: transparent; border: none; font: inherit; }
+
+::selection { background: var(--brand); color: var(--brand-text); }
+
+/* ===================== HERO PHOTO — theme adaptive ===================== */
+.photo-card {
+  position: relative; width: 256px; height: 256px; flex-shrink: 0;
+  transition: background-color .4s ease, border-color .4s ease, box-shadow .4s ease, padding .3s ease;
+}
+.photo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Classic */
+[data-theme="classic"] .photo-card {
+  border-radius: 24px; padding: 0px;
+  background: linear-gradient(160deg, #0B2417 0%, var(--bg-canvas) 100%);
+  box-shadow: var(--shadow);
+}
+[data-theme="classic"] .photo-img { border-radius: 24px; border: 2px solid rgba(21,128,61,.3); }
+
+/* Cyberpunk */
+[data-theme="cyberpunk"] .photo-card { border-radius: 2px; padding: 0; background: transparent; }
+[data-theme="cyberpunk"] .photo-img {
+  clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
+  border: 2px solid #00F0FF; box-shadow: 0 0 20px rgba(0,240,255,.4);
+}
+[data-theme="cyberpunk"] .photo-card::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 2;
+  background-image: repeating-linear-gradient(0deg, rgba(0,240,255,.09) 0px, rgba(0,240,255,.09) 1px, transparent 1px, transparent 3px);
+  mix-blend-mode: screen;
+}
+.hud-corner { display: none; }
+[data-theme="cyberpunk"] .hud-corner {
+  display: block; position: absolute; width: 16px; height: 16px; z-index: 3; border-color: #00F0FF; border-style: solid; border-width: 0;
+}
+[data-theme="cyberpunk"] .hud-corner.tl { top: -2px; left: -2px; border-top-width: 2px; border-left-width: 2px; }
+[data-theme="cyberpunk"] .hud-corner.tr { top: -2px; right: -2px; border-top-width: 2px; border-right-width: 2px; }
+[data-theme="cyberpunk"] .hud-corner.bl { bottom: -2px; left: -2px; border-bottom-width: 2px; border-left-width: 2px; }
+[data-theme="cyberpunk"] .hud-corner.br { bottom: -2px; right: -2px; border-bottom-width: 2px; border-right-width: 2px; }
+.hud-caption { display: none; }
+[data-theme="cyberpunk"] .hud-caption {
+  display: block; position: absolute; bottom: -24px; left: 1px; white-space: nowrap;
+  font-family: 'JetBrains Mono', monospace; font-size: .64rem; letter-spacing: .04em; color: #00F0FF;
+}
+
+/* Golden */
+[data-theme="golden"] .photo-card {
+  border-radius: 24px; padding: 0px;
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  background: rgba(255,255,255,.08);
+  border: 2px solid rgba(251,191,36,.4);
+  box-shadow: 0 0 25px rgba(234,179,8,.25);
+}
+[data-theme="golden"] .photo-img {
+  border-radius: 24px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.12);
+}
+[data-theme="golden"] .photo-card::after {
+  content: ''; position: absolute; inset: 0; border-radius: 24px; pointer-events: none;
+  background: linear-gradient(155deg, rgba(255,255,255,.18), rgba(255,255,255,0) 40%);
+}
+
+.photo-badge-row { display: flex; align-items: center; gap: 8px; }
+
+/* 1. ДИНАМІЧНІ CSS-ЗМІННІ ДЛЯ ХОВЕРУ В ТЕМАХ */
+
+/* Класична тема */
+[data-theme="classic"], .classic {
+  --btn-hover-bg: #15803D;
+  --btn-hover-text: #ffffff;
+}
+
+/* Золота тема */
+[data-theme="golden"], .golden {
+  --btn-hover-bg: #eab308;    
+  --btn-hover-text: #1a1408;  
+}
+
+/* Тема Кіберпанк */
+[data-theme="cyberpunk"], .cyberpunk {
+  --btn-hover-bg: #00F0FF;   
+  --btn-hover-text: #000000;
+}
+
+/* 2. БАЗОВІ СТИЛІ КНОПКИ (СПІЛЬНІ ДЛЯ ВСІХ ТЕМ)*/
+.btn-theme-target {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  padding: 6px 8px; 
+  transition: background-color .25s ease, color .25s ease, box-shadow .25s ease, border-radius .25s ease;
+}
+
+/* РОЗПОДІЛ КУТІВ ТА СПЕЦЕФЕКТІВ ПО ТЕМАХ */
+
+/* Закруглені кути ТІЛЬКИ для Класичної та Золотої тем */
+[data-theme="classic"] .btn-theme-target,
+.classic .btn-theme-target,
+[data-theme="golden"] .btn-theme-target,
+.golden .btn-theme-target {
+  border-radius: 8px; 
+}
+
+/* Абсолютно гострі кути ТІЛЬКИ для Кіберпанку */
+[data-theme="cyberpunk"] .btn-theme-target, 
+.cyberpunk .btn-theme-target {
+  border-radius: 0px !important;
+}
+
+/* ХОВЕР ЕФЕКТИ ПРИ НАВЕДЕННІ */
+.btn-theme-target:hover {
+  background-color: var(--btn-hover-bg) !important;
+  color: var(--btn-hover-text) !important;
+  text-decoration: none !important;
+  text-shadow: 0.5px 0 0 currentColor, -0.5px 0 0 currentColor !important;
+}
