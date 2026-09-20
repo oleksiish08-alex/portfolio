@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="classic" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Oleksii Shirokov — Senior UI/UX & Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root{
+    --font-body:'Inter',sans-serif;
+    --font-display:'Plus Jakarta Sans',sans-serif;
+    --radius-card:20px;
+	--radius-img:16px;
+    --radius-pill:999px;
+  }
+
+  /* ============ CLASSIC THEME ============ */
+  [data-theme="classic"]{
+    --bg-canvas:#FAF7F2;
+    --bg-surface:#FFFFFF;
+    --bg-surface-hover:#f0fdf4;
+    --bg-contrast:#071912;
+    --bg-contrast-hover:#0A2218;
+
+    --text-primary:#1C2823;
+    --text-secondary:#52665A;
+    --text-accent:#15803D;
+
+    --text-primary-c:#F0F7F4;
+    --text-secondary-c:#A3BFB2;
+    --text-accent-c:#4ADE80;
+
+    --brand:#16A34A;
+    --brand-hover:#15803D;
+    --brand-text:#FFFFFF;
+
+    --border:#E2ECE6;
+    --border-c:#153326;
+    --border-focus:#15803D;
+
+    --shadow:0 1px 2px rgba(28,40,35,.05), 0 8px 24px rgba(28,40,35,.04);
+	--box-shadow: 0 8px 20px -4px rgba(28,40,35, 0.3), 0 6px 12px -6px rgba(28,40,35, 0.3);
+
+    --font-display:'Plus Jakarta Sans',sans-serif;
+  }
+
+  /* ============ CYBERPUNK THEME ============ */
+  [data-theme="cyberpunk"]{
+    --bg-canvas:#0D0E12;
+    --bg-surface:#101218;
+    --bg-surface-hover:#22262f;
+    --bg-contrast:#050507;
+    --bg-contrast-hover:#0a0a0d;
+
+    --text-primary:#EAF6F8;
+    --text-secondary:#8FA3AC;
+    --text-accent:#00F0FF;
+
+    --text-primary-c:#EAF6F8;
+    --text-secondary-c:#8FA3AC;
+    --text-accent-c:#FCEE09;
+
+    --brand:#FCEE09;
+    --brand-hover:#00F0FF;
+    --brand-text:#0D0E12;
+
+    --border:#00949d;
+    --border-c:#F0FF33;
+    --border-focus:#00F0FF;
+
+    --shadow:0 0 0 1px rgba(0,240,255,.08), 0 0 24px rgba(0,240,255,.05);
+    --font-display:'JetBrains Mono',monospace;
+  }
+
+  /* ============ GOLDEN THEME ============ */
+  [data-theme="golden"]{
+    --bg-canvas:#0F0E13;
+    --bg-surface:#17151d;
+    --bg-surface-hover:#26221b; 
+    --bg-contrast:#0A0910;
+    --bg-contrast-hover:#100e17;
+
+    --text-primary:#F5EFDD;
+    --text-secondary:#B3A98F;
+    --text-accent:#FDE047;
+
+    --text-primary-c:#F5EFDD;
+    --text-secondary-c:#B3A98F;
+    --text-accent-c:#EAB308;
+
+    --brand:#EAB308;
+    --brand-hover:#FACC15;
+    --brand-text:#1a1408;
+
+    --border:#2a2620;
+    --border-c:#FFFFFF1A;
+    --border-focus:#EAB308;
+
+    --shadow:0 1px 1px rgba(0,0,0,.4), 0 12px 32px rgba(0,0,0,.35);
+    --font-display:'Plus Jakarta Sans',sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg-canvas);
+    color:var(--text-secondary);
+    font-family:var(--font-body);
+    transition:background-color .4s ease, color .4s ease;
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+  }
+  h1,h2,h3,.font-display{font-family:var(--font-display); color:var(--text-primary); letter-spacing:-0.01em;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{animation-duration:.01ms !important; transition-duration:.01ms !important;}
+  }
+
+  :focus-visible{outline:2px solid var(--border-focus); outline-offset:2px; border-radius:4px;}
+
+
+  /* Cyberpunk scanline backdrop */
+  [data-theme="cyberpunk"]
+  body::before{
+    content:'';
+    position:fixed; inset:0; pointer-events:none; z-index:0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,240,255,.035) 0px, rgba(0,240,255,.035) 1px, transparent 1px, transparent 3px),
+      linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+    background-size:auto, 44px 44px, 44px 44px;
+  }
+
+  .card{
+    background:var(--bg-surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius-card);
+    box-shadow:var(--shadow);
+    transition:transform .25s ease, border-color .25s ease, background-color .25s ease, box-shadow .25s ease;
+  }
+  
+  .card_s{
+    background:var(--bg-surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius-card);
+    box-shadow:var(--shadow);
+    transition:transform .25s ease, border-color .25s ease, background-color .25s ease, box-shadow .25s ease;
+	overflow: visible;
+  }
+  
+  .card_s:hover{ 
+  transform: translateY(-4px);
+  border-color: var(--brand);
+  background: var(--bg-surface-hover);
+  box-shadow: var(--box-shadow);
+  }
+  
+  .card_s img{
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: var(--bg-surface-hover);   
+  border-radius: var(--radius-img);
+  }
+  
+  .card_s .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--radius-img);
+  transition: transform .25s ease;
+}
+  
+  .card_s:hover img {
+  transform: scale(1.03);
+  }
+  
+  [data-theme="cyberpunk"]
+  .card_s img{
+  border-radius: 0 !important;
+  }
+
+
+  .card-contrast{
+    background:var(--bg-contrast);
+    border:1px solid var(--border-c);
+    color:var(--text-secondary-c);
+    --text-primary:var(--text-primary-c);
+    --text-secondary:var(--text-secondary-c);
+    --text-accent:var(--text-accent-c);
+  }
+  .card-contrast h1, .card-contrast h2, .card-contrast h3{ color:var(--text-primary-c); }
+
+
+
+  /* Golden glass panels */
+  [data-theme="golden"] .card{
+    background:linear-gradient(160deg, rgba(255,255,255,.045), rgba(255,255,255,.01));
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border:1px solid var(--border-c);
+  }
+  [data-theme="golden"]
+  .card-contrast{
+    background:linear-gradient(160deg, rgba(234,179,8,.08), rgba(15,14,19,.6));
+    backdrop-filter:blur(18px);
+  }
+
+  /* Cyberpunk angular corners */
+  [data-theme="cyberpunk"] .card,
+  [data-theme="cyberpunk"] .card_s,
+  [data-theme="cyberpunk"] .img,
+  [data-theme="cyberpunk"] .btn,
+  [data-theme="cyberpunk"] .tag,
+  [data-theme="cyberpunk"] .card-contrast{
+    border-radius:2px;
+    clip-path:polygon(0 10px, 10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+  }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 24px; border-radius:12px;
+    font-weight:600; font-size:.94rem;
+    transition:background-color .2s ease, border-color .2s ease, transform .15s ease, box-shadow .2s ease;
+    white-space:nowrap;
+  }
+  .btn:active{ transform:scale(.97); }
+  .btn-primary{ background:var(--brand); color:var(--brand-text); }
+  .btn-primary:hover{ background:var(--brand-hover); }
+  [data-theme="cyberpunk"] .btn-primary{ font-family:var(--font-display); box-shadow:0 0 18px color-mix(in srgb, var(--brand) 45%, transparent); }
+  [data-theme="golden"] .btn-primary{ background:linear-gradient(135deg,#FACC15,#B45309); box-shadow:0 0 0 1px rgba(255,255,255,.15) inset, 0 8px 20px rgba(234,179,8,.25); }
+  [data-theme="golden"] .btn-primary:hover{ filter:brightness(1.08); }
+
+  .btn-outline{ background:transparent; border:1px solid var(--brand); color:var(--text-primary); }
+  .btn-outline:hover{ background:var(--bg-surface-hover); border-color:var(--brand-hover); }
+  .btn-small{ padding:9px 16px; font-size:.85rem; border-radius:9px; }
+
+  .tag{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:.78rem; font-weight:500;
+    padding:6px 12px; border-radius:var(--radius-pill);
+    border:1px solid var(--border); color:var(--text-accent);
+    background:var(--bg-surface);
+  }
+  [data-theme="cyberpunk"] .tag{ font-family:var(--font-display); text-transform:uppercase; letter-spacing:.04em; font-size:.7rem; }
+
+  .status-dot{ width:7px; height:7px; border-radius:50%; background:var(--brand); position:relative; flex-shrink:0; }
+  .status-dot::after{
+    content:''; position:absolute; inset:-4px; border-radius:50%;
+    border:1px solid var(--brand); opacity:.5;
+    animation:pulse-ring 2.2s ease-out infinite;
+  }
+  @keyframes pulse-ring{ 0%{ transform:scale(.6); opacity:.6;} 100%{ transform:scale(1.8); opacity:0;} }
+
+  .wrap{ max-width:1152px; margin:0 auto; padding:0 24px; }
+  section{ padding:88px 0; position:relative; z-index:1; }
+  @media (max-width:768px){ section{ padding:60px 0; } }
+
+  .fade-up{ opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease; }
+  .fade-up.visible{ opacity:1; transform:translateY(0); }
+
+
+  /* Theme dropdown */
+  .theme-menu{
+    position:absolute; top:calc(100% + 10px); right:0;
+    background:var(--bg-surface); border:1px solid var(--border);
+    border-radius:14px; box-shadow:var(--shadow);
+    min-width:200px; padding:6px; display:none; z-index:60;
+  }
+  .theme-menu.open{ display:block; }
+  .theme-option{
+    display:flex; align-items:center; gap:10px;
+    width:100%; padding:10px 12px; border-radius:9px;
+    font-size:.88rem; color:var(--text-primary); background:transparent; border:none; text-align:left;
+  }
+  .theme-option:hover{ background:var(--bg-surface-hover); }
+  .theme-swatch{ width:14px; height:14px; border-radius:50%; flex-shrink:0; border:1px solid rgba(0,0,0,.1); }
+
+  /* Language switcher */
+  .lang-switch{
+    display:flex; align-items:center; border:1px solid var(--border);
+    border-radius:var(--radius-pill); padding:3px; gap:2px; flex-shrink:0;
+  }
+  [data-theme="cyberpunk"] .lang-switch{ border-radius:2px; }
+  .lang-btn{
+    padding:6px 11px; border-radius:var(--radius-pill); border:none; background:transparent;
+    font-size:.76rem; font-weight:700; letter-spacing:.02em; color:var(--text-secondary);
+    cursor:pointer; transition:background-color .2s ease, color .2s ease;
+  }
+  [data-theme="cyberpunk"] .lang-btn{ border-radius:1px; font-family:var(--font-display); }
+  .lang-btn[aria-pressed="true"]{ background:var(--brand); color:var(--brand-text); }
+
+  /* Toast */
+  #toast{
+    position:fixed; bottom:28px; left:50%; transform:translate(-50%, 20px);
+    background:var(--bg-contrast); color:var(--text-primary-c);
+    border:1px solid var(--border-c);
+    padding:12px 20px; border-radius:12px; font-size:.88rem; font-weight:500;
+    opacity:0; pointer-events:none; transition:opacity .25s ease, transform .25s ease;
+    z-index:100; display:flex; align-items:center; gap:8px;
+  }
+  #toast.show{ opacity:1; transform:translate(-50%, 0); }
+
+  /* Timeline */
+  .timeline{ position:relative; padding-left:30px; }
+  .timeline::before{ content:''; position:absolute; left:5px; top:6px; bottom:6px; width:1px; background:var(--border); }
+  .timeline-item{ position:relative; padding-bottom:32px; }
+  .timeline-item:last-child{ padding-bottom:0; }
+  .timeline-item::before{
+    content:''; position:absolute; left:-30px; top:22px; width:11px; height:11px; border-radius:50%;
+    background:var(--bg-canvas); border:2px solid var(--brand);
+  }
+
+  .accordion-body{ max-height:0; overflow:hidden; transition:max-height .35s ease; }
+  .accordion.open .accordion-body{ max-height:400px; }
+
+  /* Accordion plus/minus icon */
+  .accordion-icon{ position:relative; width:18px; height:18px; flex-shrink:0; }
+  .accordion-icon .bar{ position:absolute; background:currentColor; border-radius:2px; }
+  .accordion-icon .bar-h{ top:50%; left:0; width:100%; height:2px; transform:translateY(-50%); }
+  .accordion-icon .bar-v{ left:50%; top:0; width:2px; height:100%; transform:translateX(-50%); transition:transform .3s ease; }
+  .accordion.open .accordion-icon .bar-v{ transform:translateX(-50%) scaleY(0); }
+
+  .accordion-trigger{ cursor:pointer; background:transparent; border:none; font:inherit; }
+
+  ::selection{ background:var(--brand); color:var(--brand-text); }
+
+  /* ===================== HERO PHOTO — theme adaptive ===================== */
+  .photo-card{
+    position:relative; width:256px; height:256px; flex-shrink:0;
+    transition:background-color .4s ease, border-color .4s ease, box-shadow .4s ease, padding .3s ease;
+  }
+  .photo-img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+  /* Classic */
+  [data-theme="classic"] .photo-card{
+    border-radius:24px; padding:0px;
+    background:linear-gradient(160deg, #0B2417 0%, var(--bg-canvas) 100%);
+    box-shadow:var(--shadow);
+  }
+  [data-theme="classic"] 
+  .photo-img{ border-radius:24px; border:2px solid rgba(21,128,61,.3); }
+
+  /* Cyberpunk */
+  [data-theme="cyberpunk"] .photo-card{ border-radius:2px; padding:0; background:transparent; }
+  [data-theme="cyberpunk"] .photo-img{
+    clip-path:polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
+    border:2px solid #00F0FF; box-shadow:0 0 20px rgba(0,240,255,.4);
+  }
+  [data-theme="cyberpunk"] .photo-card::before{
+    content:''; position:absolute; inset:0; pointer-events:none; z-index:2;
+    background-image:repeating-linear-gradient(0deg, rgba(0,240,255,.09) 0px, rgba(0,240,255,.09) 1px, transparent 1px, transparent 3px);
+    mix-blend-mode:screen;
+  }
+  .hud-corner{ display:none; }
+  [data-theme="cyberpunk"] .hud-corner{
+    display:block; position:absolute; width:16px; height:16px; z-index:3; border-color:#00F0FF; border-style:solid; border-width:0;
+  }
+  [data-theme="cyberpunk"] .hud-corner.tl{ top:-2px; left:-2px; border-top-width:2px; border-left-width:2px; }
+  [data-theme="cyberpunk"] .hud-corner.tr{ top:-2px; right:-2px; border-top-width:2px; border-right-width:2px; }
+  [data-theme="cyberpunk"] .hud-corner.bl{ bottom:-2px; left:-2px; border-bottom-width:2px; border-left-width:2px; }
+  [data-theme="cyberpunk"] .hud-corner.br{ bottom:-2px; right:-2px; border-bottom-width:2px; border-right-width:2px; }
+  .hud-caption{ display:none; }
+  [data-theme="cyberpunk"] .hud-caption{
+    display:block; position:absolute; bottom:-24px; left:1px; white-space:nowrap;
+    font-family:'JetBrains Mono',monospace; font-size:.64rem; letter-spacing:.04em; color:#00F0FF;
+  }
+
+  /* Golden */
+  [data-theme="golden"] .photo-card{
+    border-radius:24px; padding:0px;
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    background:rgba(255,255,255,.08);
+    border:2px solid rgba(251,191,36,.4);
+    box-shadow:0 0 25px rgba(234,179,8,.25);
+  }
+  [data-theme="golden"] .photo-img{
+    border-radius:24px;
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);
+  }
+  [data-theme="golden"] .photo-card::after{
+    content:''; position:absolute; inset:0; border-radius:24px; pointer-events:none;
+    background:linear-gradient(155deg, rgba(255,255,255,.18), rgba(255,255,255,0) 40%);
+  }
+
+  .photo-badge-row{ display:flex; align-items:center; gap:8px; }
+  
+/* 1. ДИНАМІЧНІ CSS-ЗМІННІ ДЛЯ ХОВЕРУ В ТЕМАХ */
+
+/* Класична тема */
+[data-theme="classic"], .classic {
+  --btn-hover-bg: #15803D;
+  --btn-hover-text: #ffffff;
+}
+
+/* Золота тема */
+[data-theme="golden"], .golden {
+  --btn-hover-bg: #eab308;    
+  --btn-hover-text: #1a1408;  
+}
+
+/* Тема Кіберпанк */
+[data-theme="cyberpunk"], .cyberpunk {
+  --btn-hover-bg: #00F0FF;   
+  --btn-hover-text: #000000;
+}
+
+
+/* 2. БАЗОВІ СТИЛІ КНОПКИ (СПІЛЬНІ ДЛЯ ВСІХ ТЕМ)*/
+.btn-theme-target {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  
+  /* ВІДСТУПИ ЗАЛИШАЮТЬСЯ ДЛЯ ВСІХ ТЕМ*/
+  padding: 6px 8px; 
+  
+  /* Плавна анімація переходу */
+  transition: background-color .25s ease, color .25s ease, box-shadow .25s ease, border-radius .25s ease;
+}
+
+
+/* РОЗПОДІЛ КУТІВ ТА СПЕЦЕФЕКТІВ ПО ТЕМАХ */
+
+/* Закруглені кути ТІЛЬКИ для Класичної та Золотої тем */
+[data-theme="classic"] .btn-theme-target,
+.classic .btn-theme-target,
+[data-theme="golden"] .btn-theme-target,
+.golden .btn-theme-target {
+  border-radius: 8px; 
+}
+
+/* Абсолютно гострі кути ТІЛЬКИ для Кіберпанку */
+[data-theme="cyberpunk"] .btn-theme-target, 
+.cyberpunk .btn-theme-target {
+  border-radius: 0px !important;
+}
+
+
+/* ХОВЕР ЕФЕКТИ ПРИ НАВЕДЕННІ */
+
+/* Спільна поведінка фону та тексту при ховері для всіх тем */
+.btn-theme-target:hover {
+  background-color: var(--btn-hover-bg) !important;
+  color: var(--btn-hover-text) !important;
+  text-decoration: none !important;
+  text-shadow: 0.5px 0 0 currentColor, -0.5px 0 0 currentColor; !important;
+}
+
+</style>
+</head>
+<body>
+
+<div id="toast" role="status" aria-live="polite">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+  <span id="toast-text">Email copied to clipboard</span>
+</div>
+
+<!-- ===================== HEADER ===================== -->
+<header class="sticky top-0 z-50 border-b" style="border-color:var(--border); background-color:color-mix(in srgb, var(--bg-canvas) 82%, transparent); backdrop-filter:blur(12px);">
+  <div class="wrap flex items-center justify-between gap-4 py-4">
+    <div class="flex flex-col leading-tight">
+      <span class="font-display font-semibold text-base" style="color:var(--text-primary);">Oleksii Shirokov</span>
+      <span class="flex items-center gap-1.5 text-xs mt-0.5" style="color:var(--text-secondary);">
+	  
+	  
+        <span class="status-dot"></span> <span data-i18n="status_available">Available for work</span>
+      </span>
+    </div>
+
+    <nav class="hidden lg:flex items-center gap-7 text-sm font-medium" style="color:var(--text-secondary);" aria-label="Primary">
+      <a href="#projects" class= "btn-theme-target" style="color:--border-c;" data-i18n="nav_projects">Projects</a>
+      <a href="#systems" class= "btn-theme-target" style="color:--border-c;" data-i18n="nav_systems">About &amp; Systems</a>
+      <a href="#experience" class= "btn-theme-target" style="color:--border-c;" data-i18n="nav_experience">Experience</a>
+      <a href="#services" class= "btn-theme-target" style="color:--border-c;" data-i18n="nav_services">Services</a>
+      <a href="#contact" class= "btn-theme-target" style="color:--border-c;" data-i18n="nav_contact">Contact</a>
+    </nav>
+
+    <div class="flex items-center gap-2.5">
+      <div class="lang-switch" role="group" aria-label="Language / Мова">
+        <button class="lang-btn" id="lang-en" data-lang-choice="en" aria-pressed="true">EN</button>
+        <button class="lang-btn" id="lang-ua" data-lang-choice="ua" aria-pressed="false">UA</button>
+      </div>
+      <div class="relative">
+        <button id="theme-btn" class="btn btn-outline btn-small" aria-haspopup="true" aria-expanded="false">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C22 6.128 17.461 2 12 2z"/></svg>
+          <span id="theme-label">Classic</span>
+        </button>
+        <div class="theme-menu" id="theme-menu">
+          <button class="theme-option" data-theme-choice="classic"><span class="theme-swatch" style="background:#16A34A;"></span><span data-i18n="theme_classic">Classic</span></button>
+          <button class="theme-option" data-theme-choice="cyberpunk"><span class="theme-swatch" style="background:#00F0FF;"></span><span data-i18n="theme_cyberpunk">Cyberpunk</span></button>
+          <button class="theme-option" data-theme-choice="golden"><span class="theme-swatch" style="background:#EAB308;"></span><span data-i18n="theme_golden">Golden</span></button>
+        </div>
+      </div>
+      <a href="#contact" class="btn btn-primary btn-small hidden sm:inline-flex" data-i18n="nav_cta">Get in touch</a>
+      <button id="burger-btn" class="lg:hidden btn btn-outline btn-small" aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-menu" class="hidden lg:hidden flex-col border-t" style="border-color:var(--border);">
+    <a href="#projects" class="block px-6 py-4 border-b text-lg font-medium" style="border-color:var(--border); color:var(--text-secondary);" data-i18n="nav_projects">Projects</a>
+    <a href="#systems" class="block px-6 py-4 border-b text-lg font-medium" style="border-color:var(--border); color:var(--text-secondary);" data-i18n="nav_systems">About &amp; Systems</a>
+    <a href="#experience" class="block px-6 py-4 border-b text-lg font-medium" style="border-color:var(--border); color:var(--text-secondary);" data-i18n="nav_experience">Experience</a>
+    <a href="#services" class="block px-6 py-4 border-b text-lg font-medium" style="border-color:var(--border); color:var(--text-secondary);" data-i18n="nav_services">Services</a>
+    <a href="#contact" class="block px-6 py-4 text-lg font-medium" style="color:var(--text-secondary);" data-i18n="nav_contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="hero" class="pt-16 pb-8">
+  <!-- Головний wrap-контейнер -->
+  <div class="wrap flex flex-col gap-10">
+    
+    <!-- Сітка для Тексту (ліворуч) та Фотографії (праворуч) -->
+    <div class="grid lg:grid-cols-[1.35fr_0.9fr] gap-10 items-center w-full">
+      
+      <!-- Ліва частина: Весь Текст (теги, заголовок, підзаголовок) -->
+      <div class="fade-up">
+        <p class="tag mb-5" data-i18n="hero_tag">FinTech · AI Products · Accessibility</p>
+        <h1 class="text-4xl sm:text-5xl lg:text-[3.3rem] font-bold leading-[1.1] max-w-2xl" data-i18n="hero_headline">
+          Designing intuitive FinTech &amp; AI products that drive real business metrics.
+        </h1>
+        <p class="mt-6 mb-0 text-lg max-w-xl" style="color:var(--text-secondary);" data-i18n="hero_sub">
+          7+ years in UI/UX backed by Systems Engineering. Turning complex user flows into clean, human interfaces.
+        </p>
+      </div>
+
+      <!-- Права частина: Фото та статус-бейдж навпроти тексту -->
+      <div class="fade-up flex flex-col items-center lg:items-start gap-3 justify-self-center lg:justify-self-end visible">
+  
+  <!-- Фотографія: на мобільному по центру, на ПК тримає ліву орієнтацію для дочірніх елементів -->
+  <div class="photo-card">
+    <img src="profile.png" alt="Oleksii Shirokov, Senior UI/UX &amp; Product Designer" class="photo-img" width="256" height="256">
+    <span class="hud-corner tl" aria-hidden="true"></span>
+    <span class="hud-corner tr" aria-hidden="true"></span>
+    <span class="hud-corner bl" aria-hidden="true"></span>
+    <span class="hud-corner br" aria-hidden="true"></span>
+  </div>
+  
+  <!-- Бейдж: на мобільному mx-auto (центр), на ПК lg:mx-0 (скидання на лівий край фото) -->
+  <div class="photo-badge-row flex items-center gap-2 mx-auto lg:mx-0">
+    <span class="status-dot"></span>
+    <span class="text-sm font-medium" style="color:var(--text-primary);" data-i18n="photo_badge">Available for projects</span>
+  </div>
+
+</div>
+
+
+    </div>
+
+        <!--Кнопки (на мобільному: зверху вниз на всю ширину; на десктопі: в один ряд) -->
+    <div class="fade-up flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full">
+      <a href="https://drive.google.com/file/d/1DHAe34A5fS1lUD6Vkf6v7oPMSkAi_8Ew/view?usp=sharing" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="btn btn-primary text-center justify-center w-full sm:w-auto" 
+         data-i18n="btn_download_cv">Download CV</a>
+      
+      <a href="#projects" 
+         class="btn btn-outline text-center justify-center w-full sm:w-auto" 
+         data-i18n="btn_explore">Explore projects</a>
+      
+      <button id="hero-copy-btn" 
+              class="btn btn-outline flex items-center justify-center gap-2 w-full sm:w-auto">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+        </svg>
+        <span data-i18n="btn_copy_email">Copy email</span>
+      </button>
+    </div>
+
+
+    <!--Секція Highlights на всю ширину сторінки -->
+    <div class="card card-contrast p-7 fade-up w-full" style="min-width:0;">
+      <p class="font-display text-sm font-semibold tracking-wide" style="color:var(--text-accent-c);" data-i18n="highlights_label">HIGHLIGHTS</p>
+      
+      <ul class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-6 space-y-0">
+        <li class="flex items-start gap-3">
+          <svg class="flex-shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-accent-c)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 2v10l7-4"/></svg>
+          <span class="text-sm" style="color:var(--text-secondary-c);" data-i18n="highlight_1">FinTech ecosystems: PrivatBank banking, tax &amp; invoicing workflows for SMEs.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg class="flex-shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-accent-c)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <span class="text-sm" style="color:var(--text-secondary-c);" data-i18n="highlight_2">AI-driven mobile UX with adaptive component sets and a 24% ToT reduction.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg class="flex-shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-accent-c)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+          <span class="text-sm" style="color:var(--text-secondary-c);" data-i18n="highlight_3">WCAG 2.2 AA compliance built into every design system I ship.</span>
+        </li>
+      </ul>
+      
+      <div class="mt-6 pt-5 border-t text-xs" style="border-color:var(--border-c); color:var(--text-secondary-c);" data-i18n="location_line">Lviv, Ukraine · Remote worldwide</div>
+    </div>
+
+  </div> <!-- /wrap -->
+</section>
+
+
+  <!-- ===================== IMPACT METRICS ===================== -->
+  <section id="impact">
+    <div class="wrap">
+	<h2 class="text-3xl font-bold" data-i18n="metrics_title">Metrix</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-3">
+        <div class="card card-contrast p-6 fade-up">
+          <div class="font-display text-3xl font-bold" style="color:var(--text-accent-c);">-24%</div>
+          <div class="mt-2 text-sm" style="color:var(--text-secondary-c);" data-i18n="impact_1">Time on task, AI mobile UX (Glorium Tech)</div>
+        </div>
+        <div class="card card-contrast p-6 fade-up">
+          <div class="font-display text-3xl font-bold" style="color:var(--text-accent-c);">-16%</div>
+          <div class="mt-2 text-sm" style="color:var(--text-secondary-c);" data-i18n="impact_2">Checkout churn, iOS food-tech platform</div>
+        </div>
+        <div class="card card-contrast p-6 fade-up">
+          <div class="font-display text-3xl font-bold" style="color:var(--text-accent-c);">+34%</div>
+          <div class="mt-2 text-sm" style="color:var(--text-secondary-c);" data-i18n="impact_3">Processing speed, logistics CRM redesign</div>
+        </div>
+        <div class="card card-contrast p-6 fade-up">
+          <div class="font-display text-3xl font-bold" style="color:var(--text-accent-c);">7+ <span data-i18n="impact_4_unit">yrs</span></div>
+          <div class="mt-2 text-sm" style="color:var(--text-secondary-c);" data-i18n="impact_4">Product UX, 10+ yrs across the design industry</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HOW I CAN HELP ===================== -->
+  <section id="help">
+    <div class="wrap">
+      <div class="max-w-xl mb-12 fade-up">
+        <h2 class="text-3xl font-bold" data-i18n="help_title">How I Can Help</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="card p-6 fade-up">
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:var(--bg-canvas); color:var(--text-accent); border:1px solid var(--border);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 4v5"/></svg>
+          </div>
+          <h3 class="text-base font-semibold" style="color:var(--text-primary);" data-i18n="help_1_title">Website Launch</h3>
+          <p class="text-sm mt-2" style="color:var(--text-secondary);" data-i18n="help_1_desc">Landings and full sites — from strong logical structure to clean, dev-ready UI.</p>
+        </div>
+        <div class="card p-6 fade-up">
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:var(--bg-canvas); color:var(--text-accent); border:1px solid var(--border);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-6 4 3 5-8"/></svg>
+          </div>
+          <h3 class="text-base font-semibold" style="color:var(--text-primary);" data-i18n="help_2_title">Product Level-up</h3>
+          <p class="text-sm mt-2" style="color:var(--text-secondary);" data-i18n="help_2_desc">Refining existing interfaces around user metrics and real business goals.</p>
+        </div>
+        <div class="card p-6 fade-up">
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:var(--bg-canvas); color:var(--text-accent); border:1px solid var(--border);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M8 11h6"/></svg>
+          </div>
+          <h3 class="text-base font-semibold" style="color:var(--text-primary);" data-i18n="help_3_title">UX Friction Audit</h3>
+          <p class="text-sm mt-2" style="color:var(--text-secondary);" data-i18n="help_3_desc">Quick usability audits that spot conversion blockers before they cost you users.</p>
+        </div>
+        <div class="card p-6 fade-up">
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:var(--bg-canvas); color:var(--text-accent); border:1px solid var(--border);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><circle cx="12" cy="14" r="8"/><path d="M12 10v4l3 2"/></svg>
+          </div>
+          <h3 class="text-base font-semibold" style="color:var(--text-primary);" data-i18n="help_4_title">Idea to Product</h3>
+          <p class="text-sm mt-2" style="color:var(--text-secondary);" data-i18n="help_4_desc">Flows, wireframes, and interactive prototypes built for fast validation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROJECTS ===================== -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="max-w-xl mb-12 fade-up">
+        <h2 class="text-3xl font-bold" data-i18n="projects_title">Featured case studies</h2>
+        <p class="mt-3" style="color:var(--text-secondary);" data-i18n="projects_sub"> Turning complex constraints into clear, high-performing digital interfaces.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <article class="card_s p-7 fade-up transition-all">
+		<a href="https://www.figma.com/proto/Dnijerd9Y2sLNSndi3Zm1E?node-id=4104-253" target="_blank" rel="noopener noreferrer">
+		<div class="img">
+          <img src="ai-platform.png" alt="AI-driven mobile UX platform" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+        </div>
+          <span class="tag mt-4">AI · Mobile</span>
+          <h3 class="text-xl font-semibold mt-4" data-i18n="project_1_title">AI-driven mobile UX platform</h3>
+          <p class="mt-2 text-sm" style="color:var(--text-secondary);" data-i18n="project_1_desc">Created intuitive AI features, standardized internal asset libraries, and developed adaptive component sets for a fast-moving product sprint.</p>
+          <div class="flex items-center justify-between mt-6">
+            <span class="font-display font-bold text-lg" style="color:var(--text-primary);" data-i18n="project_1_metric">-24% Time on Task</span>
+          </div>
+		  </a>
+        </article>
+		
+
+        <article class="card_s p-7 fade-up transition-all ">
+		<a href="https://www.figma.com/proto/aeME9cIeidupiwlBQXGZsl?node-id=58-1645" target="_blank" rel="noopener noreferrer">
+		<div class="img">
+          <img src="wellness.png" alt="Wellness, Mobile App" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+        </div>
+          <span class="tag mt-4">AI app-creation</span>
+          <h3 class="text-xl font-semibold mt-4" data-i18n="project_2_title">Healthcare</h3>
+          <p class="mt-2 text-sm" style="color:var(--text-secondary);" data-i18n="project_2_desc">An intuitive health-tracking app featuring seamless user flows, clear visual hierarchy, and an interactive prototype.</p>
+          <div class="flex items-center justify-between mt-6">
+            <span class="font-display font-bold text-lg" style="color:var(--text-primary);" data-i18n="project_2_metric">Interactive Prototype</span>
+          </div>
+		  </a>
+        </article>
+
+        <article class="card_s p-7 fade-up transition-all ">
+		<a href="https://www.behance.net/gallery/131573945/UXUI-IOs-Food-delivery" target="_blank" rel="noopener noreferrer">
+		<div class="img">
+          <img src="food-delivery.png" alt="Food delivery checkout flow" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+        </div>
+          <span class="tag mt-4">Food-Tech · iOS</span>
+          <h3 class="text-xl font-semibold mt-4" data-i18n="project_3_title">Food delivery checkout flow</h3>
+          <p class="mt-2 text-sm" style="color:var(--text-secondary);" data-i18n="project_3_desc">Redesigned cart navigation, payment checkout, and multi-scenario onboarding to build trust at the moment users were most likely to drop off.</p>
+          <div class="flex items-center justify-between mt-6">
+            <span class="font-display font-bold text-lg" style="color:var(--text-primary);" data-i18n="project_3_metric">-16% checkout churn</span>
+          </div>
+		  </a>
+        </article>
+
+        <article class="card_s p-7 fade-up transition-all">
+		<a href="https://ship-smile-pro.lovable.app" target="_blank" rel="noopener noreferrer">
+		<div class="img">
+          <img src="logistics-crm.png" alt="Logistics tracking CRM" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+        </div>
+          <span class="tag mt-4" data-i18n="project_4_tag">Enterprise CRM</span>
+          <h3 class="text-xl font-semibold mt-4" data-i18n="project_4_title">Logistics tracking CRM</h3>
+          <p class="mt-2 text-sm" style="color:var(--text-secondary);" data-i18n="project_4_desc">Data-dense system with admin and user role-based flows, interactive tables, and analytical dashboards built for daily operator use.</p>
+          <div class="flex items-center justify-between mt-6">
+            <span class="font-display font-bold text-lg" style="color:var(--text-primary);" data-i18n="project_4_metric">+34% processing speed</span>
+          </div>
+		  </a>
+        </article>
+
+        <article class="card_s p-7 fade-up transition-all">
+		<a href="https://vinofan.de/en/" target="_blank" rel="noopener noreferrer">
+		<div class="img">
+          <img src="wine-ecommerce.png" alt="Wine e-commerce platform" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+        </div>
+          <span class="tag mt-4">E-Commerce · CRO</span>
+          <h3 class="text-xl font-semibold mt-4" data-i18n="project_5_title">Wine e-commerce platform</h3>
+          <p class="mt-2 text-sm" style="color:var(--text-secondary);" data-i18n="project_5_desc">End-to-end web design featuring interactive taste profiling, catalog discovery, and conversion-focused checkout — built and iterated independently over time.</p>
+          <div class="flex flex-wrap items-center gap-x-8 gap-y-2 mt-6">
+            <span class="font-display font-bold text-lg" style="color:var(--text-primary);" data-i18n="project_5_metric_1">-14% cart abandonment</span>
+            <span class="font-display font-bold text-lg" style="color:var(--text-primary);" data-i18n="project_5_metric_2">92% nav satisfaction</span>
+          </div>
+		  </a>
+        </article>
+		
+		<article class="card_s p-7 fade-up transition-all">
+		<a href="https://www.behance.net/gallery/186914447/Ukrainian-mythology-in-the-Witcher-games" target="_blank" rel="noopener noreferrer">
+		<div class="img">
+          <img src="witcher-mythology.png" alt="PrivatBank banking ecosystem" class= "img" loading="lazy">
+        </div>
+		
+          <span class="tag mt-4">Concept Design · Game UI/Culture</span>
+          <h3 class="text-xl font-semibold mt-4" data-i18n="project_6_title">Ukrainian mythology in the Witcher games</h3>
+          <p class="mt-2 text-sm" style="color:var(--text-secondary)";" data-i18n="project_6_desc">A conceptual project for the research and visual adaptation of Ukrainian folklore and demonology within the universe of The Witcher fantasy games.
+		  </p>
+          <div class="flex items-center justify-between mt-6">
+            <span class="font-display font-bold text-lg" style="color:var(--text-primary); data-i18n="project_6_metric">M3 design system project</span>
+          </div>
+		  </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SYSTEMS APPROACH ===================== -->
+  <section id="systems">
+    <div class="wrap grid lg:grid-cols-2 gap-12 items-center">
+      <div class="fade-up">
+        <p class="tag mb-5" data-i18n="systems_tag">Design mindset</p>
+        <h2 class="text-3xl font-bold max-w-md" data-i18n="systems_title">A systems engineering approach to design</h2>
+        <p class="mt-5" style="color:var(--text-secondary);" data-i18n="systems_desc">A degree in systems engineering from Dnipro University of Technology means I don't just draw interfaces — I think in constraints, states, and hand-offs. That background shapes three things in every project I take on:</p>
+      </div>
+      <div class="grid sm:grid-cols-1 gap-4 fade-up">
+        <div class="card p-6 flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style="background:var(--bg-canvas); color:var(--text-accent); border:1px solid var(--border);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div>
+            <h3 class="text-base font-semibold" style="color:var(--text-primary);" data-i18n="systems_1_title">Seamless developer handoff</h3>
+            <p class="text-sm mt-1" style="color:var(--text-secondary);" data-i18n="systems_1_desc">Specs and design tokens that map directly onto what engineers actually build, cutting back-and-forth.</p>
+          </div>
+        </div>
+        <div class="card p-6 flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style="background:var(--bg-canvas); color:var(--text-accent); border:1px solid var(--border);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          </div>
+          <div>
+            <h3 class="text-base font-semibold" style="color:var(--text-primary);" data-i18n="systems_2_title">Technically feasible tokens</h3>
+            <p class="text-sm mt-1" style="color:var(--text-secondary);" data-i18n="systems_2_desc">Design decisions weighed against real platform and performance constraints from the start.</p>
+          </div>
+        </div>
+        <div class="card p-6 flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style="background:var(--bg-canvas); color:var(--text-accent); border:1px solid var(--border);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <div>
+            <h3 class="text-base font-semibold" style="color:var(--text-primary);" data-i18n="systems_3_title">WCAG 2.2 as a default</h3>
+            <p class="text-sm mt-1" style="color:var(--text-secondary);" data-i18n="systems_3_desc">Accessibility is a starting constraint, not a late-stage audit — color, contrast, and flows are checked as I go.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EXPERIENCE ===================== -->
+  <section id="experience">
+    <div class="wrap grid lg:grid-cols-[0.9fr_1.1fr] gap-12">
+      <div class="fade-up">
+        <h2 class="text-3xl font-bold max-w-sm" data-i18n="experience_title">Career journey</h2>
+        <p class="mt-3" style="color:var(--text-secondary);" data-i18n="experience_sub">A path from FinTech banking to AI product sprints, with a long independent practice running throughout.</p>
+      </div>
+
+      <div class="timeline fade-up">
+        <div class="timeline-item">
+          <p class="font-display text-sm font-semibold" style="color:var(--text-accent);">Jun 2025 – Aug 2025</p>
+          <h3 class="text-lg font-semibold mt-1" style="color:var(--text-primary);" data-i18n="exp_1_role">UI/UX Designer — Glorium Technologies</h3>
+          <p class="text-sm mt-1" style="color:var(--text-secondary);" data-i18n="exp_1_desc">AI product sprint. Created intuitive AI features, standardized asset libraries, developed adaptive component sets.</p>
+        </div>
+        <div class="timeline-item">
+          <p class="font-display text-sm font-semibold" style="color:var(--text-accent);">Apr 2021 – Apr 2022</p>
+          <h3 class="text-lg font-semibold mt-1" style="color:var(--text-primary);" data-i18n="exp_2_role">UI/UX Designer — NDA Food-Tech Platform</h3>
+          <p class="text-sm mt-1" style="color:var(--text-secondary);" data-i18n="exp_2_desc">iOS food delivery app. Redesigned cart, checkout, and onboarding; reduced churn and lifted registrations.</p>
+        </div>
+        <div class="timeline-item">
+          <p class="font-display text-sm font-semibold" style="color:var(--text-accent);">May 2014 – Present</p>
+          <h3 class="text-lg font-semibold mt-1" style="color:var(--text-primary);" data-i18n="exp_3_role">Independent UI/UX Designer</h3>
+          <p class="text-sm mt-1" style="color:var(--text-secondary);" data-i18n="exp_3_desc">Long-term projects including the wine e-commerce platform and the logistics &amp; package tracking CRM.</p>
+        </div>
+        <div class="timeline-item">
+          <p class="font-display text-sm font-semibold" style="color:var(--text-accent);">Jan 2013 – Apr 2014</p>
+          <h3 class="text-lg font-semibold mt-1" style="color:var(--text-primary);" data-i18n="exp_4_role">UI/UX &amp; Web Designer — PrivatBank</h3>
+          <p class="text-sm mt-1" style="color:var(--text-secondary);" data-i18n="exp_4_desc">FinTech internet &amp; mobile banking, B2B/B2C, with a focus on SME tax and invoicing workflows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES & PRICING ===================== -->
+  <section id="services">
+    <div class="wrap">
+      <div class="max-w-2xl mb-12 fade-up">
+        <p class="tag mb-5" data-i18n="services_tag">Services</p>
+        <h2 class="text-3xl font-bold" data-i18n="services_title">Services: choose what you need — from a targeted analysis to a full launch.</h2>
+      </div>
+
+      <div class="space-y-4 fade-up">
+
+        <div class="accordion card overflow-hidden">
+          <h3 class="m-0">
+            <button class="accordion-trigger w-full flex items-center justify-between gap-4 p-6 text-left" aria-expanded="false" aria-controls="acc-body-1" id="acc-trigger-1">
+              <span class="font-display font-semibold text-base sm:text-lg" style="color:var(--text-primary);" data-i18n="service_1_title">UX/UI Mentorship · For Designers · $25 / 50 min</span>
+			  <span class="accordion-icon" style="color:var(--text-accent);"><span class="bar bar-h"></span>
+			  <span class="bar bar-v">
+			  </span></span>
+            </button>
+          </h3>
+          <div class="accordion-body" id="acc-body-1" role="region" aria-labelledby="acc-trigger-1">
+            <p class="px-6 pb-6 text-sm max-w-2xl" style="color:var(--text-secondary);" data-i18n="service_1_desc">Focused 50-minute session: solve a tough UX problem, polish your portfolio, prep for interviews, or get expert design feedback.</p>
+          </div>
+		  <span class="flex flex-wrap justify-center  mb-4">
+		  <a href="https://calendly.com/oleksii-sh08/ux-ui-mentorship-for-designers" target="_blank" rel="noopener" class="btn btn-outline" data-i18n="btn_book_now">Book Now</a>
+        </span>
+		</div>
+
+        <div class="accordion card overflow-hidden">
+          <h3 class="m-0">
+            <button class="accordion-trigger w-full flex items-center justify-between gap-4 p-6 text-left" aria-expanded="false" aria-controls="acc-body-2" id="acc-trigger-2">
+              <span class="font-display font-semibold text-base sm:text-lg" style="color:var(--text-primary);" data-i18n="service_2_title">Custom Website Design · For Business · from $309</span>
+              <span class="accordion-icon" style="color:var(--text-accent);"><span class="bar bar-h"></span><span class="bar bar-v"></span></span>
+            </button>
+          </h3>
+          <div class="accordion-body" id="acc-body-2" role="region" aria-labelledby="acc-trigger-2">
+            <p class="px-6 pb-6 text-sm max-w-2xl" style="color:var(--text-secondary);" data-i18n="service_2_desc">End-to-end custom website: solid UX structure, clean visual direction, and responsive UI specs ready for developers.</p>
+          </div>
+		   <span class="flex flex-wrap justify-center  mb-4">
+		  <a href="https://calendly.com/oleksii-sh08/custom-website-design-for-business" target="_blank" rel="noopener" class="btn btn-outline" data-i18n="btn_book_now">Book Now</a>
+        </span>
+        </div>
+
+        <div class="accordion card overflow-hidden">
+          <h3 class="m-0">
+            <button class="accordion-trigger w-full flex items-center justify-between gap-4 p-6 text-left" aria-expanded="false" aria-controls="acc-body-3" id="acc-trigger-3">
+              <span class="font-display font-semibold text-base sm:text-lg" style="color:var(--text-primary);" data-i18n="service_3_title">UX Audit &amp; Review · For Business · from $209</span>
+              <span class="accordion-icon" style="color:var(--text-accent);"><span class="bar bar-h"></span><span class="bar bar-v"></span></span>
+            </button>
+          </h3>
+          <div class="accordion-body" id="acc-body-3" role="region" aria-labelledby="acc-trigger-3">
+            <p class="px-6 pb-6 text-sm max-w-2xl" style="color:var(--text-secondary);" data-i18n="service_3_desc">Practical interface review: identifying usability friction, conversion bottlenecks, and clear actionable steps to fix them.</p>
+          </div>
+		  <span class="flex flex-wrap justify-center  mb-4">
+		  <a href="https://calendly.com/oleksii-sh08/ux-ui-mentorship-for-designers" target="_blank" rel="noopener" class="btn btn-outline" data-i18n="btn_book_now">Book Now</a>
+		  </span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS / TOOLS / EDUCATION ===================== -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="max-w-xl mb-12 fade-up">
+        <h2 class="text-3xl font-bold" data-i18n="skills_title">Skills, tools &amp; education</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="card p-6 fade-up">
+          <h3 class="text-base font-semibold" style="color:var(--text-primary);" data-i18n="skills_cat_1">Product &amp; UX</h3>
+          <ul class="mt-3 space-y-1.5 text-sm" style="color:var(--text-secondary);">
+            <li data-i18n="skills_cat_1_1">User research &amp; journey mapping</li>
+            <li data-i18n="skills_cat_1_2">Information architecture</li>
+            <li data-i18n="skills_cat_1_3">User flows &amp; wireframing</li>
+            <li data-i18n="skills_cat_1_4">Rapid prototyping</li>
+            <li data-i18n="skills_cat_1_5">Conversion rate optimization</li>
+          </ul>
+        </div>
+        <div class="card p-6 fade-up">
+          <h3 class="text-base font-semibold" style="color:var(--text-primary);" data-i18n="skills_cat_2">UI &amp; design systems</h3>
+          <ul class="mt-3 space-y-1.5 text-sm" style="color:var(--text-secondary);">
+            <li data-i18n="skills_cat_2_1">Scalable design systems</li>
+            <li data-i18n="skills_cat_2_2">Component libraries &amp; UI kits</li>
+            <li>iOS Human Interface Guidelines</li>
+            <li>Material Design</li>
+          </ul>
+        </div>
+        <div class="card p-6 fade-up">
+          <h3 class="text-base font-semibold" style="color:var(--text-primary);" data-i18n="skills_cat_3">Accessibility</h3>
+          <ul class="mt-3 space-y-1.5 text-sm" style="color:var(--text-secondary);">
+            <li data-i18n="skills_cat_3_1">WCAG 2.2 compliance</li>
+            <li data-i18n="skills_cat_3_2">Inclusive design</li>
+            <li data-i18n="skills_cat_3_3">Color contrast audits</li>
+            <li data-i18n="skills_cat_3_4">Developer handoff</li>
+          </ul>
+        </div>
+        <div class="card p-6 fade-up">
+          <h3 class="text-base font-semibold" style="color:var(--text-primary);" data-i18n="skills_cat_4">Motion &amp; visual</h3>
+          <ul class="mt-3 space-y-1.5 text-sm" style="color:var(--text-secondary);">
+            <li>After Effects</li>
+            <li>Adobe Premiere Pro</li>
+            <li>Media Encoder</li>
+            <li>Photoshop</li>
+          </ul>
+        </div>
+        <div class="card p-6 fade-up">
+          <h3 class="text-base font-semibold" style="color:var(--text-primary);" data-i18n="skills_cat_5">Education</h3>
+          <p class="mt-3 text-sm" style="color:var(--text-secondary);" data-i18n="skills_cat_5_desc">Specialist in Systems Engineering — Dnipro University of Technology. Computer engineering, systems architecture, and visualization.</p>
+        </div>
+        <div class="card p-6 fade-up">
+          <h3 class="text-base font-semibold" style="color:var(--text-primary);" data-i18n="skills_cat_6">Certifications</h3>
+          <ul class="mt-3 space-y-1.5 text-sm" style="color:var(--text-secondary);">
+            <li data-i18n="skills_cat_6_1">UI/UX Design</li>
+            <li data-i18n="skills_cat_6_2">Web Accessibility (WCAG)</li>
+            <li data-i18n="skills_cat_6_3">Graphic Design</li>
+          </ul>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-6 mt-10 pt-8 border-t fade-up" style="border-color:var(--border);">
+  <h2 class="w-full text-3xl font-bold mb-2" data-i18n="lang_skills_m">Languages</h2>
+  
+  <div class="text-sm" style="color:var(--text-secondary);">
+    <strong style="color:var(--text-primary); display:block;" data-i18n="lang_ukrainian">Ukrainian</strong>
+    <span data-i18n="lang_ukrainian_level">Native</span>
+  </div>
+  
+  <div class="text-sm" style="color:var(--text-secondary);">
+    <strong style="color:var(--text-primary); display:block;" data-i18n="lang_english">English</strong>
+    <span data-i18n="lang_english_level">Upper-Intermediate</span>
+  </div>
+</div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact" class="pb-24">
+    <div class="wrap">
+      <div class="card card-contrast p-10 sm:p-14 text-center fade-up">
+        <h2 class="text-3xl sm:text-4xl font-bold" data-i18n="contact_title">Let's build something exceptional together.</h2>
+        <p class="mt-4 max-w-md mx-auto" style="color:var(--text-secondary-c);" data-i18n="contact_sub">Looking for a product designer to scale your FinTech, AI, or SaaS ecosystem?</p>
+        <div class="flex flex-wrap justify-center gap-3 mt-8">
+          <a href="mailto:oleksii.sh08@gmail.com" class="btn btn-primary" data-i18n="contact_email_btn">Email me</a>
+          <button id="contact-copy-btn" class="btn" style="border:1px solid var(--border-c); color:var(--text-primary-c);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            oleksii.sh08@gmail.com
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="border-t" style="border-color:var(--border);">
+  <div class="wrap py-8 flex flex-wrap items-center justify-between gap-4 text-sm" style="color:var(--text-secondary);">
+    <span data-i18n="footer_copyright">© 2026 Oleksii Shirokov · Lviv, Ukraine / Remote</span>
+    <div class="flex gap-6">
+	<a href="https://calendly.com/shirokov-alex-jedi/30min" target="_blank" rel="noopener" data-i18n="footer_website" class= "btn-theme-target">Book my time</a>
+      <a href="https://www.linkedin.com/in/oleksii-shirokov-designer" target="_blank" rel="noopener" class= "btn-theme-target">LinkedIn</a>
+      <a href="https://behance.net/Shirokov_Alex" target="_blank" rel="noopener" class= "btn-theme-target">Behance</a>
+      <a href="https://vimeo.com/shirokovalex" target="_blank" rel="noopener" class= "btn-theme-target">Vimeo</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ===================== I18N DICTIONARY =====================
+  var I18N = {
+    en: {
+      meta_title: "Oleksii Shirokov — Senior UI/UX & Product Designer",
+      status_available: "Available for work",
+      nav_projects: "Projects", nav_impact: "Impact", nav_systems: "About & Systems",
+      nav_experience: "Experience", nav_services: "Services", nav_contact: "Contact", nav_cta: "Get in touch",
+      theme_classic: "Classic", theme_cyberpunk: "Cyberpunk", theme_golden: "Golden",
+
+      hero_tag: "FinTech · AI Products · Accessibility",
+      hero_headline: "Designing intuitive FinTech & AI products that drive real business metrics.",
+      hero_sub: "7+ years in UI/UX backed by Systems Engineering. Turning complex user flows into clean, human interfaces.",
+      photo_badge: "Available for projects",
+      btn_download_cv: "Download CV", btn_explore: "Explore projects", btn_copy_email: "Copy email",
+	  btn_book_now: "Book Now",
+      highlights_label: "HIGHLIGHTS",
+      highlight_1: "FinTech ecosystems: PrivatBank banking, tax & invoicing workflows for SMEs.",
+      highlight_2: "AI-driven mobile UX with adaptive component sets and a 24% ToT reduction.",
+      highlight_3: "WCAG 2.2 AA compliance built into every design system I ship.",
+	  
+	  metrics_title: "Metrics",
+      impact_1: "Time on task, AI mobile UX (Glorium Tech)",
+      impact_2: "Checkout churn, iOS food-tech platform",
+      impact_3: "Processing speed, logistics CRM redesign",
+      impact_4: "Product UX, 10+ yrs across the design industry",
+      impact_4_unit: "yrs",
+
+      help_title: "How I Can Help",
+      help_1_title: "Website Launch", help_1_desc: "Landings and full sites — from strong logical structure to arranged, dev-ready UI.",
+      help_2_title: "Product Level-up", help_2_desc: "Refining existing interfaces around user metrics and real business goals.",
+      help_3_title: "UX Friction Audit", help_3_desc: "Quick usability audits that spot conversion blockers before they cost you users.",
+      help_4_title: "Idea to Product", help_4_desc: "Flows, wireframes, and interactive prototypes built for fast validation.",
+
+      projects_title: "Featured case studies",
+      projects_sub: "Six ecosystems — from banking compliance to proprietary design ideas.",
+      project_1_title: "AI-driven mobile UX platform",
+      project_1_desc: "Created intuitive AI features, standardized internal asset libraries, and developed adaptive component sets for a fast-moving product sprint.",
+      project_1_metric: "-24% Time on Task",
+      project_2_title: "Wellness check",
+      project_2_desc: "An intuitive health-tracking app featuring seamless user flows, clear visual hierarchy, and an interactive prototype.",
+      project_2_metric: "Interactive Prototype", project_2_tool: "AI help",
+      project_3_title: "Food delivery checkout flow",
+      project_3_desc: "Redesigned cart navigation, payment checkout, and multi-scenario onboarding to build trust at the moment users were most likely to drop off.",
+      project_3_metric: "-16% checkout churn",
+      project_4_tag: "Enterprise CRM",
+      project_4_title: "Logistics tracking CRM",
+      project_4_desc: "Data-dense system with admin and user role-based flows, interactive tables, and analytical dashboards built for daily operator use.",
+      project_4_metric: "+34% processing speed",
+      project_5_title: "Wine e-commerce platform",
+      project_5_desc: "End-to-end web design featuring interactive taste profiling, catalog discovery, and conversion-focused checkout — built and iterated independently over time.",
+      project_5_metric_1: "-14% cart abandonment", project_5_metric_2: "92% nav satisfaction",
+	  
+	  project_6_title: "Ukrainian mythology in the Witcher games",
+      project_6_desc: "A conceptual project for the research and visual adaptation of Ukrainian folklore and demonology within the universe of The Witcher fantasy games.",
+	  project_6_metric: "M3 design system project",
+
+      systems_tag: "Design mindset",
+      systems_title: "A systems engineering approach to design",
+      systems_desc: "A degree in systems engineering from Dnipro University of Technology means I don't just draw interfaces — I think in constraints, states, and hand-offs. That background shapes three things in every project I take on:",
+      systems_1_title: "Seamless developer handoff", systems_1_desc: "Specs and design tokens that map directly onto what engineers actually build, cutting back-and-forth.",
+      systems_2_title: "Technically feasible tokens", systems_2_desc: "Design decisions weighed against real platform and performance constraints from the start.",
+      systems_3_title: "WCAG 2.2 as a default", systems_3_desc: "Accessibility is a starting constraint, not a late-stage audit — color, contrast, and flows are checked as I go.",
+
+      experience_title: "Career journey",
+      experience_sub: "A path from FinTech banking to AI product sprints, with a long independent practice running throughout.",
+      exp_1_role: "UI/UX Designer — Glorium Technologies",
+      exp_1_desc: "AI product sprint. Created intuitive AI features, standardized asset libraries, developed adaptive component sets.",
+      exp_2_role: "UI/UX Designer — NDA Food-Tech Platform",
+      exp_2_desc: "iOS food delivery app. Redesigned cart, checkout, and onboarding; reduced churn and lifted registrations.",
+      exp_3_role: "Independent UI/UX Designer",
+      exp_3_desc: "Long-term projects including the wine e-commerce platform and the logistics & package tracking CRM.",
+      exp_4_role: "UI/UX & Web Designer — PrivatBank",
+      exp_4_desc: "FinTech internet & mobile banking, B2B/B2C, with a focus on SME tax and invoicing workflows.",
+
+      services_tag: "Services",
+      services_title: "Services: choose what you need — from a targeted analysis to a full launch.",
+      service_1_title: "UX/UI Mentorship · For Designers · $25 / 50 min",
+      service_1_desc: "Focused 50-minute session: solve a tough UX problem, polish your portfolio, prep for interviews, or get expert design feedback.",
+      service_2_title: "Custom Website Design · For Business · from $309",
+      service_2_desc: "End-to-end custom website: solid UX structure, clean visual direction, and responsive UI specs ready for developers.",
+      service_3_title: "UX Audit & Review · For Business · from $209",
+      service_3_desc: "Practical interface review: identifying usability friction, conversion bottlenecks, and clear actionable steps to fix them.",
+
+      skills_title: "Skills, tools & education",
+      skills_cat_1: "Product & UX",
+      skills_cat_1_1: "User research & journey mapping", skills_cat_1_2: "Information architecture",
+      skills_cat_1_3: "User flows & wireframing", skills_cat_1_4: "Rapid prototyping", skills_cat_1_5: "Conversion rate optimization",
+      skills_cat_2: "UI & design systems",
+      skills_cat_2_1: "Scalable design systems", skills_cat_2_2: "Component libraries & UI kits",
+      skills_cat_3: "Accessibility",
+      skills_cat_3_1: "WCAG 2.2 compliance", skills_cat_3_2: "Inclusive design",
+      skills_cat_3_3: "Color contrast audits", skills_cat_3_4: "Developer handoff",
+      skills_cat_4: "Motion & visual",
+      skills_cat_5: "Education",
+      skills_cat_5_desc: "Specialist in Systems Engineering — Dnipro University of Technology. Computer engineering, systems architecture, and visualization.",
+      skills_cat_6: "Certifications",
+      skills_cat_6_1: "UI/UX Design", skills_cat_6_2: "Web Accessibility (WCAG)", skills_cat_6_3: "Graphic Design",
+	  lang_skills_m: "Languages",
+      lang_ukrainian: "Ukrainian", lang_ukrainian_level: "Native",
+      lang_english: "English", lang_english_level: "Upper-Intermediate",
+
+      contact_title: "Let's build something exceptional together.",
+      contact_sub: "Looking for a product designer to scale your FinTech, AI, or SaaS ecosystem?",
+      contact_email_btn: "Email me",
+
+      footer_copyright: "© 2026 Oleksii Shirokov · Lviv, Ukraine / Remote",
+      footer_website: "Book my time",
+      toast_copied: "Email copied to clipboard",
+      toast_copy_failed: "Could not copy — "
+    },
+    ua: {
+      meta_title: "Олексій Широков — Senior UI/UX & Product дизайнер",
+      status_available: "Готовий до роботи",
+      nav_projects: "Проєкти", nav_impact: "Результати", nav_systems: "Підхід",
+      nav_experience: "Досвід", nav_services: "Послуги", nav_contact: "Контакти", nav_cta: "Зв'язатися",
+      theme_classic: "Класична", theme_cyberpunk: "Кіберпанк", theme_golden: "Золота",
+
+      hero_tag: "FinTech · AI-продукти · Доступність",
+      hero_headline: "Проєктую зручні FinTech та AI-продукти, які реально працюють на бізнес.",
+      hero_sub: "7+ років у UI/UX та інженерний бекграунд (Systems Engineering). Перетворюю складні процеси на зрозумілі інтерфейси.",
+      photo_badge: "Готовий до проєктів",
+      btn_download_cv: "Завантажити CV", btn_explore: "Переглянути проєкти", btn_copy_email: "Скопіювати email",
+	  btn_book_now: "Записатись",
+      highlights_label: "ГОЛОВНЕ",
+      highlight_1: "FinTech екосистеми: банкінг ПриватБанку, податкові та інвойсингові процеси для МСБ.",
+      highlight_2: "AI-орієнтований мобільний UX з адаптивними компонентами та зниженням ToT на 24%.",
+      highlight_3: "Відповідність WCAG 2.2 AA закладена в кожну дизайн-систему, яку я випускаю.",
+		
+	  metrics_title:"Метрики",
+      impact_1: "Час на задачу, AI mobile UX (Glorium Tech)",
+      impact_2: "Відтік на чекауті, iOS food-tech платформа",
+      impact_3: "Швидкість обробки, редизайн логістичної CRM",
+      impact_4: "Продуктовий UX, 10+ років у дизайн-індустрії загалом",
+      impact_4_unit: "років",
+
+      help_title: "З чим я можу допомогти",
+      help_1_title: "Запуск сайтів", help_1_desc: "Лендінги та сайти — від логічної структури до готового UI, оформленого для верстки.",
+      help_2_title: "Прокачка продукту", help_2_desc: "Покращення інтерфейсів на основі реальних дій користувачів і бізнес-цілей.",
+      help_3_title: "Пошук UX-проблем", help_3_desc: "Швидкі аудити, які виявляють слабкі місця та конверсійні діри ще до втрати клієнтів.",
+      help_4_title: "Від ідеї до запуску", help_4_desc: "Флоу, вайрфрейми та прототипи — від чистого аркуша до готового продукту.",
+
+      projects_title: "Обрані кейси",
+      projects_sub: "Шість екосистем — від банківських норм до власних дизайн ідей.",
+      project_1_title: "AI-платформа для мобільного UX",
+      project_1_desc: "Створював зрозумілі AI-фічі, стандартизував внутрішні бібліотеки асетів і розробляв адаптивні набори компонентів для швидкого продуктового спринту.",
+      project_1_metric: "-24% часу на задачу",
+      project_2_title: "Перевірка здоров'я",
+      project_2_desc: "Створив інтуїтивно зрозумілий застосунок для відстеження показників здоров’я з безперешкодними сценаріями взаємодії, чіткою візуальною ієрархією та інтерактивним прототипом..",
+      project_2_metric: "Інтерактивний прототип", project_2_tool: "Допомога ШІ",
+      project_3_title: "Флоу чекауту доставки їжі",
+      project_3_desc: "Редизайн навігації кошика, оплати й багатосценарного онбордингу, щоб зберегти довіру саме в момент найбільшого ризику відтоку.",
+      project_3_metric: "-16% відтоку на чекауті",
+      project_4_tag: "Корпоративна CRM",
+      project_4_title: "CRM для трекінгу логістики",
+      project_4_desc: "Система з великою щільністю даних: рольові флоу для адмінів і користувачів, інтерактивні таблиці та аналітичні дашборди для щоденної роботи операторів.",
+      project_4_metric: "+34% швидкості обробки",
+      project_5_title: "E-commerce платформа для вина",
+      project_5_desc: "Повний веб-дизайн з інтерактивним профілюванням смаку, навігацією каталогом і чекаутом, орієнтованим на конверсію — розроблявся й ітерувався самостійно.",
+      project_5_metric_1: "-14% покинутих кошиків", project_5_metric_2: "92% задоволеності навігацією",
+	  
+	  project_6_title: "Українська міфологія в іграх серії «Відьмак»",
+      project_6_desc: "Концептуальний проєкт дослідження та візуальної адаптації українського фольклору та демонології у всесвіті фентезі ігор Відьмак.",
+	  project_6_metric: "Проєкт системи дизайну M3",
+	  
+	  
+      systems_tag: "Дизайн-мислення",
+      systems_title: "Системний інженерний підхід до дизайну",
+      systems_desc: "Диплом із системної інженерії Дніпровського політехнічного університету означає, що я не просто малюю інтерфейси — я мислю обмеженнями, станами та передачами між системами. Цей бекграунд визначає три речі в кожному проєкті:",
+      systems_1_title: "Безшовна передача розробникам", systems_1_desc: "Специфікації та токени дизайну, що напряму лягають на те, що реально будують інженери — менше узгоджень туди-сюди.",
+      systems_2_title: "Технічно реалістичні токени", systems_2_desc: "Дизайн-рішення одразу звіряються з реальними обмеженнями платформи та продуктивності.",
+      systems_3_title: "WCAG 2.2 за замовчуванням", systems_3_desc: "Доступність — це стартова вимога, а не аудит в кінці: колір, контраст і флоу перевіряються одразу в процесі.",
+
+      experience_title: "Кар'єрний шлях",
+      experience_sub: "Шлях від банківського FinTech до AI-продуктових спринтів, з тривалою незалежною практикою паралельно.",
+      exp_1_role: "UI/UX дизайнер — Glorium Technologies",
+      exp_1_desc: "AI-продуктовий спринт. Створював зрозумілі AI-фічі, стандартизував бібліотеки асетів, розробляв адаптивні набори компонентів.",
+      exp_2_role: "UI/UX дизайнер — NDA Food-Tech платформа",
+      exp_2_desc: "iOS-застосунок доставки їжі. Редизайн кошика, чекауту та онбордингу; знизив відтік і підняв реєстрації.",
+      exp_3_role: "Незалежний UI/UX дизайнер",
+      exp_3_desc: "Довгострокові проєкти, включно з e-commerce платформою для вина та CRM для логістики й трекінгу посилок.",
+      exp_4_role: "UI/UX та веб-дизайнер — ПриватБанк",
+      exp_4_desc: "FinTech інтернет- та мобільний банкінг, B2B/B2C, з фокусом на податкові та інвойсингові процеси для МСБ.",
+
+      services_tag: "Послуги",
+      services_title: "Послуги: обирайте що потрібно — від точкового розбору до повного запуску.",
+      service_1_title: "UX/UI консультація · Для дизайнерів · 1009 ₴ / 50 хв",
+      service_1_desc: "Фокусована 50-хвилинна сесія: вирішимо конкретну UX-проблему, прокачаємо портфоліо, підготуємося до співбесіди або розберемо ваш проект.",
+      service_2_title: "Дизайн сайту · Для бізнесу · від $309",
+      service_2_desc: "Індивідуальний сайт з нуля: зручна UX-ієрархія, сучасний візуал та адаптивний інтерфейс, повністю готовий до верстки.",
+      service_3_title: "UX-аудит · Для бізнесу · від $209",
+      service_3_desc: "Практичний аналіз інтерфейсу: знаходимо точки тертя, де губляться клієнти, та даємо чіткий крок-за-кроком план дій.",
+
+      skills_title: "Навички, інструменти та освіта",
+      skills_cat_1: "Продукт та UX",
+      skills_cat_1_1: "Дослідження користувачів та мапи шляху", skills_cat_1_2: "Інформаційна архітектура",
+      skills_cat_1_3: "Юзер-флоу та вайрфрейми", skills_cat_1_4: "Швидке прототипування", skills_cat_1_5: "Оптимізація конверсії",
+      skills_cat_2: "UI та дизайн-системи",
+      skills_cat_2_1: "Масштабовані дизайн-системи", skills_cat_2_2: "Бібліотеки компонентів та UI-кіти",
+      skills_cat_3: "Доступність",
+      skills_cat_3_1: "Відповідність WCAG 2.2", skills_cat_3_2: "Інклюзивний дизайн",
+      skills_cat_3_3: "Аудит кольорового контрасту", skills_cat_3_4: "Передача макетів розробникам",
+      skills_cat_4: "Моушн та візуал",
+      skills_cat_5: "Освіта",
+      skills_cat_5_desc: "Спеціаліст із системної інженерії — Дніпровський політехнічний університет. Комп'ютерна інженерія, системна архітектура та візуалізація.",
+      skills_cat_6: "Сертифікати",
+      skills_cat_6_1: "Дизайн UI/UX", skills_cat_6_2: "Веб-доступність (WCAG)", skills_cat_6_3: "Графічний дизайн",
+      lang_skills_m: "Знання мов",
+	  lang_ukrainian: "Українська", lang_ukrainian_level: "Рідна",
+      lang_english: "Англійська", lang_english_level: "Вище середнього (B2)",
+
+      contact_title: "Створимо разом щось по-справжньому круте.",
+      contact_sub: "Шукаєте продуктового дизайнера, щоб масштабувати вашу FinTech, AI чи SaaS екосистему?",
+      contact_email_btn: "Написати email",
+
+      footer_copyright: "© 2026 Олексій Широков · Львів, Україна / Remote",
+      footer_website: "Забронювати час",
+      toast_copied: "Email скопійовано в буфер обміну",
+      toast_copy_failed: "Не вдалося скопіювати — "
+    }
+  };
+
+  // ===================== LANGUAGE SWITCHER =====================
+  var currentLang = 'en';
+  function applyLang(lang){
+    currentLang = lang;
+    var dict = I18N[lang];
+    document.documentElement.setAttribute('lang', lang === 'ua' ? 'uk' : 'en');
+    document.documentElement.setAttribute('data-lang', lang);
+    document.getElementById('page-title').textContent = dict.meta_title;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) { el.textContent = dict[key]; }
+    });
+    document.getElementById('lang-en').setAttribute('aria-pressed', lang === 'en' ? 'true' : 'false');
+    document.getElementById('lang-ua').setAttribute('aria-pressed', lang === 'ua' ? 'true' : 'false');
+  }
+  document.getElementById('lang-en').addEventListener('click', function(){ applyLang('en'); });
+  document.getElementById('lang-ua').addEventListener('click', function(){ applyLang('ua'); });
+
+  // ===================== THEME SWITCHER (in-memory — see note) =====================
+  (function(){
+    var root = document.documentElement;
+    var themeBtn = document.getElementById('theme-btn');
+    var themeMenu = document.getElementById('theme-menu');
+    var themeLabel = document.getElementById('theme-label');
+
+    function setTheme(name){
+      root.setAttribute('data-theme', name);
+      var dict = I18N[currentLang];
+      var labelKey = 'theme_' + name;
+      themeLabel.textContent = dict[labelKey] || name;
+      themeMenu.classList.remove('open');
+      themeBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    themeBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isOpen = themeMenu.classList.toggle('open');
+      themeBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    document.querySelectorAll('.theme-option').forEach(function(opt){
+      opt.addEventListener('click', function(){ setTheme(opt.getAttribute('data-theme-choice')); });
+    });
+
+    document.addEventListener('click', function(e){
+      if (!themeMenu.contains(e.target) && e.target !== themeBtn) {
+        themeMenu.classList.remove('open');
+        themeBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    window.__setTheme = setTheme;
+    setTheme('classic');
+  })();
+
+  applyLang('en');
+
+  // ===================== MOBILE MENU =====================
+  (function(){
+    var burger = document.getElementById('burger-btn');
+    var menu = document.getElementById('mobile-menu');
+    burger.addEventListener('click', function(){
+      var isHidden = menu.classList.toggle('hidden');
+      menu.classList.toggle('flex', !isHidden);
+      burger.setAttribute('aria-expanded', isHidden ? 'false' : 'true');
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        menu.classList.add('hidden');
+        menu.classList.remove('flex');
+        burger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+
+  // ===================== COPY EMAIL + TOAST =====================
+  (function(){
+    var email = 'oleksii.sh08@gmail.com';
+    var toast = document.getElementById('toast');
+    var toastText = document.getElementById('toast-text');
+    var toastTimer;
+
+    function showToast(msg){
+      toastText.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 2200);
+    }
+
+    function copyEmail(){
+      var dict = I18N[currentLang];
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email)
+          .then(function(){ showToast(dict.toast_copied); })
+          .catch(function(){ showToast(dict.toast_copy_failed + email); });
+      } else {
+        var temp = document.createElement('textarea');
+        temp.value = email;
+        document.body.appendChild(temp);
+        temp.select();
+        try { document.execCommand('copy'); showToast(dict.toast_copied); }
+        catch(e){ showToast(dict.toast_copy_failed + email); }
+        document.body.removeChild(temp);
+      }
+    }
+
+    document.getElementById('hero-copy-btn').addEventListener('click', copyEmail);
+    document.getElementById('contact-copy-btn').addEventListener('click', copyEmail);
+  })();
+
+  // ===================== ACCORDION (Services) =====================
+  (function(){
+    document.querySelectorAll('.accordion-trigger').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var acc = btn.closest('.accordion');
+        var isOpen = acc.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    });
+  })();
+
+  // ===================== SCROLL REVEAL =====================
+  (function(){
+    var items = document.querySelectorAll('.fade-up');
+    if (!('IntersectionObserver' in window)) {
+      items.forEach(function(el){ el.classList.add('visible'); });
+      return;
+    }
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    items.forEach(function(el){ observer.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
