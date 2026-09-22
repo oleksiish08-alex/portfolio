@@ -102,7 +102,7 @@
          target="_blank" 
          rel="noopener noreferrer" 
          class="btn btn-primary text-center justify-center w-full sm:w-auto" 
-         data-i18n="btn_download_cv">Book my time</a>
+         data-i18n="contact_book_time">Book my time</a>
 
 	<a href="https://drive.google.com/file/d/1DHAe34A5fS1lUD6Vkf6v7oPMSkAi_8Ew/view?usp=sharing" 
          target="_blank" 
@@ -642,11 +642,8 @@
       contact_title: "Let's build something exceptional together.",
       contact_sub: "Looking for a product designer to scale your Fin-Tech, AI, or SaaS ecosystem?",
       contact_email_btn: "Email me",
-
+	  contact_book_time: "Book my time",
       footer_copyright: "© 2026 Oleksii Shirokov · Lviv, Ukraine / Remote",
-      footer_website: "Book my time",
-      toast_copied: "Email copied to clipboard",
-      toast_copy_failed: "Could not copy — "
     },
     ua: {
       meta_title: "Олексій Широков — Senior UI/UX & Product дизайнер",
@@ -751,11 +748,10 @@
       contact_title: "Створимо разом щось по-справжньому круте.",
       contact_sub: "Шукаєте продуктового дизайнера, щоб масштабувати вашу Фінтех, ШІ чи SaaS екосистему?",
       contact_email_btn: "Написати email",
-
+	  contact_book_time: "Забронювати час",
       footer_copyright: "© 2026 Олексій Широков · Львів, Україна / Remote",
       footer_website: "Забронювати час",
-      toast_copied: "Email скопійовано в буфер обміну",
-      toast_copy_failed: "Не вдалося скопіювати — "
+      toast_copied: "Email скопійовано в буфер обміну"
     }
   };
 
@@ -832,41 +828,6 @@
         burger.setAttribute('aria-expanded', 'false');
       });
     });
-  })();
-
-  // ===================== COPY EMAIL + TOAST =====================
-  (function(){
-    var email = 'oleksii.sh08@gmail.com';
-    var toast = document.getElementById('toast');
-    var toastText = document.getElementById('toast-text');
-    var toastTimer;
-
-    function showToast(msg){
-      toastText.textContent = msg;
-      toast.classList.add('show');
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 2200);
-    }
-
-    function copyEmail(){
-      var dict = I18N[currentLang];
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(email)
-          .then(function(){ showToast(dict.toast_copied); })
-          .catch(function(){ showToast(dict.toast_copy_failed + email); });
-      } else {
-        var temp = document.createElement('textarea');
-        temp.value = email;
-        document.body.appendChild(temp);
-        temp.select();
-        try { document.execCommand('copy'); showToast(dict.toast_copied); }
-        catch(e){ showToast(dict.toast_copy_failed + email); }
-        document.body.removeChild(temp);
-      }
-    }
-
-    document.getElementById('hero-copy-btn').addEventListener('click', copyEmail);
-    document.getElementById('contact-copy-btn').addEventListener('click', copyEmail);
   })();
 
   // ===================== ACCORDION (Services) =====================
