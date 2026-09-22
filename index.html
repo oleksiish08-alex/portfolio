@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Oleksii Shirokov — Senior UI/UX & Product Designer</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,16 +13,11 @@
 </head>
 <body>
 
-<div id="toast" role="status" aria-live="polite">
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-  <span id="toast-text">Email copied to clipboard</span>
-</div>
-
 <!-- ===================== HEADER ===================== -->
 <header class="sticky top-0 z-50 border-b" style="border-color:var(--border); background-color:color-mix(in srgb, var(--bg-canvas) 82%, transparent); backdrop-filter:blur(12px);">
   <div class="wrap flex items-center justify-between gap-4 py-4">
     <div class="flex flex-col leading-tight">
-      <span class="font-display font-semibold text-base" style="color:var(--text-primary);">Oleksii Shirokov</span>
+      <span class="font-display font-semibold text-base" style="color:var(--text-primary);" data-i18n="f_name_s_name">Oleksii Shirokov</span>
       <span class="flex items-center gap-1.5 text-xs mt-0.5" style="color:var(--text-secondary);">
         <span class="status-dot"></span> <span data-i18n="status_available">Available for work</span>
       </span>
@@ -111,14 +107,6 @@
       <a href="#projects" 
          class="btn btn-outline text-center justify-center w-full sm:w-auto" 
          data-i18n="btn_explore">Explore projects</a>
-      
-      <button id="hero-copy-btn" 
-              class="btn btn-outline flex items-center justify-center gap-2 w-full sm:w-auto">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-        </svg>
-        <span data-i18n="btn_copy_email">Copy email</span>
-      </button>
     </div>
 
     <div class="card card-contrast p-7 fade-up w-full" style="min-width:0;">
@@ -521,9 +509,8 @@
         <p class="mt-4 max-w-md mx-auto" style="color:var(--text-secondary-c);" data-i18n="contact_sub">Looking for a product designer to scale your FinTech, AI, or SaaS ecosystem?</p>
         <div class="flex flex-wrap justify-center gap-3 mt-8">
           <a href="mailto:oleksii.sh08@gmail.com" class="btn btn-primary" data-i18n="contact_email_btn">Email me</a>
-          <button id="contact-copy-btn" class="btn" style="border:1px solid var(--border-c); color:var(--text-primary-c);">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-            oleksii.sh08@gmail.com
+          <button ---
+			  
           </button>
         </div>
       </div>
@@ -536,7 +523,6 @@
   <div class="wrap py-8 flex flex-wrap items-center justify-between gap-4 text-sm" style="color:var(--text-secondary);">
     <span data-i18n="footer_copyright">© 2026 Oleksii Shirokov · Lviv, Ukraine / Remote</span>
     <div class="flex gap-6">
-      <a href="https://calendly.com/shirokov-alex-jedi/30min" target="_blank" rel="noopener" data-i18n="footer_website" class="btn-theme-target">Book my time</a>
       <a href="https://www.linkedin.com/in/oleksii-shirokov-designer" target="_blank" rel="noopener" class="btn-theme-target">LinkedIn</a>
       <a href="https://behance.net/shirokov_alex" target="_blank" rel="noopener" class="btn-theme-target">Behance</a>
       <a href="https://vimeo.com/shirokovalex" target="_blank" rel="noopener" class="btn-theme-target">Vimeo</a>
@@ -549,6 +535,7 @@
   var I18N = {
     en: {
       meta_title: "Oleksii Shirokov — Senior UI/UX & Product Designer",
+	  f_name_s_name: "Oleksii Shirokov",
       status_available: "Available for work",
       nav_projects: "Projects", nav_impact: "Impact", nav_systems: "About & Systems",
       nav_experience: "Experience", nav_services: "Services", nav_contact: "Contact", nav_cta: "Get in touch",
@@ -558,7 +545,7 @@
       hero_headline: "Designing intuitive FinTech & AI products that drive real business metrics.",
       hero_sub: "7+ years in UI/UX backed by Systems Engineering. Turning complex user flows into clean, human interfaces.",
       photo_badge: "Available for projects",
-      btn_download_cv: "Download CV", btn_explore: "Explore projects", btn_copy_email: "Copy email",
+      btn_download_cv: "Download CV", btn_explore: "Explore projects",
       btn_book_now: "Book Now",
       highlights_label: "HIGHLIGHTS",
       highlight_1: "FinTech ecosystems: PrivatBank banking, tax & invoicing workflows for SMEs.",
@@ -657,6 +644,7 @@
     },
     ua: {
       meta_title: "Олексій Широков — Senior UI/UX & Product дизайнер",
+	  f_name_s_name: "Олексій Широков",
       status_available: "Готовий до роботи",
       nav_projects: "Проєкти", nav_impact: "Результати", nav_systems: "Підхід",
       nav_experience: "Досвід", nav_services: "Послуги", nav_contact: "Контакти", nav_cta: "Зв'язатися",
@@ -666,7 +654,7 @@
       hero_headline: "Проєктую зручні FinTech та AI-продукти, які реально працюють на бізнес.",
       hero_sub: "7+ років у UI/UX та інженерний бекграунд (Systems Engineering). Перетворюю складні процеси на зрозумілі інтерфейси.",
       photo_badge: "Готовий до проєктів",
-      btn_download_cv: "Завантажити CV", btn_explore: "Переглянути проєкти", btn_copy_email: "Скопіювати email",
+      btn_download_cv: "Завантажити CV", btn_explore: "Переглянути проєкти",
       btn_book_now: "Записатись",
       highlights_label: "ГОЛОВНЕ",
       highlight_1: "Фінтех екосистеми: банкінг ПриватБанку, податкові та інвойсингові процеси для МСБ.",
