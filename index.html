@@ -213,10 +213,20 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
         <article class="card_s p-7 fade-up transition-all">
-          <a href="https://www.figma.com/proto/Dnijerd9Y2sLNSndi3Zm1E?node-id=4104-253" target="_blank" rel="noopener noreferrer">
-            <div class="img">
-              <img src="ai-platform.png" alt="AI-driven mobile UX platform" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
-            </div>
+          <div class="img overflow-hidden">
+    		<picture>
+      		<!-- Для мобільних екранів (менше 768px) -->
+      		<source media="(max-width: 767px)" srcset="ai-platform-mob.png">
+      
+      		<!-- Для ПК (екрани від 768px і більше) -->
+      		<img 
+        	src="ai-platform.png" 
+        	alt="AI-driven mobile UX platform" 
+        	class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+        	loading="lazy"
+      	>
+    	</picture>            
+		  </div>
             <span class="tag mt-4">AI · Mobile</span>
             <h3 class="text-xl font-semibold mt-4" data-i18n="project_1_title">AI-driven mobile UX platform</h3>
             <p class="mt-2 text-sm" style="color:var(--text-secondary);" data-i18n="project_1_desc">Created intuitive AI features, standardized internal asset libraries, and developed adaptive component sets for a fast-moving product sprint.</p>
