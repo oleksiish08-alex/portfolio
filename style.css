@@ -18,6 +18,8 @@
   --text-secondary: #52665A;
   --text-accent: #15803D;
 
+   --text-nav-up-m: #0A2218;
+
   --text-primary-c: #F0F7F4;
   --text-secondary-c: #A3BFB2;
   --text-accent-c: #4ADE80;
@@ -48,6 +50,8 @@
   --text-secondary: #8FA3AC;
   --text-accent: #00F0FF;
 
+  --text-nav-up-m: #e9d605;
+
   --text-primary-c: #EAF6F8;
   --text-secondary-c: #8FA3AC;
   --text-accent-c: #FCEE09;
@@ -76,6 +80,8 @@
   --text-primary: #F5EFDD;
   --text-secondary: #B3A98F;
   --text-accent: #FDE047;
+
+  --text-nav-up-m: #ca8a04;
 
   --text-primary-c: #F5EFDD;
   --text-secondary-c: #B3A98F;
