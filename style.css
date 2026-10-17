@@ -219,7 +219,7 @@ clip-path: polygon(
 [data-theme="cyberpunk"] .btn,
 [data-theme="cyberpunk"] .tag,
 [data-theme="cyberpunk"] .card-contrast {
-  border-radius: 2px transparent; 
+  border-radius: 2px; 
   
   /* Кіберпанк-полігон */
   clip-path: polygon(
