@@ -61,6 +61,7 @@
   --border-focus: #00F0FF;
 
   --shadow: 0 0 0 1px rgba(0, 240, 255, .08), 0 0 24px rgba(0, 240, 255, .05);
+  --box-shadow: 0 0 22px rgba(0, 240, 255, .25);
   --font-display: 'JetBrains Mono', monospace;
 }
 
@@ -68,7 +69,7 @@
 [data-theme="golden"] {
   --bg-canvas: #0F0E13;
   --bg-surface: #17151d;
-  --bg-surface-hover: #26221b; 
+  --bg-surface-hover: #26221b;
   --bg-contrast: #0A0910;
   --bg-contrast-hover: #100e17;
 
@@ -89,6 +90,7 @@
   --border-focus: #EAB308;
 
   --shadow: 0 1px 1px rgba(0, 0, 0, .4), 0 12px 32px rgba(0, 0, 0, .35);
+  --box-shadow: 0 12px 32px rgba(234, 179, 8, .2);
   --font-display: 'Plus Jakarta Sans', sans-serif;
 }
 
@@ -123,7 +125,7 @@ h1, h2, h3, .font-display {
   border-radius: 4px;
 }
 
-/* Cyberpunk scanline backdrop */
+/* Cyberpunk scanline backdrop (fixed overlay) */
 [data-theme="cyberpunk"] body::before {
   content: '';
   position: fixed; inset: 0; pointer-events: none; z-index: 0;
@@ -132,14 +134,6 @@ h1, h2, h3, .font-display {
     linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
   background-size: auto, 44px 44px, 44px 44px;
-  
-clip-path: polygon(
-    0 15px, 15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%
-  );
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  padding: 2px; /* Товщина вашої рамки (імітація border-radius 2px) */
-  pointer-events: none;
 }
 
 .card {
@@ -159,18 +153,34 @@ clip-path: polygon(
   overflow: visible;
 }
 
-.card_s:hover { 
+.card_s:hover {
   transform: translateY(-4px);
   border-color: var(--brand);
   background: var(--bg-surface-hover);
   box-shadow: var(--box-shadow);
 }
 
+/* FIX: .fade-up.visible (transform: translateY(0)) перебивав :hover у карток проєктів.
+   Задаємо окремий transition і явний hover з вищою специфічністю. */
+.card_s.fade-up {
+  transition: opacity .6s ease, transform .25s ease, border-color .25s ease,
+              background-color .25s ease, box-shadow .25s ease;
+}
+.card_s.fade-up.visible:hover { transform: translateY(-4px); }
+
+.card_s picture { display: block; }
+
 .card_s img {
   width: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  background-color: var(--bg-surface-hover);   
+  background-color: var(--bg-surface-hover);
+  border-radius: var(--radius-img);
+}
+
+/* FIX: зум зображення лишається всередині заокругленої рамки */
+.card_s .img {
+  overflow: hidden;
   border-radius: var(--radius-img);
 }
 
@@ -223,27 +233,27 @@ clip-path: polygon(
   clip-path: polygon(0 10px, 10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
 }
 
-/* Відновлюємо лінію рамки для звичайних карток .card та .card_s */
+/* Лінія рамки для звичайних карток .card та .card_s у кіберпанку */
 [data-theme="cyberpunk"] .card,
 [data-theme="cyberpunk"] .card_s {
-  border: 1px solid transparent !important; /* Робимо базову рамку прозорою */
-  background: 
-    linear-gradient(var(--bg-surface), var(--bg-surface)) padding-box, 
+  border: 1px solid transparent !important;
+  background:
+    linear-gradient(var(--bg-surface), var(--bg-surface)) padding-box,
     linear-gradient(135deg, var(--border), var(--border)) border-box !important;
 }
 
-/* Відновлюємо лінію рамки для контрастних карток .card-contrast */
+/* Лінія рамки для контрастних карток .card-contrast у кіберпанку */
 [data-theme="cyberpunk"] .card-contrast {
   border: 1px solid transparent !important;
-  background: 
-    linear-gradient(var(--bg-contrast), var(--bg-contrast)) padding-box, 
+  background:
+    linear-gradient(var(--bg-contrast), var(--bg-contrast)) padding-box,
     linear-gradient(135deg, var(--border-c), var(--border-c)) border-box !important;
 }
 
-/* Поведінку ховеру для .card_s, щоб колір рамки та фону змінювався динамічно */
+/* Ховер для .card_s у кіберпанку */
 [data-theme="cyberpunk"] .card_s:hover {
-  background: 
-    linear-gradient(var(--bg-surface-hover), var(--bg-surface-hover)) padding-box, 
+  background:
+    linear-gradient(var(--bg-surface-hover), var(--bg-surface-hover)) padding-box,
     linear-gradient(135deg, var(--brand), var(--brand)) border-box !important;
 }
 
@@ -363,7 +373,7 @@ section { padding: 88px 0; position: relative; z-index: 1; }
 
 /* Classic */
 [data-theme="classic"] .photo-card {
-  border-radius: 24px; padding: 0px;
+  border-radius: 24px; padding: 0;
   background: linear-gradient(160deg, #0B2417 0%, var(--bg-canvas) 100%);
   box-shadow: var(--shadow);
 }
@@ -394,9 +404,12 @@ section { padding: 88px 0; position: relative; z-index: 1; }
   font-family: 'JetBrains Mono', monospace; font-size: .64rem; letter-spacing: .04em; color: #00F0FF;
 }
 
+/* FIX: відступ, щоб підпис [SUBJECT_ID] не накладався на бейдж */
+[data-theme="cyberpunk"] .photo-badge-row { margin-top: 18px; }
+
 /* Golden */
 [data-theme="golden"] .photo-card {
-  border-radius: 24px; padding: 0px;
+  border-radius: 24px; padding: 0;
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   background: rgba(255,255,255,.08);
   border: 2px solid rgba(251,191,36,.4);
@@ -413,52 +426,40 @@ section { padding: 88px 0; position: relative; z-index: 1; }
 
 .photo-badge-row { display: flex; align-items: center; gap: 8px; }
 
-/* 1. ДИНАМІЧНІ CSS-ЗМІННІ ДЛЯ ХОВЕРУ В ТЕМАХ */
-
-/* Класична тема */
+/* ===================== НАВІГАЦІЯ: hover-ефекти по темах ===================== */
 [data-theme="classic"], .classic {
   --btn-hover-bg: #15803D;
   --btn-hover-text: #ffffff;
 }
-
-/* Золота тема */
 [data-theme="golden"], .golden {
-  --btn-hover-bg: #eab308;    
-  --btn-hover-text: #1a1408;  
+  --btn-hover-bg: #eab308;
+  --btn-hover-text: #1a1408;
 }
-
-/* Тема Кіберпанк */
 [data-theme="cyberpunk"], .cyberpunk {
-  --btn-hover-bg: #00F0FF;   
+  --btn-hover-bg: #00F0FF;
   --btn-hover-text: #000000;
 }
 
-/* 2. БАЗОВІ СТИЛІ КНОПКИ (СПІЛЬНІ ДЛЯ ВСІХ ТЕМ)*/
 .btn-theme-target {
   text-decoration: none;
   color: inherit;
   display: inline-block;
-  padding: 6px 8px; 
+  padding: 6px 8px;
   transition: background-color .25s ease, color .25s ease, box-shadow .25s ease, border-radius .25s ease;
 }
 
-/* РОЗПОДІЛ КУТІВ ТА СПЕЦЕФЕКТІВ ПО ТЕМАХ */
-
-/* Закруглені кути ТІЛЬКИ для Класичної та Золотої тем */
 [data-theme="classic"] .btn-theme-target,
 .classic .btn-theme-target,
 [data-theme="golden"] .btn-theme-target,
 .golden .btn-theme-target {
-  border-radius: 8px; 
+  border-radius: 8px;
 }
 
-/* Абсолютно гострі кути ТІЛЬКИ для Кіберпанку */
-[data-theme="cyberpunk"] .btn-theme-target, 
+[data-theme="cyberpunk"] .btn-theme-target,
 .cyberpunk .btn-theme-target {
-  border-radius: 0px !important;
+  border-radius: 0 !important;
 }
 
-/* ХОВЕР ЕФЕКТИ ПРИ НАВЕДЕННІ */
 .btn-theme-target:hover {
   background-color: var(--btn-hover-bg) !important;
   color: var(--btn-hover-text) !important;
@@ -476,8 +477,7 @@ section { padding: 88px 0; position: relative; z-index: 1; }
   width: 46px;
   height: 46px;
   z-index: 99;
-  
-  /* Базове скидання та центрування стрілки */
+
   border: none;
   cursor: pointer;
   display: flex;
@@ -485,53 +485,48 @@ section { padding: 88px 0; position: relative; z-index: 1; }
   justify-content: center;
   font-size: 1.3rem;
   font-weight: bold;
-  
-  /* Поведінка появи (керується через JS) */
+
   opacity: 0;
   visibility: hidden;
   transform: translateY(15px);
   transition: opacity .3s ease, transform .3s ease, visibility .3s ease, background-color .25s ease, color .25s ease;
-  
-  /* Стандартні адаптивні кольори з системи */
+
   background: var(--brand);
   color: var(--brand-text);
   box-shadow: var(--shadow);
 }
 
-/* Класична та Золота теми (округлі кути) */
 [data-theme="classic"] .btn-to-top,
 [data-theme="golden"] .btn-to-top {
-  border-radius: var(--radius-card); /* Використовує 20px */
+  border-radius: var(--radius-card);
 }
 
-/* Тема Кіберпанк (кути зі скосом і неонове сяйво) */
 [data-theme="cyberpunk"] .btn-to-top {
-  border-radius: 0px !important;
-  font-family: var(--font-display); /* JetBrains Mono */
-  /* Фірмовий кіберпанк-скос кутів */
+  border-radius: 0 !important;
+  font-family: var(--font-display);
   clip-path: polygon(0 8px, 8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
   box-shadow: 0 0 15px color-mix(in srgb, var(--brand) 40%, transparent);
 }
 
-/* Золота тема (скляний ефект з розмиттям) */
 [data-theme="golden"] .btn-to-top {
   background: linear-gradient(135deg, #FACC15, #B45309);
   border: 1px solid rgba(255,255,255,.15);
 }
 
-/* Ховер-ефекти при наведенні (використовують ваші наявні стилі) */
 .btn-to-top:hover {
-  transform: translateY(-3px);
   background: var(--brand-hover);
 }
 [data-theme="cyberpunk"] .btn-to-top:hover {
-  background: var(--brand-hover); /* Стане блакитною неоновою */
+  background: var(--brand-hover);
   box-shadow: 0 0 22px var(--brand-hover);
 }
 
-/* Клас, який додаватиметься скріптом при прокручуванні сторінки */
+/* Клас, який додає скрипт при прокручуванні сторінки */
 .btn-to-top.show {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
+
+/* FIX: .show перебивав hover-підйом кнопки */
+.btn-to-top.show:hover { transform: translateY(-3px); }
