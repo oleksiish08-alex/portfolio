@@ -219,16 +219,21 @@ clip-path: polygon(
 [data-theme="cyberpunk"] .btn,
 [data-theme="cyberpunk"] .tag,
 [data-theme="cyberpunk"] .card-contrast {
-  border-radius: 2px;
+  border-radius: 2px transparent; 
+  
+  /* Кіберпанк-полігон */
   clip-path: polygon(
-    0 15px, 
-    15px 0, 
+    0 10px, 
+    10px 0, 
     100% 0, 
-    100% calc(100% - 15px), 
-    calc(100% - 15px) 100%, 
+    100% calc(100% - 10px), 
+    calc(100% - 10px) 100%, 
     0 100%
   );
-    transition: all 0.3s ease;
+  
+  /* border-radius 2px на скошених кутах,
+  цей фільтр дещо пом'якшує гострі піксельні краї */
+  filter: drop-shadow(0 0 1px rgba(0,0,0,0.5)); 
 }
 
 .btn {
