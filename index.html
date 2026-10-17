@@ -580,8 +580,8 @@
         <h2 class="text-3xl sm:text-4xl font-bold" data-i18n="contact_title">Ready to take your tech product to the next level?</h2>
         <p class="mt-4 max-w-md mx-auto" style="color:var(--text-secondary-c);" data-i18n="contact_sub">I will help design and scale your Fintech, AI, or SaaS ecosystem.</p>
         <div class="flex flex-wrap justify-center gap-3 mt-8">
-          <a href="mailto:oleksii.sh08@gmail.com" class="btn" data-i18n="contact_email_btn">Email me</a>
-          <a href="https://calendly.com/oleksii-sh08/45min?back=1&month=2026-10"  target="_blank" 
+          <a href="mailto:oleksii.sh08@gmail.com" class="btn btn-primary" data-i18n="contact_email_btn">Email me</a>
+          <a href="https://calendly.com/oleksii-sh08/45min?back=1&month=2026-10" class="btn btn-outline" target="_blank" 
    			rel="noopener" 
    			class="btn" 
    			style="border: 1px solid var(--border-c); color: var(--text-primary-c); --btn-hover-bg: #ff0055; --btn-hover-text: #ffffff;" 
@@ -716,6 +716,7 @@
       contact_sub: "I will help design and scale your Fintech, AI, or SaaS ecosystem.",
       contact_email_btn: "Email me",
 	  contact_book_time: "Book my time",
+	  act_up: "Up",
       footer_copyright: "© 2026 Oleksii Shirokov · Lviv, Ukraine / Remote",
     },
     ua: {
@@ -822,6 +823,7 @@
       contact_sub: "Допоможу спроектувати та масштабувати вашу Фінтех, ШІ або SaaS екосистему.",
       contact_email_btn: "Написати email",
 	  contact_book_time: "Забронювати час",
+	  act_up: "Вгору",
       footer_copyright: "© 2026 Олексій Широков · Львів, Україна / Віддалено"
     }
   };
@@ -929,7 +931,28 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     items.forEach(function(el){ observer.observe(el); });
   })();
+
+	const backToTopBtn = document.getElementById("backToTop");
+
+	// == Кнопка ==
+window.addEventListener("scroll", () => {
+  // Якщо прокрутили більше ніж на 400px — показуємо кнопку, інакше ховаємо
+  if (window.scrollY > 400) {
+    backToTopBtn.classList.add("show");
+  } else {
+    backToTopBtn.classList.remove("show");
+  }
+});
+
+// Плавна прокрутка вгору при кліку
+backToTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
 </script>
 
+<button id="backToTop" class="btn-to-top" aria-label="Вгору" data-i18n="act_up">↑ Вгору</button>
 </body>
 </html>
