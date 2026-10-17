@@ -219,21 +219,32 @@ clip-path: polygon(
 [data-theme="cyberpunk"] .btn,
 [data-theme="cyberpunk"] .tag,
 [data-theme="cyberpunk"] .card-contrast {
-  border-radius: 2px; 
-  
-  /* Кіберпанк-полігон */
-  clip-path: polygon(
-    0 10px, 
-    10px 0, 
-    100% 0, 
-    100% calc(100% - 10px), 
-    calc(100% - 10px) 100%, 
-    0 100%
-  );
-  
-  /* border-radius 2px на скошених кутах,
-  цей фільтр дещо пом'якшує гострі піксельні краї */
-  filter: drop-shadow(0 0 1px rgba(0,0,0,0.5)); 
+  border-radius: 2px;
+  clip-path: polygon(0 10px, 10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+}
+
+/* Відновлюємо лінію рамки для звичайних карток .card та .card_s */
+[data-theme="cyberpunk"] .card,
+[data-theme="cyberpunk"] .card_s {
+  border: 1px solid transparent !important; /* Робимо базову рамку прозорою */
+  background: 
+    linear-gradient(var(--bg-surface), var(--bg-surface)) padding-box, 
+    linear-gradient(135deg, var(--border), var(--border)) border-box !important;
+}
+
+/* Відновлюємо лінію рамки для контрастних карток .card-contrast */
+[data-theme="cyberpunk"] .card-contrast {
+  border: 1px solid transparent !important;
+  background: 
+    linear-gradient(var(--bg-contrast), var(--bg-contrast)) padding-box, 
+    linear-gradient(135deg, var(--border-c), var(--border-c)) border-box !important;
+}
+
+/* Поведінку ховеру для .card_s, щоб колір рамки та фону змінювався динамічно */
+[data-theme="cyberpunk"] .card_s:hover {
+  background: 
+    linear-gradient(var(--bg-surface-hover), var(--bg-surface-hover)) padding-box, 
+    linear-gradient(135deg, var(--brand), var(--brand)) border-box !important;
 }
 
 .btn {
