@@ -465,3 +465,73 @@ section { padding: 88px 0; position: relative; z-index: 1; }
   text-decoration: none !important;
   text-shadow: 0.5px 0 0 currentColor, -0.5px 0 0 currentColor !important;
 }
+
+/* ==========================================
+   КНОПКА ВГОРУ (АДАПТИВНА ПІД 3 ТЕМИ)
+   ========================================== */
+.btn-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 46px;
+  height: 46px;
+  z-index: 99;
+  
+  /* Базове скидання та центрування стрілки */
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  
+  /* Поведінка появи (керується через JS) */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: opacity .3s ease, transform .3s ease, visibility .3s ease, background-color .25s ease, color .25s ease;
+  
+  /* Стандартні адаптивні кольори з системи */
+  background: var(--brand);
+  color: var(--brand-text);
+  box-shadow: var(--shadow);
+}
+
+/* Класична та Золота теми (округлі кути) */
+[data-theme="classic"] .btn-to-top,
+[data-theme="golden"] .btn-to-top {
+  border-radius: var(--radius-card); /* Використовує 20px */
+}
+
+/* Тема Кіберпанк (кути зі скосом і неонове сяйво) */
+[data-theme="cyberpunk"] .btn-to-top {
+  border-radius: 0px !important;
+  font-family: var(--font-display); /* JetBrains Mono */
+  /* Фірмовий кіберпанк-скос кутів */
+  clip-path: polygon(0 8px, 8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+  box-shadow: 0 0 15px color-mix(in srgb, var(--brand) 40%, transparent);
+}
+
+/* Золота тема (скляний ефект з розмиттям) */
+[data-theme="golden"] .btn-to-top {
+  background: linear-gradient(135deg, #FACC15, #B45309);
+  border: 1px solid rgba(255,255,255,.15);
+}
+
+/* Ховер-ефекти при наведенні (використовують ваші наявні стилі) */
+.btn-to-top:hover {
+  transform: translateY(-3px);
+  background: var(--brand-hover);
+}
+[data-theme="cyberpunk"] .btn-to-top:hover {
+  background: var(--brand-hover); /* Стане блакитною неоновою */
+  box-shadow: 0 0 22px var(--brand-hover);
+}
+
+/* Клас, який додаватиметься скріптом при прокручуванні сторінки */
+.btn-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
