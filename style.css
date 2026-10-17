@@ -85,7 +85,7 @@
   --brand-text: #1a1408;
 
   --border: #2a2620;
-  --border-c: #FFFF1A;
+  --border-c: #ca8a04;
   --border-focus: #EAB308;
 
   --shadow: 0 1px 1px rgba(0, 0, 0, .4), 0 12px 32px rgba(0, 0, 0, .35);
@@ -132,6 +132,14 @@ h1, h2, h3, .font-display {
     linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
   background-size: auto, 44px 44px, 44px 44px;
+  
+clip-path: polygon(
+    0 15px, 15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%
+  );
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 2px; /* Товщина вашої рамки (імітація border-radius 2px) */
+  pointer-events: none;
 }
 
 .card {
@@ -212,7 +220,15 @@ h1, h2, h3, .font-display {
 [data-theme="cyberpunk"] .tag,
 [data-theme="cyberpunk"] .card-contrast {
   border-radius: 2px;
-  clip-path: polygon(0 10px, 10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+  clip-path: polygon(
+    0 15px, 
+    15px 0, 
+    100% 0, 
+    100% calc(100% - 15px), 
+    calc(100% - 15px) 100%, 
+    0 100%
+  );
+    transition: all 0.3s ease;
 }
 
 .btn {
