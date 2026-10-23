@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="classic" data-lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Олексій Широков - Senior UI/UX & Product Designer</title>
+  
+  <!-- Мультимовна індексація (SEO) -->
+  <link rel="canonical" href="https://oleksiish08-alex.github.io/portfolio/" />
+  <link rel="alternate" hreflang="en" href="https://oleksiish08-alex.github.io/portfolio/" />
+  <link rel="alternate" hreflang="uk" href="https://oleksiish08-alex.github.io/portfolio/ua/" />
+  <link rel="alternate" hreflang="x-default" href="https://oleksiish08-alex.github.io/portfolio/" />
+
+  <!-- Іконка сайту -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg?v=1">
+
+  <!-- DNS Preconnect для сторонніх CDN (завантажуються першими) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+
+  <!-- Ваші локальні стилі, CSS-шрифти та augmented-ui (Критичний рендер) -->
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://unpkg.com/augmented-ui@2/augmented-ui.min.css">
+
+  <!-- Сторонні Google Fonts (якщо використовуються через Google) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Скрипти (Асинхронні, не блокують завантаження інтерфейсу) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+<header class="sticky top-0 z-50 border-b" style="border-color:var(--border); background-color:color-mix(in srgb, var(--bg-canvas) 82%, transparent); backdrop-filter:blur(12px);">
+  <div class="wrap flex items-center justify-between gap-4 py-4">
+    <div class="flex flex-col leading-tight">
+      <span class="font-display font-semibold text-base" style="color:var(--text-primary);" data-i18n="f_name_s_name">Oleksii Shirokov</span>
+      <span class="flex items-center gap-1.5 text-xs mt-0.5" style="color:var(--text-secondary);">
+        <span class="status-dot"></span> <span data-i18n="status_available">Готовий до роботи</span>
+      </span>
+    </div>
+
+    <nav class="hidden lg:flex items-center gap-7 text-sm font-medium" style="color:var(--text-secondary);" aria-label="Primary">
+      <a href="#projects" class="btn-theme-target" style="color:var(--text-nav-up-m);" data-i18n="nav_projects">Проєкти</a>
+      <a href="#systems" class="btn-theme-target" style="color:var(--text-nav-up-m);" data-i18n="nav_systems">Підхід</a>
+      <a href="#experience" class="btn-theme-target" style="color:var(--text-nav-up-m);" data-i18n="nav_experience">Досвід</a>
+      <a href="#services" class="btn-theme-target" style="color:var(--text-nav-up-m);" data-i18n="nav_services">Послуги</a>
+      <a href="#contact" class="btn-theme-target" style="color:var(--text-nav-up-m);" data-i18n="nav_contact">Контакти</a>
+    </nav>
+
+    <div class="flex items-center gap-2.5">
+  <div class="lang-switch" role="group" aria-label="Language / Мова">
+    <!-- Посилання на головну англійську сторінку -->
+    <a href="../" class="lang-btn" id="lang-en" aria-pressed="false">EN</a>
+    <!-- Посилання на українську версію в папці (активне) /ua/ -->
+    <a href="./" class="lang-btn" id="lang-ua" aria-pressed="true">UA</a>
+  </div>
+</div>
+
+      <div class="relative">
+        <button id="theme-btn" class="btn btn-outline btn-small" aria-haspopup="true" aria-expanded="false" data-aug="tl-clip br-clip border">
+          <animate-icons name="palette" size="16" is-animated="false" aria-hidden="true"></animate-icons>
+          <span id="theme-label">Класична</span>
+        </button>
+        <div class="theme-menu" id="theme-menu">
+          <button class="theme-option" data-theme-choice="classic"><span class="theme-swatch" style="background:#16A34A;"></span><span data-i18n="theme_classic">Класична</span></button>
+          <button class="theme-option" data-theme-choice="cyberpunk"><span class="theme-swatch" style="background:#00F0FF;"></span><span data-i18n="theme_cyberpunk">Кібер</span></button>
+          <button class="theme-option" data-theme-choice="golden"><span class="theme-swatch" style="background:#EAB308;"></span><span data-i18n="theme_golden">Золота</span></button>
+        </div>
+      </div>
+      <a href="#contact" class="btn btn-primary btn-small hidden sm:inline-flex" data-aug="tl-clip br-clip border"><animate-icons name="message-square-text" size="16" is-animated="false" aria-hidden="true"></animate-icons><span data-i18n="nav_cta">Зв'язатися</span></a>
+      <button id="burger-btn" class="lg:hidden btn btn-outline btn-small" aria-label="Відкрити меню" data-i18n-aria="menu_aria" aria-expanded="false" data-aug="tl-clip br-clip border">
+        <animate-icons name="menu" size="18" is-animated="false" aria-hidden="true"></animate-icons>
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-menu" class="hidden lg:hidden flex-col border-t" style="border-color:var(--border);">
+    <a href="#projects" class="block px-6 py-4 border-b text-lg font-medium" style="border-color:var(--border); color:var(--text-nav-up-m);" data-i18n="nav_projects">Проєкти</a>
+    <a href="#systems" class="block px-6 py-4 border-b text-lg font-medium" style="border-color:var(--border); color:var(--text-nav-up-m);" data-i18n="nav_systems">Підхід</a>
+    <a href="#experience" class="block px-6 py-4 border-b text-lg font-medium" style="border-color:var(--border); color:var(--text-nav-up-m);" data-i18n="nav_experience">Досвід</a>
+    <a href="#services" class="block px-6 py-4 border-b text-lg font-medium" style="border-color:var(--border); color:var(--text-nav-up-m);" data-i18n="nav_services">Послуги</a>
+    <a href="#contact" class="block px-6 py-4 text-lg font-medium" style="color:var(--text-nav-up-m);" data-i18n="nav_contact">Контакти</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="hero" class="pt-16 pb-8">
+    <div class="wrap flex flex-col gap-10">
+
+      <div class="grid lg:grid-cols-[1.45fr_0.7fr] gap-10 items-center w-full">
+
+        <div class="fade-up">
+          <p class="tag mb-5" data-i18n="hero_tag">Понад 7 років досвіду в UI/UX</p>
+          <h1 class="text-4xl sm:text-5xl lg:text-[3.3rem] font-bold leading-[1.1] max-w-2xl" data-i18n="hero_headline">
+            Я створюю зручні та ефективні інтерфейси
+          </h1>
+          <p class="mt-6 mb-0 text-lg max-w-xl" style="color:var(--text-secondary);" data-i18n="hero_sub">
+            Проєктую естетичні, доступні та зрозумілі веб-сайти й мобільні додатки. 7+ років у UI/UX та інженерний досвід.
+          </p>
+        </div>
+
+        <div class="fade-up flex flex-col items-center lg:items-start gap-3 justify-self-center lg:justify-self-end visible">
+          <div class="photo-card">
+            <div class="photo-frame" data-aug="tl-clip br-clip border">
+              <img src="../profile.png" alt="Oleksii Shirokov, Senior UI/UX &amp; Product Designer" class="photo-img" width="256" height="256">
+              <span class="photo-scan" aria-hidden="true"></span>
+              <span class="hud-corner tr" aria-hidden="true"></span>
+              <span class="hud-corner bl" aria-hidden="true"></span>
+            </div>
+            <span class="hud-caption" aria-hidden="true">[SUBJECT_ID: SHIROKOV_O]</span>
+          </div>
+
+          <div class="photo-badge-row flex items-center gap-2 mx-auto lg:mx-0">
+            <span class="status-dot"></span>
+            <span class="text-sm font-medium" style="color:var(--text-primary);" data-i18n="photo_badge">
+Готовий до роботи</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="fade-up flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full">
+        <a href="https://calendly.com/oleksii-sh08/45min?back=1&amp;month=2026-10"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-primary text-center justify-center w-full sm:w-auto" data-aug="tl-clip br-clip border"><animate-icons name="calendar-check" size="18" is-animated="false" aria-hidden="true"></animate-icons><span data-i18n="contact_book_time">Забронювати час</span></a>
+
+        <a href="https://drive.google.com/file/d/1DHAe34A5fS1lUD6Vkf6v7oPMSkAi_8Ew/view?usp=sharing"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-outline text-center justify-center w-full sm:w-auto" data-aug="tl-clip br-clip border"><animate-icons name="download" size="18" is-animated="false" aria-hidden="true"></animate-icons><span data-i18n="btn_download_cv">Завантажити CV</span></a>
+
+        <a href="#projects"
+           class="btn btn-outline text-center justify-center w-full sm:w-auto" data-aug="tl-clip br-clip border"><animate-icons name="chevrons-down" size="18" is-animated="false" aria-hidden="true"></animate-icons><span data-i18n="btn_explore">Переглянути проєкти</span></a>
+      </div>
+
+      <div class="card card-contrast p-7 fade-up w-full" style="min-width:0;" data-aug="tl-clip br-clip border">
+        <p class="font-display text-sm font-semibold tracking-wide" style="color:var(--text-accent-c);" data-i18n="highlights_label">ГОЛОВНЕ</p>
+
+        <ul class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-6 space-y-0">
+          <li class="flex items-start gap-3" data-icon-host>
+            <animate-icons name="landmark" size="18" class="hl-icon mt-0.5" is-animated="false" aria-hidden="true"></animate-icons>
+            <span class="text-sm" style="color:var(--text-secondary-c);" data-i18n="highlight_1">Фінтех екосистеми: банкінг ПриватБанку, податкові та інвойсингові процеси для МСБ.</span>
+          </li>
+          <li class="flex items-start gap-3" data-icon-host>
+            <animate-icons name="sparkles" size="18" class="hl-icon mt-0.5" is-animated="false" aria-hidden="true"></animate-icons>
+            <span class="text-sm" style="color:var(--text-secondary-c);" data-i18n="highlight_2">ШІ-орієнтований мобільний UX з адаптивними компонентами та зниженням ToT на 24%.</span>
+          </li>
+          <li class="flex items-start gap-3" data-icon-host>
+            <animate-icons name="badge-check" size="18" class="hl-icon mt-0.5" is-animated="false" aria-hidden="true"></animate-icons>
+            <span class="text-sm" style="color:var(--text-secondary-c);" data-i18n="highlight_3">Відповідність WCAG 2.2 AA закладена в кожну дизайн-систему, яку я випускаю..</span>
+          </li>
+        </ul>
+
+        <div class="mt-6 pt-5 border-t text-xs" style="border-color:var(--border-c); color:var(--text-secondary-c);" data-i18n="location_line">Львів, Україна · Віддалено по всьому світу</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== IMPACT METRICS ===================== -->
+  <section id="impact">
+    <div class="wrap">
+      <h2 class="text-3xl font-bold" data-i18n="metrics_title">Метрики</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-3">
+        <div class="card card-contrast p-6 fade-up" data-aug="tl-clip br-clip border">
+          <div class="font-display text-3xl font-bold" style="color:var(--text-accent-c);">-24%</div>
+          <div class="mt-2 text-sm" style="color:var(--text-secondary-c);" data-i18n="impact_1">Час на задачу, ШІ мобільний UX (Glorium Tech)</div>
+        </div>
+        <div class="card card-contrast p-6 fade-up" data-aug="tl-clip br-clip border">
+          <div class="font-display text-3xl font-bold" style="color:var(--text-accent-c);">-16%</div>
+          <div class="mt-2 text-sm" style="color:var(--text-secondary-c);" data-i18n="impact_2">Відтік на чекауті, iOS Фудтех платформа</div>
+        </div>
+        <div class="card card-contrast p-6 fade-up" data-aug="tl-clip br-clip border">
+          <div class="font-display text-3xl font-bold" style="color:var(--text-accent-c);">+34%</div>
+          <div class="mt-2 text-sm" style="color:var(--text-secondary-c);" data-i18n="impact_3">Швидкість обробки, редизайн логістичної CRM</div>
+        </div>
+        <div class="card card-contrast p-6 fade-up" data-aug="tl-clip br-clip border">
+          <div class="font-display text-3xl font-bold" style="color:var(--text-accent-c);">7+ <span data-i18n="impact_4_unit">років</span></div>
+          <div class="mt-2 text-sm" style="color:var(--text-secondary-c);" data-i18n="impact_4">Продуктовий UX, 10+ років у дизайн-індустрії загалом</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HOW I CAN HELP ===================== -->
+  <section id="help">
+    <div class="wrap">
+      <div class="max-w-xl mb-12 fade-up">
+        <h2 class="text-3xl font-bold" data-i18n="help_title">З чим я можу допомогти</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="card p-6 fade-up" data-icon-host data-aug="tl-clip br-clip border">
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:var(--bg-canvas); color:var(--text-accent); border:1px solid var(--border);">
+            <animate-icons name="globe" size="20" is-animated="false" aria-hidden="true"></animate-icons>
+          </div>
+          <h3 class="text-base font-semibold" style="color:var(--text-primary);" data-i18n="help_1_title">Запуск сайтів</h3>
+          <p class="text-sm mt-2" style="color:var(--text-secondary);" data-i18n="help_1_desc">Лендінги та сайти — від логічної структури до готового UI, оформленого для верстки.</p>
+        </div>
+        <div class="card p-6 fade-up" data-icon-host data-aug="tl-clip br-clip border">
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:var(--bg-canvas); color:var(--text-accent); border:1px solid var(--border);">
+            <animate-icons name="trending-up" size="20" is-animated="false" aria-hidden="true"></animate-icons>
+          </div>
+          <h3 class="text-base font-semibold" style="color:var(--text-primary);" data-i18n="help_2_title">Прокачка продукту</h3>
+          <p class="text-sm mt-2" style="color:var(--text-secondary);" data-i18n="help_2_desc">Покращення інтерфейсів на основі реальних дій користувачів і бізнес-цілей.</p>
+        </div>
+        <div class="card p-6 fade-up" data-icon-host data-aug="tl-clip br-clip border">
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:var(--bg-canvas); color:var(--text-accent); border:1px solid var(--border);">
+            <animate-icons name="search" size="20" is-animated="false" aria-hidden="true"></animate-icons>
+          </div>
+          <h3 class="text-base font-semibold" style="color:var(--text-primary);" data-i18n="help_3_title">Пошук UX-проблем</h3>
+          <p class="text-sm mt-2" style="color:var(--text-secondary);" data-i18n="help_3_desc">Швидкі аудити, які виявляють слабкі місця та конверсійні діри ще до втрати клієнтів.</p>
+        </div>
+        <div class="card p-6 fade-up" data-icon-host data-aug="tl-clip br-clip border">
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:var(--bg-canvas); color:var(--text-accent); border:1px solid var(--border);">
+            <animate-icons name="lightbulb" size="20" is-animated="false" aria-hidden="true"></animate-icons>
+          </div>
+          <h3 class="text-base font-semibold" style="color:var(--text-primary);" data-i18n="help_4_title">Від ідеї до запуску</h3>
+          <p class="text-sm mt-2" style="color:var(--text-secondary);" data-i18n="help_4_desc">Флоу, вайрфрейми та прототипи — від чистого аркуша до готового продукту.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROJECTS ===================== -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="max-w-xl mb-12 fade-up">
+        <h2 class="text-3xl font-bold" data-i18n="projects_title">Обрані кейси</h2>
+        <p class="mt-3" style="color:var(--text-secondary);" data-i18n="projects_sub">Шість екосистем, перетворення від ескізних ідей до чітких, високоефективних цифрових інтерфейсів.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <article class="card_s p-7 fade-up" data-icon-host data-aug="tl-clip br-clip border">
+          <a href="https://www.figma.com/proto/Dnijerd9Y2sLNSndi3Zm1E?node-id=4104-253" target="_blank" rel="noopener noreferrer">
+            <div class="img" data-aug="tl-clip br-clip">
+              <picture>
+                <source media="(max-width: 767px)" srcset="../ai-platform-mob.png">
+                <img src="../ai-platform.png" alt="AI-driven mobile UX platform" class="w-full h-full object-cover" loading="lazy">
+              </picture>
+            </div>
+            <span class="tag mt-4" data-i18n="project_1_tag" data-aug="tl-clip br-clip border">ШІ · Мобільні технології</span>
+            <h3 class="text-xl font-semibold mt-4" data-i18n="project_1_title">ШІ-платформа для мобільного UX</h3>
+            <p class="mt-2 text-sm" style="color:var(--text-secondary);" data-i18n="project_1_desc">Створював зрозумілі ШІ-фічі, стандартизував внутрішні бібліотеки асетів і розробляв адаптивні набори компонентів для швидкого продуктового спринту.</p>
+            <div class="flex items-center justify-between mt-6">
+              <span class="font-display font-bold text-lg" style="color:var(--text-primary);" data-i18n="project_1_metric">-24% Time on Task</span>
+            <animate-icons name="arrow-up-right" size="20" class="icon-accent" is-animated="false" aria-hidden="true"></animate-icons>
+              </div>
+          </a>
+        </article>
+
+        <article class="card_s p-7 fade-up" data-icon-host data-aug="tl-clip br-clip border">
+          <a href="https://www.figma.com/proto/aeME9cIeidupiwlBQXGZsl?node-id=58-1645" target="_blank" rel="noopener noreferrer">
+            <div class="img" data-aug="tl-clip br-clip">
+              <picture>
+                <source media="(max-width: 767px)" srcset="../wellness-mob.png">
+                <img src="../wellness.png" alt="Wellness, Mobile App screens" class="w-full h-full object-cover" loading="lazy">
+              </picture>
+            </div>
+            <span class="tag mt-4" data-i18n="project_2_tag" data-aug="tl-clip br-clip border">Створення застосунків за допомогою ШІ</span>
+            <h3 class="text-xl font-semibold mt-4" data-i18n="project_2_title">Перевірка здоров'я</h3>
+            <p class="mt-2 text-sm" style="color:var(--text-secondary);" data-i18n="project_2_desc">Створив інтуїтивно зрозумілий застосунок для відстеження показників здоров’я з безперешкодними сценаріями взаємодії, чіткою візуальною ієрархією та інтерактивним прототипом.</p>
+            <div class="flex items-center justify-between mt-6">
+              <span class="font-display font-bold text-lg" style="color:var(--text-primary);" data-i18n="project_2_metric">Інтерактивний прототип</span>
+            <animate-icons name="arrow-up-right" size="20" class="icon-accent" is-animated="false" aria-hidden="true"></animate-icons>
+              </div>
+          </a>
+        </article>
+
+        <article class="card_s p-7 fade-up" data-icon-host data-aug="tl-clip br-clip border">
+          <a href="https://www.behance.net/gallery/131573945/UXUI-IOs-Food-delivery" target="_blank" rel="noopener noreferrer">
+            <div class="img" data-aug="tl-clip br-clip">
+              <picture>
+                <source media="(max-width: 767px)" srcset="../food-delivery-mob.png">
+                <img src="../food-delivery.png" alt="Food delivery screens" class="w-full h-full object-cover" loading="lazy">
+              </picture>
+            </div>
+            <span class="tag mt-4" data-i18n="project_3_tag" data-aug="tl-clip br-clip border">Харчові технології · iOS</span>
+            <h3 class="text-xl font-semibold mt-4" data-i18n="project_3_title">Процес оформлення замовлення з доставкою їжі</h3>
+            <p class="mt-2 text-sm" style="color:var(--text-secondary);" data-i18n="project_3_desc">Редизайн навігації кошика, оплати й багатосценарного онбордингу, щоб зберегти довіру саме в момент найбільшого ризику відтоку.</p>
+            <div class="flex items-center justify-between mt-6">
+              <span class="font-display font-bold text-lg" style="color:var(--text-primary);" data-i18n="project_3_metric">-16% checkout churn</span>
+            <animate-icons name="arrow-up-right" size="20" class="icon-accent" is-animated="false" aria-hidden="true"></animate-icons>
+              </div>
+          </a>
+        </article>
+
+        <article class="card_s p-7 fade-up" data-icon-host data-aug="tl-clip br-clip border">
+          <a href="https://ship-smile-pro.lovable.app" target="_blank" rel="noopener noreferrer">
+            <div class="img" data-aug="tl-clip br-clip">
+              <picture>
+                <source media="(max-width: 767px)" srcset="../logistics-crm-mob.png">
+                <img src="../logistics-crm.png" alt="Logistics tracking CRM screens" class="w-full h-full object-cover" loading="lazy">
+              </picture>
+            </div>
+            <span class="tag mt-4" data-i18n="project_4_tag" data-aug="tl-clip br-clip border">Корпоративна CRM</span>
+            <h3 class="text-xl font-semibold mt-4" data-i18n="project_4_title">CRM для трекінгу логістики</h3>
+            <p class="mt-2 text-sm" style="color:var(--text-secondary);" data-i18n="project_4_desc">Система з великою щільністю даних: рольові флоу для адмінів і користувачів, інтерактивні таблиці та аналітичні дашборди для щоденної роботи операторів.</p>
+            <div class="flex items-center justify-between mt-6">
+              <span class="font-display font-bold text-lg" style="color:var(--text-primary);" data-i18n="project_4_metric">+34% швидкості обробки</span>
+            <animate-icons name="arrow-up-right" size="20" class="icon-accent" is-animated="false" aria-hidden="true"></animate-icons>
+              </div>
+          </a>
+        </article>
+
+        <article class="card_s p-7 fade-up" data-icon-host data-aug="tl-clip br-clip border">
+          <a href="https://www.behance.net/gallery/157872965/E-Commerce-wine-sales" target="_blank" rel="noopener noreferrer">
+            <div class="img" data-aug="tl-clip br-clip">
+              <picture>
+                <source media="(max-width: 767px)" srcset="../wine-ecommerce-mob.png">
+                <img src="../wine-ecommerce.png" alt="Wine e-commerce screens" class="w-full h-full object-cover" loading="lazy">
+              </picture>
+            </div>
+            <span class="tag mt-4" data-i18n="project_5_tag" data-aug="tl-clip br-clip border">Електронна комерція · CRO</span>
+            <h3 class="text-xl font-semibold mt-4" data-i18n="project_5_title">Ел-комерція платформа для вина</h3>
+            <p class="mt-2 text-sm" style="color:var(--text-secondary);" data-i18n="project_5_desc">Повний веб-дизайн з інтерактивним профілюванням смаку, навігацією каталогом і чекаутом, орієнтованим на конверсію — розроблявся й ітерувався самостійно.</p>
+            <div class="flex items-center justify-between gap-4 mt-6">
+              <div class="flex flex-wrap items-center gap-x-8 gap-y-2">
+              <span class="font-display font-bold text-lg" style="color:var(--text-primary);" data-i18n="project_5_metric_1">-14% покинутих кошиків</span>
+              <span class="font-display font-bold text-lg" style="color:var(--text-primary);" data-i18n="project_5_metric_2"> до 92% задоволеності навігацією</span>
+            </div>
+              <animate-icons name="arrow-up-right" size="20" class="icon-accent" is-animated="false" aria-hidden="true"></animate-icons>
+            </div>
+          </a>
+        </article>
+
+        <article class="card_s p-7 fade-up" data-icon-host data-aug="tl-clip br-clip border">
+          <a href="https://www.behance.net/gallery/186914447/Ukrainian-mythology-in-the-Witcher-games" target="_blank" rel="noopener noreferrer">
+            <div class="img" data-aug="tl-clip br-clip">
+              <picture>
+                <source media="(max-width: 767px)" srcset="../witcher-mythology-mob.png">
+                <img src="../witcher-mythology.png" alt="Witcher mythology, design system screens" class="w-full h-full object-cover" loading="lazy">
+              </picture>
+            </div>
+            <span class="tag mt-4" data-i18n="project_6_tag" data-aug="tl-clip br-clip border">Концепт-дизайн · Ігровий інтерфейс / Культура</span>
+            <h3 class="text-xl font-semibold mt-4" data-i18n="project_6_title">Українська міфологія в іграх серії «Відьмак»</h3>
+            <p class="mt-2 text-sm" style="color:var(--text-secondary);" data-i18n="project_6_desc">Концептуальний проєкт дослідження та візуальної адаптації українського фольклору та демонології у всесвіті фентезі ігор Відьмак.</p>
+            <div class="flex items-center justify-between mt-6">
+              <span class="font-display font-bold text-lg" style="color:var(--text-primary);" data-i18n="project_6_metric">Проєкт системи дизайну M3</span>
+            <animate-icons name="arrow-up-right" size="20" class="icon-accent" is-animated="false" aria-hidden="true"></animate-icons>
+              </div>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SYSTEMS APPROACH ===================== -->
+  <section id="systems">
+    <div class="wrap grid lg:grid-cols-2 gap-12 items-center">
+      <div class="fade-up">
+        <p class="tag mb-5" data-i18n="systems_tag">Підхід</p>
+        <h2 class="text-3xl font-bold max-w-md" data-i18n="systems_title">Системний інженерний підхід до дизайну</h2>
+        <p class="mt-5" style="color:var(--text-secondary);" data-i18n="systems_desc">Диплом із системної інженерії Дніпровського політехнічного університету означає, що я не просто малюю інтерфейси — я мислю обмеженнями, станами та передачами між системами. Цей бекграунд визначає три речі в кожному проєкті:</p>
+      </div>
+      <div class="grid sm:grid-cols-1 gap-4 fade-up">
+        <div class="card p-6 flex gap-4" data-icon-host data-aug="tl-clip br-clip border">
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style="background:var(--bg-canvas); color:var(--text-accent); border:1px solid var(--border);">
+            <animate-icons name="code-xml" size="20" is-animated="false" aria-hidden="true"></animate-icons>
+          </div>
+          <div>
+            <h3 class="text-base font-semibold" style="color:var(--text-primary);" data-i18n="systems_1_title">Безшовна передача розробникам</h3>
+            <p class="text-sm mt-1" style="color:var(--text-secondary);" data-i18n="systems_1_desc">Специфікації та токени дизайну, що напряму лягають на те, що реально будують інженери - менше узгоджень</p>
+          </div>
+        </div>
+        <div class="card p-6 flex gap-4" data-icon-host data-aug="tl-clip br-clip border">
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style="background:var(--bg-canvas); color:var(--text-accent); border:1px solid var(--border);">
+            <animate-icons name="layout-grid" size="20" is-animated="false" aria-hidden="true"></animate-icons>
+          </div>
+          <div>
+            <h3 class="text-base font-semibold" style="color:var(--text-primary);" data-i18n="systems_2_title">Technically feasible tokens</h3>
+            <p class="text-sm mt-1" style="color:var(--text-secondary);" data-i18n="systems_2_desc">Дизайн-рішення одразу звіряються з реальними обмеженнями платформи та продуктивності.</p>
+          </div>
+        </div>
+        <div class="card p-6 flex gap-4" data-icon-host data-aug="tl-clip br-clip border">
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style="background:var(--bg-canvas); color:var(--text-accent); border:1px solid var(--border);">
+            <animate-icons name="user-check" size="20" is-animated="false" aria-hidden="true"></animate-icons>
+          </div>
+          <div>
+            <h3 class="text-base font-semibold" style="color:var(--text-primary);" data-i18n="systems_3_title">WCAG 2.2 за замовчуванням</h3>
+            <p class="text-sm mt-1" style="color:var(--text-secondary);" data-i18n="systems_3_desc">Доступність — це стартова вимога, а не аудит в кінці: колір, контраст і флоу перевіряються одразу в процесі.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EXPERIENCE ===================== -->
+  <section id="experience">
+    <div class="wrap grid lg:grid-cols-[0.9fr_1.1fr] gap-12">
+      <div class="fade-up">
+	  <p class="tag mb-5" data-i18n="experience">Досвід</p>
+        <h2 class="text-3xl font-bold max-w-sm" data-i18n="experience_title">Кар'єрний шлях</h2>
+        <p class="mt-3" style="color:var(--text-secondary);" data-i18n="experience_sub">Шлях від банківського Фінтех до ШІ-продуктових спринтів, з тривалою незалежною практикою паралельно.</p>
+      </div>
+
+      <div class="timeline fade-up">
+        <div class="timeline-item">
+          <p class="font-display text-sm font-semibold" style="color:var(--text-accent);">Черв 2025 – Серп 2025</p>
+          <h3 class="text-lg font-semibold mt-1" style="color:var(--text-primary);" data-i18n="exp_1_role">UI/UX Designer — Glorium Technologies</h3>
+          <p class="text-sm mt-1" style="color:var(--text-secondary);" data-i18n="exp_1_desc">ШІ-продуктовий спринт. Створював зрозумілі ШІ-фічі, стандартизував бібліотеки асетів, розробляв адаптивні набори компонентів.</p>
+        </div>
+        <div class="timeline-item">
+          <p class="font-display text-sm font-semibold" style="color:var(--text-accent);">Квіт 2021 – Квіт 2022</p>
+          <h3 class="text-lg font-semibold mt-1" style="color:var(--text-primary);" data-i18n="exp_2_role">UI/UX дизайнер — NDA Фудтех платформа</h3>
+          <p class="text-sm mt-1" style="color:var(--text-secondary);" data-i18n="exp_2_desc">iOS-застосунок доставки їжі. Редизайн кошика, чекауту та онбордингу; знизив відтік і підняв реєстрації.</p>
+        </div>
+        <div class="timeline-item">
+          <p class="font-display text-sm font-semibold" style="color:var(--text-accent);">Трав 2014 – Сьогодні</p>
+          <h3 class="text-lg font-semibold mt-1" style="color:var(--text-primary);" data-i18n="exp_3_role">Незалежний UI/UX дизайнер</h3>
+          <p class="text-sm mt-1" style="color:var(--text-secondary);" data-i18n="exp_3_desc">Довгострокові проєкти, включно з e-commerce платформою для вина та CRM для логістики й трекінгу посилок.</p>
+        </div>
+        <div class="timeline-item">
+          <p class="font-display text-sm font-semibold" style="color:var(--text-accent);">Січ 2013 – Квіт 2014</p>
+          <h3 class="text-lg font-semibold mt-1" style="color:var(--text-primary);" data-i18n="exp_4_role">UI/UX та веб-дизайнер — ПриватБанк</h3>
+          <p class="text-sm mt-1" style="color:var(--text-secondary);" data-i18n="exp_4_desc">Фінтех інтернет- та мобільний банкінг, B2B/B2C, з фокусом на податкові та інвойсингові процеси для МСБ.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES & PRICING ===================== -->
+  <section id="services">
+    <div class="wrap">
+      <div class="max-w-2xl mb-12 fade-up">
+        <p class="tag mb-5" data-i18n="services_tag">Послуги</p>
+        <h2 class="text-3xl font-bold" data-i18n="services_title">Послуги: обирайте що потрібно — від точкового розбору до повного запуску</h2>
+      </div>
+
+      <div class="space-y-4 fade-up">
+
+        <div class="accordion card overflow-hidden" data-aug="tl-clip br-clip border">
+          <h3 class="m-0">
+            <button class="accordion-trigger w-full flex items-center justify-between gap-4 p-6 text-left" aria-expanded="false" aria-controls="acc-body-1" id="acc-trigger-1">
+              <span class="flex items-center gap-3 min-w-0"><animate-icons name="users" size="20" class="icon-accent" is-animated="false" aria-hidden="true"></animate-icons><span class="font-display font-semibold text-base sm:text-lg" style="color:var(--text-primary);" data-i18n="service_1_title">UX/UI консультація · Для дизайнерів · 999 ₴ (грн.) / 45 хв</span></span>
+              <span class="accordion-icon" style="color:var(--text-accent);"><span class="bar bar-h"></span><span class="bar bar-v"></span></span>
+            </button>
+          </h3>
+          <div class="accordion-body" id="acc-body-1" role="region" aria-labelledby="acc-trigger-1">
+            <p class="px-6 pb-6 text-sm max-w-2xl" style="color:var(--text-secondary);" data-i18n="service_1_desc">Фокусована 50-хвилинна сесія: вирішимо конкретну UX-проблему, прокачаємо портфоліо, підготуємося до співбесіди або розберемо ваш проект.</p>
+          </div>
+          <span class="flex flex-wrap justify-center mb-4">
+            <a href="https://calendly.com/oleksii-sh08/45min?back=1&amp;month=2026-10" target="_blank" rel="noopener" class="btn btn-outline" data-aug="tl-clip br-clip border"><animate-icons name="calendar-check" size="18" is-animated="false" aria-hidden="true"></animate-icons><span data-i18n="btn_book_now">Записатись</span></a>
+          </span>
+        </div>
+		
+		<div class="accordion card overflow-hidden" data-aug="tl-clip br-clip border">
+          <h3 class="m-0">
+            <button class="accordion-trigger w-full flex items-center justify-between gap-4 p-6 text-left" aria-expanded="false" aria-controls="acc-body-3" id="acc-trigger-3">
+              <span class="flex items-center gap-3 min-w-0"><animate-icons name="clipboard-check" size="20" class="icon-accent" is-animated="false" aria-hidden="true"></animate-icons><span class="font-display font-semibold text-base sm:text-lg" style="color:var(--text-primary);" data-i18n="service_3_title">UX-аудит · Для бізнесу · від $199</span></span>
+              <span class="accordion-icon" style="color:var(--text-accent);"><span class="bar bar-h"></span><span class="bar bar-v"></span></span>
+            </button>
+          </h3>
+          <div class="accordion-body" id="acc-body-3" role="region" aria-labelledby="acc-trigger-3">
+            <p class="px-6 pb-6 text-sm max-w-2xl" style="color:var(--text-secondary);" data-i18n="service_3_desc">Практичний аналіз інтерфейсу: знаходимо точки тертя, де губляться клієнти, та даємо чіткий крок-за-кроком план дій.</p>
+          </div>
+          <span class="flex flex-wrap justify-center mb-4">
+            <a href="https://calendly.com/oleksii-sh08/45min?back=1&amp;month=2026-10" target="_blank" rel="noopener" class="btn btn-outline" data-aug="tl-clip br-clip border"><animate-icons name="calendar-check" size="18" is-animated="false" aria-hidden="true"></animate-icons><span data-i18n="btn_book_now">Записатись</span></a>
+          </span>
+        </div>
+
+        <div class="accordion card overflow-hidden" data-aug="tl-clip br-clip border">
+          <h3 class="m-0">
+            <button class="accordion-trigger w-full flex items-center justify-between gap-4 p-6 text-left" aria-expanded="false" aria-controls="acc-body-2" id="acc-trigger-2">
+              <span class="flex items-center gap-3 min-w-0"><animate-icons name="layout-dashboard" size="20" class="icon-accent" is-animated="false" aria-hidden="true"></animate-icons><span class="font-display font-semibold text-base sm:text-lg" style="color:var(--text-primary);" data-i18n="service_2_title">Дизайн сайту · Для бізнесу · від $299</span></span>
+              <span class="accordion-icon" style="color:var(--text-accent);"><span class="bar bar-h"></span><span class="bar bar-v"></span></span>
+            </button>
+          </h3>
+          <div class="accordion-body" id="acc-body-2" role="region" aria-labelledby="acc-trigger-2">
+            <p class="px-6 pb-6 text-sm max-w-2xl" style="color:var(--text-secondary);" data-i18n="service_2_desc">Індивідуальний сайт з нуля: зручна UX-ієрархія, сучасний візуал та адаптивний інтерфейс, повністю готовий до верстки.</p>
+          </div>
+          <span class="flex flex-wrap justify-center mb-4">
+            <a href="https://calendly.com/oleksii-sh08/45min?back=1&amp;month=2026-10" target="_blank" rel="noopener" class="btn btn-outline" data-aug="tl-clip br-clip border"><animate-icons name="calendar-check" size="18" is-animated="false" aria-hidden="true"></animate-icons><span data-i18n="btn_book_now">Записатись</span></a>
+          </span>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS / TOOLS / EDUCATION ===================== -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="max-w-xl mb-12 fade-up">
+        <h2 class="text-3xl font-bold" data-i18n="skills_title">Навички, інструменти та освіта</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="card p-6 fade-up" data-icon-host data-aug="tl-clip br-clip border">
+          <h3 class="text-base font-semibold flex items-center gap-2.5" style="color:var(--text-primary);"><animate-icons name="compass" size="20" class="icon-accent" is-animated="false" aria-hidden="true"></animate-icons><span data-i18n="skills_cat_1">Продукт та UX</span></h3>
+          <ul class="mt-3 space-y-1.5 text-sm" style="color:var(--text-secondary);">
+            <li data-i18n="skills_cat_1_1">Дослідження користувачів та мапи шляху</li>
+            <li data-i18n="skills_cat_1_2">Інформаційна архітектура</li>
+            <li data-i18n="skills_cat_1_3">Юзер-флоу та вайрфрейми</li>
+            <li data-i18n="skills_cat_1_4">Швидке прототипування</li>
+            <li data-i18n="skills_cat_1_5">Оптимізація конверсії</li>
+          </ul>
+        </div>
+        <div class="card p-6 fade-up" data-icon-host data-aug="tl-clip br-clip border">
+          <h3 class="text-base font-semibold flex items-center gap-2.5" style="color:var(--text-primary);"><animate-icons name="layers" size="20" class="icon-accent" is-animated="false" aria-hidden="true"></animate-icons><span data-i18n="skills_cat_2">UI та дизайн-системи</span></h3>
+          <ul class="mt-3 space-y-1.5 text-sm" style="color:var(--text-secondary);">
+            <li data-i18n="skills_cat_2_1">Масштабовані дизайн-системи</li>
+            <li data-i18n="skills_cat_2_2">Бібліотеки компонентів та UI-кіти</li>
+            <li>Рекомендації щодо інтерфейсу користувача в iOS</li>
+            <li>Дизайн матеріалів</li>
+          </ul>
+        </div>
+        <div class="card p-6 fade-up" data-icon-host data-aug="tl-clip br-clip border">
+          <h3 class="text-base font-semibold flex items-center gap-2.5" style="color:var(--text-primary);"><animate-icons name="user-check" size="20" class="icon-accent" is-animated="false" aria-hidden="true"></animate-icons><span data-i18n="skills_cat_3">Доступність</span></h3>
+          <ul class="mt-3 space-y-1.5 text-sm" style="color:var(--text-secondary);">
+            <li data-i18n="skills_cat_3_1">Відповідність WCAG 2.2</li>
+            <li data-i18n="skills_cat_3_2">Інклюзивний дизайн</li>
+            <li data-i18n="skills_cat_3_3">Аудит кольорового контрасту</li>
+            <li data-i18n="skills_cat_3_4">Передача макетів розробникам</li>
+          </ul>
+        </div>
+        <div class="card p-6 fade-up" data-icon-host data-aug="tl-clip br-clip border">
+          <h3 class="text-base font-semibold flex items-center gap-2.5" style="color:var(--text-primary);"><animate-icons name="clapperboard" size="20" class="icon-accent" is-animated="false" aria-hidden="true"></animate-icons><span data-i18n="skills_cat_4">Моушн та візуал</span></h3>
+          <ul class="mt-3 space-y-1.5 text-sm" style="color:var(--text-secondary);">
+            <li>After Effects</li>
+            <li>Adobe Premiere Pro</li>
+            <li>Media Encoder</li>
+            <li>Photoshop</li>
+          </ul>
+        </div>
+        <div class="card p-6 fade-up" data-icon-host data-aug="tl-clip br-clip border">
+          <h3 class="text-base font-semibold flex items-center gap-2.5" style="color:var(--text-primary);"><animate-icons name="graduation-cap" size="20" class="icon-accent" is-animated="false" aria-hidden="true"></animate-icons><span data-i18n="skills_cat_5">Освіта</span></h3>
+          <p class="mt-3 text-sm" style="color:var(--text-secondary);" data-i18n="skills_cat_5_desc">Спеціаліст із системної інженерії — Дніпровський політехнічний університет. Комп'ютерна інженерія, системна архітектура та візуалізація.</p>
+        </div>
+        <div class="card p-6 fade-up" data-icon-host data-aug="tl-clip br-clip border">
+          <h3 class="text-base font-semibold flex items-center gap-2.5" style="color:var(--text-primary);"><animate-icons name="badge-check" size="20" class="icon-accent" is-animated="false" aria-hidden="true"></animate-icons><span data-i18n="skills_cat_6">Сертифікати</span></h3>
+          <ul class="mt-3 space-y-1.5 text-sm" style="color:var(--text-secondary);">
+            <li data-i18n="skills_cat_6_1">Дизайн UI/UX</li>
+            <li data-i18n="skills_cat_6_2">Веб-доступність (WCAG))</li>
+            <li data-i18n="skills_cat_6_3">Графічний дизайн</li>
+          </ul>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-6 mt-10 pt-8 border-t fade-up" style="border-color:var(--border);">
+        <h2 class="w-full text-3xl font-bold mb-2" data-i18n="lang_skills_m">Знання мов</h2>
+
+        <div class="text-sm" style="color:var(--text-secondary);">
+          <strong style="color:var(--text-primary); display:block;" data-i18n="lang_ukrainian">Українська</strong>
+          <span data-i18n="lang_ukrainian_level">Рідна</span>
+        </div>
+
+        <div class="text-sm" style="color:var(--text-secondary);">
+          <strong style="color:var(--text-primary); display:block;" data-i18n="lang_english">Англійська</strong>
+          <span data-i18n="lang_english_level">Вище середнього (B2)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact" class="pb-4">
+    <div class="wrap">
+	<p class="tag mb-5" data-i18n="contacts">Контакти</p>
+      <div class="card card-contrast p-10 sm:p-14 text-center fade-up" data-aug="tl-clip br-clip border">
+        <h2 class="text-3xl sm:text-4xl font-bold" data-i18n="contact_title">Готові вивести ваш тех. продукт на новий рівень?</h2>
+        <p class="mt-4 max-w-md mx-auto" style="color:var(--text-secondary-c);" data-i18n="contact_sub">Допоможу спроектувати та масштабувати вашу Фінтех, ШІ або SaaS екосистему.</p>
+        <div class="flex flex-wrap justify-center gap-3 mt-8">
+          <a href="mailto:oleksii.sh08@gmail.com" class="btn btn-primary" data-aug="tl-clip br-clip border"><animate-icons name="mail-open" size="18" is-animated="false" aria-hidden="true"></animate-icons><span data-i18n="contact_email_btn">Написати email</span></a>
+          <a href="https://calendly.com/oleksii-sh08/45min?back=1&amp;month=2026-10"
+             class="btn"
+             style="border:1px solid var(--border-c); color:var(--text-primary-c);"
+             target="_blank"
+             rel="noopener" data-aug="tl-clip br-clip border"><animate-icons name="calendar-check" size="18" is-animated="false" aria-hidden="true"></animate-icons><span data-i18n="contact_book_time">Забронювати час</span></a>
+        </div>
+      </div>
+      <div class="mt-8 mb-0 fade-up flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full">
+        <a href="https://www.linkedin.com/in/oleksii-shirokov-designer" target="_blank" rel="noopener"
+           class="btn btn-outline text-center justify-center w-full sm:w-auto" data-aug="tl-clip br-clip border"><animate-icons name="linkedin" size="18" is-animated="false" aria-hidden="true"></animate-icons>LinkedIn</a>
+        <a href="https://behance.net/shirokov_alex" target="_blank" rel="noopener"
+           class="btn btn-outline text-center justify-center w-full sm:w-auto" data-aug="tl-clip br-clip border"><animate-icons name="image" size="18" is-animated="false" aria-hidden="true"></animate-icons>Behance</a>
+        <a href="https://vimeo.com/shirokovalex" target="_blank" rel="noopener"
+           class="btn btn-outline text-center justify-center w-full sm:w-auto" data-aug="tl-clip br-clip border"><animate-icons name="video" size="18" is-animated="false" aria-hidden="true"></animate-icons>Vimeo</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="border-t" style="border-color:var(--border);">
+  <div class="wrap py-8 flex flex-wrap items-center justify-between gap-4 text-sm" style="color:var(--text-secondary);">
+    <span data-i18n="footer_copyright">© 2026 Олексій Широков · Львів, Україна / Віддалено</span>
+  </div>
+</footer>
+
+<!-- Telegram bot: постійно плаваюча кнопка над «Вгору» -->
+<div class="tg-fab">
+  <a class="tg-fab__btn" data-aug="tl-clip br-clip border" href="https://t.me/OleksiiShirokovBot" target="_blank" rel="noopener noreferrer" data-i18n-aria="tg_aria" aria-label="Open the Telegram chat bot">
+    <animate-icons name="send" size="20" is-animated="false" aria-hidden="true"></animate-icons>
+  </a>
+</div>
+
+<!-- FIX: кнопка стоїть ПЕРЕД скриптом, тому getElementById знаходить її -->
+<button id="backToTop" class="btn-to-top" aria-label="На початок сторінки" data-i18n-aria="back_to_top"  data-aug="tl-clip br-clip border"><animate-icons name="arrow-up" size="22" is-animated="false" aria-hidden="true"></animate-icons></button>
+
+<script>
+  // ===================== I18N DICTIONARY =====================
+  var I18N = {
+  ua: {
+      meta_title: "Олексій Широков — Senior UI/UX & Product дизайнер",
+      f_name_s_name: "Олексій Широков",
+      status_available: "Готовий до роботи",
+      nav_projects: "Проєкти", nav_impact: "Результати", nav_systems: "Підхід",
+      nav_experience: "Досвід", nav_services: "Послуги", nav_contact: "Контакти", nav_cta: "Зв'язатися",
+      theme_classic: "Класична", theme_cyberpunk: "Кібер", theme_golden: "Золота",
+
+      hero_tag: "Понад 7 років досвіду в UI/UX",
+      hero_headline: "Я створюю зручні та ефективні інтерфейси",
+      hero_sub: "Проєктую естетичні, доступні та зрозумілі веб-сайти й мобільні додатки. 7+ років у UI/UX та інженерний досвід.",
+      photo_badge: "Готовий до проєктів",
+      btn_download_cv: "Завантажити CV", btn_explore: "Переглянути проєкти",
+      btn_book_now: "Записатись",
+      highlights_label: "ГОЛОВНЕ",
+      highlight_1: "Фінтех екосистеми: банкінг ПриватБанку, податкові та інвойсингові процеси для МСБ.",
+      highlight_2: "ШІ-орієнтований мобільний UX з адаптивними компонентами та зниженням ToT на 24%.",
+      highlight_3: "Відповідність WCAG 2.2 AA закладена в кожну дизайн-систему, яку я випускаю.",
+      location_line: "Львів, Україна · Віддалено по всьому світу",
+
+      metrics_title: "Метрики",
+      impact_1: "Час на задачу, ШІ мобільний UX (Glorium Tech)",
+      impact_2: "Відтік на чекауті, iOS Фудтех платформа",
+      impact_3: "Швидкість обробки, редизайн логістичної CRM",
+      impact_4: "Продуктовий UX, 10+ років у дизайн-індустрії загалом",
+      impact_4_unit: "років",
+
+      help_title: "З чим я можу допомогти",
+      help_1_title: "Запуск сайтів", help_1_desc: "Лендінги та сайти — від логічної структури до готового UI, оформленого для верстки.",
+      help_2_title: "Прокачка продукту", help_2_desc: "Покращення інтерфейсів на основі реальних дій користувачів і бізнес-цілей.",
+      help_3_title: "Пошук UX-проблем", help_3_desc: "Швидкі аудити, які виявляють слабкі місця та конверсійні діри ще до втрати клієнтів.",
+      help_4_title: "Від ідеї до запуску", help_4_desc: "Флоу, вайрфрейми та прототипи — від чистого аркуша до готового продукту.",
+
+      projects_title: "Обрані кейси",
+      projects_sub: "Шість екосистем, перетворення від ескізних ідей до чітких, високоефективних цифрових інтерфейсів.",
+      
+	  project_1_tag: "ШІ · Мобільні технології",
+	  project_1_title: "ШІ-платформа для мобільного UX",
+      project_1_desc: "Створював зрозумілі ШІ-фічі, стандартизував внутрішні бібліотеки асетів і розробляв адаптивні набори компонентів для швидкого продуктового спринту.",
+      project_1_metric: "-24% часу на задачу",
+	  
+	  project_2_tag: "Створення застосунків за допомогою ШІ",
+      project_2_title: "Перевірка здоров'я",
+      project_2_desc: "Створив інтуїтивно зрозумілий застосунок для відстеження показників здоров’я з безперешкодними сценаріями взаємодії, чіткою візуальною ієрархією та інтерактивним прототипом.",
+      project_2_metric: "Інтерактивний прототип",
+	  
+	  project_3_tag: "Харчові технології · iOS",
+      project_3_title: "Процес оформлення замовлення з доставкою їжі",
+      project_3_desc: "Редизайн навігації кошика, оплати й багатосценарного онбордингу, щоб зберегти довіру саме в момент найбільшого ризику відтоку.",
+      project_3_metric: "-16% відтоку на чекауті",
+	  
+      project_4_tag: "Корпоративна CRM",
+      project_4_title: "CRM для трекінгу логістики",
+      project_4_desc: "Система з великою щільністю даних: рольові флоу для адмінів і користувачів, інтерактивні таблиці та аналітичні дашборди для щоденної роботи операторів.",
+      project_4_metric: "+34% швидкості обробки",
+	  
+	  project_5_tag: "Електронна комерція · CRO",
+      project_5_title: "Ел-комерція платформа для вина",
+      project_5_desc: "Повний веб-дизайн з інтерактивним профілюванням смаку, навігацією каталогом і чекаутом, орієнтованим на конверсію — розроблявся й ітерувався самостійно.",
+      project_5_metric_1: "-14% покинутих кошиків", project_5_metric_2: "92% задоволеності навігацією",
+	  
+	  project_6_tag: "Концепт-дизайн · Ігровий інтерфейс / Культура",
+      project_6_title: "Українська міфологія в іграх серії «Відьмак»",
+      project_6_desc: "Концептуальний проєкт дослідження та візуальної адаптації українського фольклору та демонології у всесвіті фентезі ігор Відьмак.",
+      project_6_metric: "Проєкт системи дизайну M3",
+	
+      systems_tag: "Підхід",
+      systems_title: "Системний інженерний підхід до дизайну",
+      systems_desc: "Диплом із системної інженерії Дніпровського політехнічного університету означає, що я не просто малюю інтерфейси — я мислю обмеженнями, станами та передачами між системами. Цей бекграунд визначає три речі в кожному проєкті:",
+      systems_1_title: "Безшовна передача розробникам", systems_1_desc: "Специфікації та токени дизайну, що напряму лягають на те, що реально будують інженери — менше узгоджень туди-сюди.",
+      systems_2_title: "Технічно реалістичні токени", systems_2_desc: "Дизайн-рішення одразу звіряються з реальними обмеженнями платформи та продуктивності.",
+      systems_3_title: "WCAG 2.2 за замовчуванням", systems_3_desc: "Доступність — це стартова вимога, а не аудит в кінці: колір, контраст і флоу перевіряються одразу в процесі.",
+	  
+	  experience: "Досвід",
+      experience_title: "Кар'єрний шлях",
+      experience_sub: "Шлях від банківського Фінтех до ШІ-продуктових спринтів, з тривалою незалежною практикою паралельно.",
+      exp_1_role: "UI/UX дизайнер — Glorium Technologies",
+      exp_1_desc: "ШІ-продуктовий спринт. Створював зрозумілі ШІ-фічі, стандартизував бібліотеки асетів, розробляв адаптивні набори компонентів.",
+      exp_2_role: "UI/UX дизайнер — NDA Фудтех платформа",
+      exp_2_desc: "iOS-застосунок доставки їжі. Редизайн кошика, чекауту та онбордингу; знизив відтік і підняв реєстрації.",
+      exp_3_role: "Незалежний UI/UX дизайнер",
+      exp_3_desc: "Довгострокові проєкти, включно з e-commerce платформою для вина та CRM для логістики й трекінгу посилок.",
+      exp_4_role: "UI/UX та веб-дизайнер — ПриватБанк",
+      exp_4_desc: "Фінтех інтернет- та мобільний банкінг, B2B/B2C, з фокусом на податкові та інвойсингові процеси для МСБ.",
+
+      services_tag: "Послуги",
+      services_title: "Послуги: обирайте що потрібно — від точкового розбору до повного запуску.",
+      service_1_title: "UX/UI консультація · Для дизайнерів · 999 ₴ (грн.) / 45 хв",
+      service_1_desc: "Фокусована 50-хвилинна сесія: вирішимо конкретну UX-проблему, прокачаємо портфоліо, підготуємося до співбесіди або розберемо ваш проект.",
+      service_2_title: "Дизайн сайту · Для бізнесу · від $299",
+      service_2_desc: "Індивідуальний сайт з нуля: зручна UX-ієрархія, сучасний візуал та адаптивний інтерфейс, повністю готовий до верстки.",
+      service_3_title: "UX-аудит · Для бізнесу · від $199",
+      service_3_desc: "Практичний аналіз інтерфейсу: знаходимо точки тертя, де губляться клієнти, та даємо чіткий крок-за-кроком план дій.",
+
+      skills_title: "Навички, інструменти та освіта",
+      skills_cat_1: "Продукт та UX",
+      skills_cat_1_1: "Дослідження користувачів та мапи шляху", skills_cat_1_2: "Інформаційна архітектура",
+      skills_cat_1_3: "Юзер-флоу та вайрфрейми", skills_cat_1_4: "Швидке прототипування", skills_cat_1_5: "Оптимізація конверсії",
+      skills_cat_2: "UI та дизайн-системи",
+      skills_cat_2_1: "Масштабовані дизайн-системи", skills_cat_2_2: "Бібліотеки компонентів та UI-кіти",
+      skills_cat_3: "Доступність",
+      skills_cat_3_1: "Відповідність WCAG 2.2", skills_cat_3_2: "Інклюзивний дизайн",
+      skills_cat_3_3: "Аудит кольорового контрасту", skills_cat_3_4: "Передача макетів розробникам",
+      skills_cat_4: "Моушн та візуал",
+      skills_cat_5: "Освіта",
+      skills_cat_5_desc: "Спеціаліст із системної інженерії — Дніпровський політехнічний університет. Комп'ютерна інженерія, системна архітектура та візуалізація.",
+      skills_cat_6: "Сертифікати",
+      skills_cat_6_1: "Дизайн UI/UX", skills_cat_6_2: "Веб-доступність (WCAG)", skills_cat_6_3: "Графічний дизайн",
+      lang_skills_m: "Знання мов",
+      lang_ukrainian: "Українська", lang_ukrainian_level: "Рідна",
+      lang_english: "Англійська", lang_english_level: "Вище середнього (B2)",
+	  
+	  contacts: "Контакти",
+      contact_title: "Готові вивести ваш тех. продукт на новий рівень?",
+      contact_sub: "Допоможу спроектувати та масштабувати вашу Фінтех, ШІ або SaaS екосистему.",
+      contact_email_btn: "Написати email",
+      contact_book_time: "Забронювати час",
+      tg_label: "Чат-бот",
+      tg_aria: "Відкрити чат-бот у Telegram",
+      menu_aria: "Відкрити меню", back_to_top: "На початок сторінки",
+      footer_copyright: "© 2026 Олексій Широков · Львів, Україна / Віддалено"
+    },
+  };
+  
+  // ===================== LANGUAGE SWITCHER =====================
+  var currentLang = 'ua';
+  function applyLang(lang){
+    currentLang = lang;
+    var dict = I18N[lang];
+    document.documentElement.setAttribute('lang', lang === 'ua' ? 'uk' : 'en');
+    document.documentElement.setAttribute('data-lang', lang);
+    document.getElementById('page-title').textContent = dict.meta_title;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) { el.textContent = dict[key]; }
+    });
+    // FIX: переклад aria-label (кнопка «Вгору» тощо)
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+      var key = el.getAttribute('data-i18n-aria');
+      if (dict[key] !== undefined) { el.setAttribute('aria-label', dict[key]); }
+    });
+    // FIX: підпис активної теми теж змінює мову
+    var activeTheme = document.documentElement.getAttribute('data-theme');
+    document.getElementById('theme-label').textContent = dict['theme_' + activeTheme] || activeTheme;
+
+    document.getElementById('lang-en').setAttribute('aria-pressed', lang === 'en' ? 'true' : 'false');
+    document.getElementById('lang-ua').setAttribute('aria-pressed', lang === 'ua' ? 'true' : 'false');
+  }
+
+  // ===================== THEME SWITCHER =====================
+  (function(){
+    var root = document.documentElement;
+    var themeBtn = document.getElementById('theme-btn');
+    var themeMenu = document.getElementById('theme-menu');
+    var themeLabel = document.getElementById('theme-label');
+
+    // augmented-ui вмикаємо лише в Cyberpunk: data-aug -> data-augmented-ui
+    function syncAug(name){
+      document.querySelectorAll('[data-aug]').forEach(function(el){
+        if (name === 'cyberpunk') { el.setAttribute('data-augmented-ui', el.getAttribute('data-aug')); }
+        else { el.removeAttribute('data-augmented-ui'); }
+      });
+    }
+
+    function setTheme(name){
+      root.setAttribute('data-theme', name);
+      syncAug(name);
+      var dict = I18N[currentLang];
+      themeLabel.textContent = dict['theme_' + name] || name;
+      themeMenu.classList.remove('open');
+      themeBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    themeBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isOpen = themeMenu.classList.toggle('open');
+      themeBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    document.querySelectorAll('.theme-option').forEach(function(opt){
+      opt.addEventListener('click', function(){ setTheme(opt.getAttribute('data-theme-choice')); });
+    });
+
+    document.addEventListener('click', function(e){
+      if (!themeMenu.contains(e.target) && e.target !== themeBtn) {
+        themeMenu.classList.remove('open');
+        themeBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    window.__setTheme = setTheme;
+    setTheme('classic');
+  })();
+
+  applyLang('ua');
+
+  // ===================== MOBILE MENU =====================
+  (function(){
+    var burger = document.getElementById('burger-btn');
+    var menu = document.getElementById('mobile-menu');
+    burger.addEventListener('click', function(){
+      var isHidden = menu.classList.toggle('hidden');
+      menu.classList.toggle('flex', !isHidden);
+      burger.setAttribute('aria-expanded', isHidden ? 'false' : 'true');
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        menu.classList.add('hidden');
+        menu.classList.remove('flex');
+        burger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+
+  // ===================== ACCORDION (Services) =====================
+  (function(){
+    document.querySelectorAll('.accordion-trigger').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var acc = btn.closest('.accordion');
+        var isOpen = acc.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    });
+  })();
+
+  // ===================== SCROLL REVEAL =====================
+  (function(){
+    var items = document.querySelectorAll('.fade-up');
+    if (!('IntersectionObserver' in window)) {
+      items.forEach(function(el){ el.classList.add('visible'); });
+      return;
+    }
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    items.forEach(function(el){ observer.observe(el); });
+  })();
+
+  // ===================== BACK TO TOP =====================
+  (function(){
+    var backToTopBtn = document.getElementById('backToTop');
+    if (!backToTopBtn) return;
+    window.addEventListener('scroll', function(){
+      backToTopBtn.classList.toggle('show', window.scrollY > 400);
+    });
+    backToTopBtn.addEventListener('click', function(){
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+
+  // ===================== ANIMATED ICONS (animateicons.in) =====================
+  // <animate-icons is-animated="false"> керуються звідси: іконка грає при наведенні,
+  // клавіатурному фокусі та кліку на ВСЮ область кнопки (або картки з data-icon-host).
+  // Reduce Motion враховується самою бібліотекою.
+  (function(){
+    var HOSTS = '.btn, .accordion-trigger, .btn-to-top, .tg-fab__btn, [data-icon-host]';
+    function run(host, method){
+      host.querySelectorAll('animate-icons').forEach(function(icon){
+        if (typeof icon[method] === 'function') { icon[method](); }
+      });
+    }
+    document.querySelectorAll(HOSTS).forEach(function(host){
+      if (!host.querySelector('animate-icons')) return;
+      host.addEventListener('pointerenter', function(){ run(host, 'startAnimation'); });
+      host.addEventListener('pointerleave', function(){ run(host, 'stopAnimation'); });
+      host.addEventListener('click',        function(){ run(host, 'startAnimation'); });
+      host.addEventListener('focusin', function(e){
+        try { if (e.target.matches(':focus-visible')) { run(host, 'startAnimation'); } } catch (err) {}
+      });
+      host.addEventListener('focusout', function(){ run(host, 'stopAnimation'); });
+    });
+  })();
+</script>
+
+</body>
+</html>
