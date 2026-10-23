@@ -432,8 +432,7 @@ display: block; position: absolute; width: 14px; height: 14px; z-index: 3; borde
 display: block; position: absolute; bottom: -24px; left: 1px; white-space: nowrap;
 font-family: 'JetBrains Mono', monospace; font-size: .64rem; letter-spacing: .04em; color: #00F0FF;
 }
-/* Відступ, щоб підпис [SUBJECT_ID] не накладався на бейдж */
-[data-theme="cyberpunk"] .photo-badge-row { margin-top: 18px; }
+
 /* Golden */
 [data-theme="golden"] .photo-card {
 border-radius: 24px; padding: 0;
