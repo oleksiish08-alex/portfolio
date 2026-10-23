@@ -274,9 +274,7 @@ h1, h2, h3, .font-display {
 [data-theme="cyberpunk"] .card-contrast { --aug-border-bg: var(--border-c); }
 [data-theme="cyberpunk"] .card_s:hover  { 
   --aug-border-bg: var(--brand);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  background: var(--bg-surface-hover);}
+}
 [data-theme="cyberpunk"] .card_s.fade-up.visible:hover { --aug-border-bg: var(--brand); }
 
 /* Кнопки та теги: менший зріз */
