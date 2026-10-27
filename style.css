@@ -275,7 +275,11 @@ h1, h2, h3, .font-display {
 [data-theme="cyberpunk"] .card_s:hover  { 
   --aug-border-bg: var(--brand);
 }
-[data-theme="cyberpunk"] .card_s.fade-up.visible:hover { --aug-border-bg: var(--brand); }
+[data-theme="cyberpunk"] .card_s.fade-up.visible:hover {
+  background: var(--brand-hover);
+  --aug-border-bg: var(--brand);
+  --tg-glow: var (--brand);
+  }
 
 /* Кнопки та теги: менший зріз */
 [data-theme="cyberpunk"] .btn[data-augmented-ui],
@@ -409,7 +413,7 @@ box-shadow: var(--shadow);
 padding: 2px;
 background: #050507;
 --aug-tl: 18px; --aug-br: 18px;
---aug-border-all: 2px; --aug-border-bg: #00F0FF;
+--aug-border-all: 2px; --aug-border-bg: var (--brand-hover); /*I change color in code-x */
 }
 /* Внутрішній зріз фото з вендорними префіксами для стабільної підтримки Safari */
 [data-theme="cyberpunk"] .photo-img {
@@ -432,7 +436,7 @@ display: block; position: absolute; width: 14px; height: 14px; z-index: 3; borde
 .hud-caption { display: none; }
 [data-theme="cyberpunk"] .hud-caption {
 display: block; position: absolute; bottom: -24px; left: 1px; white-space: nowrap;
-font-family: 'JetBrains Mono', monospace; font-size: .64rem; letter-spacing: .04em; color: #00F0FF;
+font-family: 'JetBrains Mono', monospace; font-size: .64rem; letter-spacing: .04em; color: var (--brand-hover); /*I change color in code-x */
 }
 
 /* Golden */
@@ -462,7 +466,7 @@ background: linear-gradient(155deg, rgba(255,255,255,.18), rgba(255,255,255,0) 4
 --btn-hover-text: #1a1408;
 }
 [data-theme="cyberpunk"], .cyberpunk {
---btn-hover-bg: #00F0FF;
+--btn-hover-bg: var (--brand-hover); /*I change color in code-x */
 --btn-hover-text: #000000;
 }
 .btn-theme-target {
@@ -592,14 +596,16 @@ background: linear-gradient(135deg, #FACC15, #B45309);
 border: 1px solid rgba(255,255,255,.15);
 }
 [data-theme="golden"] .tg-fab__btn:hover { background: linear-gradient(135deg, #FDE047, #CA8A04); }
-[data-theme="cyberpunk"] .tg-fab { --tg-glow: #00F0FF; }
+[data-theme="cyberpunk"] .tg-fab { --tg-glow: var (--brand-hover); /*I change color in code-x */ }
 [data-theme="cyberpunk"] .tg-fab__btn {
 border-radius: 0 !important;
-background: var(--bg-contrast); color: #00F0FF;
+background: var(--bg-contrast); color: var (--brand-hover); /*I change color in code-x */
 --aug-tl: 10px; --aug-br: 10px;
---aug-border-all: 2px; --aug-border-bg: #00F0FF;
+--aug-border-all: 2px; --aug-border-bg: var (--brand-hover); /*I change color in code-x */
 }
-[data-theme="cyberpunk"] .tg-fab__btn:hover { background: #00F0FF; color: #050507; --aug-border-bg: var(--brand); }
+[data-theme="cyberpunk"] .tg-fab__btn:hover {
+  background: var (--brand-hover); /*I change color in code-x */ 
+  --aug-border-bg: var(--brand); }
 @media (prefers-reduced-motion: reduce) { .tg-fab { animation: none; } }
 /* ==========================================
 АНІМОВАНІ ІКОНКИ (animateicons.in)
