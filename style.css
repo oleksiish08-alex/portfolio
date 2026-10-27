@@ -598,8 +598,8 @@ border: 1px solid rgba(255,255,255,.15);}
 [data-theme="cyberpunk"] .tg-fab { --tg-glow: var(--brand); }
 [data-theme="cyberpunk"] .tg-fab__btn {
 border-radius: 0 !important;
-color: var(--brand-hover); /*I change color in code-x */
---aug-tl: 10px; --aug-br: 10px; --aug-border-all: 2px; --aug-border-bg: var(--brand-hover); /*I change color in code-x */
+color: var(--brand-text); /*I change color in code-x */
+--aug-tl: 10px; --aug-br: 10px; --aug-border-all: 2px;
 }
 [data-theme="cyberpunk"] .tg-fab__btn:hover {
   background: var(--brand-hover); /*I change color in code-x */ 
