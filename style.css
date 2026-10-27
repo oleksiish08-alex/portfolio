@@ -413,7 +413,7 @@ box-shadow: var(--shadow);
 padding: 2px;
 background: #050507;
 --aug-tl: 18px; --aug-br: 18px;
---aug-border-all: 2px; --aug-border-bg: var (--brand-hover); /*I change color in code-x */
+--aug-border-all: 2px; --aug-border-bg: var(--brand-hover); /*I change color in code-x */
 }
 /* Внутрішній зріз фото з вендорними префіксами для стабільної підтримки Safari */
 [data-theme="cyberpunk"] .photo-img {
@@ -436,7 +436,7 @@ display: block; position: absolute; width: 14px; height: 14px; z-index: 3; borde
 .hud-caption { display: none; }
 [data-theme="cyberpunk"] .hud-caption {
 display: block; position: absolute; bottom: -24px; left: 1px; white-space: nowrap;
-font-family: 'JetBrains Mono', monospace; font-size: .64rem; letter-spacing: .04em; color: var (--brand-hover); /*I change color in code-x */
+font-family: 'JetBrains Mono', monospace; font-size: .64rem; letter-spacing: .04em; color: var(--brand-hover); /*I change color in code-x */
 }
 
 /* Golden */
@@ -466,7 +466,7 @@ background: linear-gradient(155deg, rgba(255,255,255,.18), rgba(255,255,255,0) 4
 --btn-hover-text: #1a1408;
 }
 [data-theme="cyberpunk"], .cyberpunk {
---btn-hover-bg: var (--brand-hover); /*I change color in code-x */
+--btn-hover-bg: var(--brand-hover); /*I change color in code-x */
 --btn-hover-text: #000000;
 }
 .btn-theme-target {
@@ -523,7 +523,6 @@ border-radius: var(--radius-card);
 }
 [data-theme="cyberpunk"] .btn-to-top {
 border-radius: 0 !important;
-font-family: var(--font-display);
 --aug-tl: 9px; --aug-br: 9px;
 --aug-border-all: 2px; --aug-border-bg: var(--brand-hover);
 }
@@ -596,17 +595,15 @@ background: linear-gradient(135deg, #FACC15, #B45309);
 border: 1px solid rgba(255,255,255,.15);}
 [data-theme="golden"] .tg-fab__btn:hover { background: linear-gradient(135deg, #FDE047, #CA8A04); }
 
-[data-theme="cyberpunk"] .tg-fab { }
+[data-theme="cyberpunk"] .tg-fab { --tg-glow: var(--brand); }
 [data-theme="cyberpunk"] .tg-fab__btn {
 border-radius: 0 !important;
 background: var(--bg-contrast); 
-color: var (--brand-hover); /*I change color in code-x */
---aug-tl: 10px; --aug-br: 10px;
---aug-border-all: 2px; 
---aug-border-bg: var (--brand-hover); /*I change color in code-x */
+color: var(--brand-hover); /*I change color in code-x */
+--aug-tl: 10px; --aug-br: 10px; --aug-border-all: 2px; --aug-border-bg: var(--brand-hover); /*I change color in code-x */
 }
 [data-theme="cyberpunk"] .tg-fab__btn:hover {
-  background: var (--brand-hover); /*I change color in code-x */ 
+  background: var(--brand-hover); /*I change color in code-x */ 
   --aug-border-bg: var(--brand); }
 @media (prefers-reduced-motion: reduce) { .tg-fab { animation: none; } }
 /* ==========================================
