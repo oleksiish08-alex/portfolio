@@ -128,7 +128,7 @@ html {
    clip-path (augmented-ui) обрізає зовнішні тіні, тому світіння — внутрішнє */
 
 [data-theme="cyberpunk"] .card_s[data-augmented-ui]:hover {
-  background: var(--bg-surface);
+  background: var(--bg-contrast);
   --aug-border-bg: var(--brand);
   --glow: var(--brand);
   box-shadow: inset 0 0 22px color-mix(in srgb, var(--glow) 45%, transparent) !important;
