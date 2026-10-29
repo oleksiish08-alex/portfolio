@@ -57,7 +57,6 @@ html {
 
   --shadow: 0 1px 2px rgba(28, 40, 35, .05), 0 8px 24px rgba(28, 40, 35, .04);
   --box-shadow: 0 8px 20px -4px rgba(28, 40, 35, 0.3), 0 6px 12px -6px rgba(28, 40, 35, 0.3);
-
   --font-display: 'Plus Jakarta Sans', sans-serif;
 }
 
@@ -74,7 +73,6 @@ html {
   --text-accent: #00F0FF;
 
   --text-nav-up-m: #e9d605;
-
   --text-primary-c: #EAF6F8;
   --text-secondary-c: #8FA3AC;
   --text-accent-c: #FCEE09;
@@ -90,6 +88,7 @@ html {
   --shadow: 0 0 0 1px rgba(0, 240, 255, .08), 0 0 24px rgba(0, 240, 255, .05);
   --box-shadow: 0 0 22px rgba(0, 240, 255, .25);
   --font-display: 'JetBrains Mono', monospace;
+  --radius-img: 0; /* без заокруглень на зображеннях карток */
 }
 
 /* ============ CYBERPUNK: augmented-ui ============ */
@@ -117,7 +116,6 @@ html {
 [data-theme="cyberpunk"] .card-contrast[data-augmented-ui] { 
 --aug-border-bg: var(--border-c); }
 
-
 /* Специфічний фікс для карток з augmented-ui у кіберпанк темі */
 [data-theme="cyberpunk"] .card[data-augmented-ui],
 [data-theme="cyberpunk"] .card_s[data-augmented-ui] {
@@ -125,14 +123,32 @@ html {
   background: var(--bg-surface);
   box-shadow: none !important;
 }
-[data-theme="cyberpunk"] .card_s img[data-augmented-ui] {
-  border: 0 !important;
-}
 
-[data-theme="cyberpunk"] .card_s[data-augmented-ui]:hover  { 
+/* Cyber glow для карток із зображенням.
+   clip-path (augmented-ui) обрізає зовнішні тіні, тому світіння — внутрішнє */
+
+[data-theme="cyberpunk"] .card_s[data-augmented-ui]:hover {
   background: var(--bg-surface);
   --aug-border-bg: var(--brand);
   --glow: var(--brand);
+  box-shadow: inset 0 0 22px color-mix(in srgb, var(--glow) 45%, transparent) !important;
+}
+/* Hover: світіння навколо зображення + легке підсвічування */
+[data-theme="cyberpunk"] .card_s picture {
+  transition: filter .25s ease;
+}
+[data-theme="cyberpunk"] .card_s:hover picture {
+  filter: drop-shadow(0 0 8px color-mix(in srgb, var(--brand) 55%, transparent));
+}
+[data-theme="cyberpunk"] .card_s:hover img {
+  filter: brightness(1.08) saturate(1.1);
+}
+/* Зображення в картках — без рамки та заокруглень */
+[data-theme="cyberpunk"] .card_s img,
+[data-theme="cyberpunk"] .card_s .img,
+[data-theme="cyberpunk"] .card_s picture {
+  border: 0 !important;
+  border-radius: 0 !important;
 }
 
 /* ============ GOLDEN THEME ============ */
@@ -148,7 +164,6 @@ html {
   --text-accent: #FDE047;
 
   --text-nav-up-m: #ca8a04;
-
   --text-primary-c: #F5EFDD;
   --text-secondary-c: #B3A98F;
   --text-accent-c: #EAB308;
@@ -215,20 +230,13 @@ h1, h2, h3, .font-display {
   background-size: auto, 44px 44px, 44px 44px;
 }
 
-.card {
+.card, .card_s {
   background: var(--bg-surface);
   border: 1px solid var(--text-secondary-c);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow);
 }
-
-.card_s {
-  background: var(--bg-surface);
-  border: 1px solid var(--text-secondary-c);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow);
-  overflow: visible;
-}
+.card_s { overflow: visible; }
 
 .card_s:hover {
   transform: translateY(-4px);
@@ -249,7 +257,6 @@ h1, h2, h3, .font-display {
 .card_s img {
   width: 100%;
   aspect-ratio: 16 / 10;
-  overflow: hidden;
   background-color: var(--bg-surface-hover);
   border-radius: var(--radius-img);
 }
