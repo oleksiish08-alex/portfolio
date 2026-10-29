@@ -20,6 +20,14 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://unpkg.com" crossorigin>
 
+<script>
+  (function () {
+    var t = 'classic';
+    try { t = localStorage.getItem('theme') || t; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+	
   <!-- Локальні стилі, CSS-шрифти -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://unpkg.com/augmented-ui@2/augmented-ui.min.css">
