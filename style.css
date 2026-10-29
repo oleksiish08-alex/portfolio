@@ -181,7 +181,7 @@ h1, h2, h3, .font-display {
 }
 
 .card {
-  background: var(--bg-surface);
+  background: var(--bg-contrast);
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow);
