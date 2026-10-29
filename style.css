@@ -278,7 +278,7 @@ h1, h2, h3, .font-display {
 --aug-border-bg: var(--border-c); }
 
 [data-theme="cyberpunk"] .card_s:hover  { 
-  background: var(--brand-hover);
+  background: var(--bg-surface);
   --aug-border-bg: var(--brand);
   --glow: var(--brand);
 }
