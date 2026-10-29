@@ -95,7 +95,7 @@ html {
 /* Специфічний фікс для карток з augmented-ui у кіберпанк темі */
 [data-theme="cyberpunk"] .card[data-augmented-ui],
 [data-theme="cyberpunk"] .card_s[data-augmented-ui] {
-  background: var(--bg-surface) !important;
+  background: var(--bg-surface);
   box-shadow: none !important; /* Нативні тіні ламають clip-path */
 }
 
@@ -181,7 +181,7 @@ h1, h2, h3, .font-display {
 }
 
 .card {
-  background: var(--bg-contrast);
+  background: var(--bg-canvas);
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow);
@@ -240,7 +240,7 @@ h1, h2, h3, .font-display {
 [data-theme="cyberpunk"] .card_s img {
   border-radius: 0 !important;
 }
-==
+/* -==- */
 
 .card-contrast {
   background: var(--bg-contrast);
@@ -280,7 +280,6 @@ h1, h2, h3, .font-display {
   background: var(--brand-hover);
   --aug-border-bg: var(--brand);
   box-shadow: var(--brand);
-  
 }
 
 /* Кнопки та теги: менший зріз */
