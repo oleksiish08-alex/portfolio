@@ -179,7 +179,7 @@ h1, h2, h3, .font-display {
   inset: 0;
   pointer-events: none;
   z-index: -1;
-  background: var(--bg-contrast);
+  background: var(--bg-canvas);
 }
 
 /* ==========================================
@@ -366,7 +366,9 @@ section { padding: 88px 0; position: relative; z-index: 1; }
 [data-theme="cyber"] .btn-outline[data-augmented-ui] { --aug-border-bg: var(--brand); }
 [data-theme="cyber"] .btn-outline[data-augmented-ui]:hover { --aug-border-bg: var(--brand-hover); }
 
-[data-theme="cyber"] .card-contrast[data-augmented-ui] { --aug-border-bg: var(--border-c); }
+[data-theme="cyber"] .card-contrast[data-augmented-ui] 
+{ --aug-border-bg: var(--border-c);
+background: var(--bg-surface);}
 
 /* clip-path (augmented-ui) обрізає зовнішні тіні — вимикаємо їх на картках,
    а світіння при hover робимо внутрішнім */
