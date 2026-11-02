@@ -568,7 +568,7 @@ section { padding: 88px 0; position: relative; z-index: 1; }
   --aug-tl: 18px;
   --aug-br: 18px;
   --aug-border-all: 2px;
-  --aug-border-bg: var(--brand-hover);
+  --aug-border-bg: var(--bg-surface);
 }
 [data-theme="cyber"] .photo-img { clip-path: var(--photo-clip); }
 
