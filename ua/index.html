@@ -74,7 +74,7 @@
         </button>
         <div class="theme-menu" id="theme-menu">
           <button class="theme-option" data-theme-choice="classic"><span class="theme-swatch" style="background:#16A34A;"></span><span data-i18n="theme_classic">Класична</span></button>
-          <button class="theme-option" data-theme-choice="cyberpunk"><span class="theme-swatch" style="background:#00F0FF;"></span><span data-i18n="theme_cyberpunk">Кібер</span></button>
+          <button class="theme-option" data-theme-choice="cyber"><span class="theme-swatch" style="background:#00F0FF;"></span><span data-i18n="theme_cyber">Кібер</span></button>
           <button class="theme-option" data-theme-choice="golden"><span class="theme-swatch" style="background:#EAB308;"></span><span data-i18n="theme_golden">Золота</span></button>
         </div>
       </div>
@@ -624,7 +624,7 @@
       status_available: "Готовий до роботи",
       nav_projects: "Проєкти", nav_impact: "Результати", nav_systems: "Підхід",
       nav_experience: "Досвід", nav_services: "Послуги", nav_contact: "Контакти", nav_cta: "Зв'язатися",
-      theme_classic: "Класична", theme_cyberpunk: "Кібер", theme_golden: "Золота",
+      theme_classic: "Класична", theme_cyber: "Кібер", theme_golden: "Золота",
 
       hero_tag: "Понад 7 років досвіду в UI/UX",
       hero_headline: "Я створюю зручні та ефективні інтерфейси",
@@ -777,10 +777,10 @@
     var themeMenu = document.getElementById('theme-menu');
     var themeLabel = document.getElementById('theme-label');
 
-    // augmented-ui вмикаємо лише в Cyberpunk: data-aug -> data-augmented-ui
+    // augmented-ui вмикаємо лише в Cyber: data-aug -> data-augmented-ui
     function syncAug(name){
       document.querySelectorAll('[data-aug]').forEach(function(el){
-        if (name === 'cyberpunk') { el.setAttribute('data-augmented-ui', el.getAttribute('data-aug')); }
+        if (name === 'cyber') { el.setAttribute('data-augmented-ui', el.getAttribute('data-aug')); }
         else { el.removeAttribute('data-augmented-ui'); }
       });
     }
