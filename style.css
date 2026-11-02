@@ -179,7 +179,6 @@ h1, h2, h3, .font-display {
   inset: 0;
   pointer-events: none;
   z-index: -1;
-  background: var(--bg-canvas);
 }
 
 /* ==========================================
