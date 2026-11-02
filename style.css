@@ -103,7 +103,10 @@ html {
 
 /* Кнопки та теги: менший зріз */
 [data-theme="cyberpunk"] .btn[data-augmented-ui],
-[data-theme="cyberpunk"] .tag[data-augmented-ui] { --aug-tl: 8px; --aug-br: 8px; }
+[data-theme="cyberpunk"] .tag[data-augmented-ui] 
+{ --aug-tl: 8px; --aug-br: 8px;
+font-family: var(--font-display); text-transform: uppercase; letter-spacing: .04em; font-size: .7rem;}
+
 [data-theme="cyberpunk"] .btn-primary[data-augmented-ui] { --aug-border-bg: var(--brand-hover); }
 [data-theme="cyberpunk"] .btn-primary[data-augmented-ui]:hover { --aug-border-bg: var(--brand); }
 [data-theme="cyberpunk"] .btn-outline[data-augmented-ui] { --aug-border-bg: var(--brand); }
@@ -128,7 +131,7 @@ html {
    clip-path (augmented-ui) обрізає зовнішні тіні, тому світіння — внутрішнє */
 
 [data-theme="cyberpunk"] .card_s[data-augmented-ui]:hover {
-  background: var(--bg-contrast);
+  background: var(--bg-hover);
   --aug-border-bg: var(--brand);
   --glow: var(--brand);
   box-shadow: inset 0 0 22px color-mix(in srgb, var(--glow) 45%, transparent) !important;
@@ -223,11 +226,7 @@ h1, h2, h3, .font-display {
 [data-theme="cyberpunk"] body::before {
   content: '';
   position: fixed; inset: 0; pointer-events: none; z-index: 0;
-  background-image:
-    repeating-linear-gradient(0deg, rgba(0,240,255,.035) 0px, rgba(0,240,255,.035) 1px, transparent 1px, transparent 3px),
-    linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
-  background-size: auto, 44px 44px, 44px 44px;
+  background: var(--bg-contrast);
 }
 
 .card, .card_s {
@@ -328,7 +327,6 @@ h1, h2, h3, .font-display {
   border: 1px solid var(--border); color: var(--text-accent);
   background: var(--bg-surface);
 }
-[data-theme="cyberpunk"] .tag { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .04em; font-size: .7rem; }
 
 .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--brand); position: relative; flex-shrink: 0; }
 .status-dot::after {
