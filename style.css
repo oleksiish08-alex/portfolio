@@ -58,7 +58,7 @@
   --bg-surface: #101218;
   --bg-surface-hover: #22262f;
   --bg-surface-hover_c: #13130c;
-  --bg-contrast: #13130c;
+  --bg-contrast: #12120f;
   --bg-contrast-hover: #0a0a0d;
 
   --text-primary: #EAF6F8;
@@ -357,7 +357,7 @@ section { padding: 88px 0; position: relative; z-index: 1; }
 }
 
 /* Теги та зображення: менший зріз */
-[data-theme="cyber"] .tag[data-augmented-ui],
+[data-theme="cyber"] .tag[data-augmented-ui], [data-theme="cyber"] .tag,
 [data-theme="cyber"] .img[data-augmented-ui] { --aug-tl: 8px; --aug-br: 8px; }
 
 [data-theme="cyber"] .btn-primary[data-augmented-ui] { --aug-border-bg: var(--brand-hover); }
@@ -366,8 +366,9 @@ section { padding: 88px 0; position: relative; z-index: 1; }
 [data-theme="cyber"] .btn-outline[data-augmented-ui]:hover { --aug-border-bg: var(--brand-hover); }
 
 [data-theme="cyber"] .card-contrast[data-augmented-ui] 
-{ --aug-border-bg: var(--border-c);
-background: var(--bg-contrast);}
+{ background: var(--bg-contrast);
+   --aug-border-bg: var(--border-c);
+}
 
 /* clip-path (augmented-ui) обрізає зовнішні тіні — вимикаємо їх на картках,
    а світіння при hover робимо внутрішнім */
@@ -563,7 +564,7 @@ background: var(--bg-contrast);}
 [data-theme="cyber"] .photo-card { border-radius: 2px; background: transparent; }
 [data-theme="cyber"] .photo-frame {
   padding: 2px;
-  background: var(--bg-contrast);
+  background: var(--bg-surface);
   --aug-tl: 18px;
   --aug-br: 18px;
   --aug-border-all: 2px;
@@ -578,7 +579,7 @@ background: var(--bg-contrast);}
   z-index: 2;
   pointer-events: none;
   clip-path: var(--photo-clip);
-  background-image: repeating-linear-gradient(0deg, rgba(0,240,255,.09) 0 1px, transparent 1px 3px);
+  background-image: repeating-linear-gradient(0deg, rgba(0,240,255,.09) 0 1px, transparent 2px 6px);
   mix-blend-mode: screen;
 }
 
