@@ -1,36 +1,27 @@
+/* ==========================================
+   TOKENS (спільні для всіх тем)
+========================================== */
 :root {
-  --font-body: 'Inter', sans-serif;
-  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
   --radius-card: 20px;
   --radius-img: 20px;
   --radius-pill: 999px;
-}
 
-/* Адаптивна смуга прокручування (Scrollbar) під кожну тему */
-html {
-  scroll-behavior: smooth;
-  scrollbar-color: var(--brand) var(--bg-canvas);
-  scrollbar-width: thin;
-}
+  /* Розміри плаваючих кнопок (використовуються для позиціонування) */
+  --fab-size: 46px;
+  --fab-offset: 28px;
+  --fab-gap: 16px;
 
-/* Фікс скроллбару для Chrome / Webkit браузерів */
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg-canvas);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--brand);
-  border-radius: var(--radius-pill);
-  border: 2px solid var(--bg-canvas);
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--brand-hover);
+  /* Спільний перехід кольорів при зміні теми */
+  --t-colors: background-color .4s ease, border-color .4s ease, color .4s ease,
+              box-shadow .4s ease, filter .4s ease;
 }
 
 /* ============ CLASSIC THEME ============ */
 [data-theme="classic"] {
+  color-scheme: light;
+
   --bg-canvas: #FAF7F2;
   --bg-surface: #FFFFFF;
   --bg-surface-hover: #f0fdf4;
@@ -56,12 +47,13 @@ html {
   --border-focus: #15803D;
 
   --shadow: 0 1px 2px rgba(28, 40, 35, .05), 0 8px 24px rgba(28, 40, 35, .04);
-  --box-shadow: 0 8px 20px -4px rgba(28, 40, 35, 0.3), 0 6px 12px -6px rgba(28, 40, 35, 0.3);
-  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --box-shadow: 0 8px 20px -4px rgba(28, 40, 35, .3), 0 6px 12px -6px rgba(28, 40, 35, .3);
 }
 
-/* ============ Cyber THEME ============ */
+/* ============ CYBER THEME ============ */
 [data-theme="cyber"] {
+  color-scheme: dark;
+
   --bg-canvas: #0D0E12;
   --bg-surface: #101218;
   --bg-surface-hover: #22262f;
@@ -87,74 +79,14 @@ html {
 
   --shadow: 0 0 0 1px rgba(0, 240, 255, .08), 0 0 24px rgba(0, 240, 255, .05);
   --box-shadow: 0 0 22px rgba(0, 240, 255, .25);
-  --font-display: 'JetBrains Mono', monospace;
+  --font-display: 'JetBrains Mono', ui-monospace, monospace;
   --radius-img: 0; /* без заокруглень на зображеннях карток */
-}
-
-/* ============ cyber: augmented-ui ============ */
-[data-theme="cyber"] [data-augmented-ui] {
-  border: 0 !important;
-  border-radius: 0 !important;
-  --aug-border-all: 1px;
-  --aug-border-bg: var(--border);
-  --aug-tl: 12px;
-  --aug-br: 12px;
-}
-
-/* Tеги: менший зріз */
-[data-theme="cyber"] .tag[data-augmented-ui] 
-{ --aug-tl: 8px; --aug-br: 8px;
-font-family: var(--font-display); text-transform: uppercase; letter-spacing: .04em; font-size: .7rem;}
-
-[data-theme="cyber"] .btn-primary[data-augmented-ui] { --aug-border-bg: var(--brand-hover); }
-[data-theme="cyber"] .btn-primary[data-augmented-ui]:hover { --aug-border-bg: var(--brand); }
-[data-theme="cyber"] .btn-outline[data-augmented-ui] { --aug-border-bg: var(--brand); }
-[data-theme="cyber"] .btn-outline[data-augmented-ui]:hover { --aug-border-bg: var(--brand-hover); }
-
-/* Зображення в картках: лише зріз, без рамки */
-[data-theme="cyber"] .img[data-augmented-ui] { 
-  --aug-tl: 8px; --aug-br: 8px; }
-
-[data-theme="cyber"] .card-contrast[data-augmented-ui] { 
---aug-border-bg: var(--border-c); }
-
-/* Специфічний фікс для карток з augmented-ui у кіберпанк темі */
-[data-theme="cyber"] .card[data-augmented-ui],
-[data-theme="cyber"] .card_s[data-augmented-ui] {
-  border: 0 !important;
-  background: var(--bg-surface);
-  box-shadow: none !important;
-}
-
-/* Cyber glow для карток із зображенням.
-   clip-path (augmented-ui) обрізає зовнішні тіні, тому світіння — внутрішнє */
-
-[data-theme="cyber"] .card_s[data-augmented-ui]:hover {
-  background: var(--bg-surface-hover);
-  --aug-border-bg: var(--brand);
-  --glow: var(--brand);
-  box-shadow: inset 0 0 22px color-mix(in srgb, var(--glow) 45%, transparent) !important;
-}
-/* Hover: світіння навколо зображення + легке підсвічування */
-[data-theme="cyber"] .card_s picture {
-  transition: filter .25s ease;
-}
-[data-theme="cyber"] .card_s:hover picture {
-  filter: drop-shadow(0 0 8px color-mix(in srgb, var(--brand) 55%, transparent));
-}
-[data-theme="cyber"] .card_s:hover img {
-  filter: brightness(1.08) saturate(1.1);
-}
-/* Зображення в картках — без рамки та заокруглень */
-[data-theme="cyber"] .card_s img,
-[data-theme="cyber"] .card_s .img,
-[data-theme="cyber"] .card_s picture {
-  border: 0 !important;
-  border-radius: 0 !important;
 }
 
 /* ============ GOLDEN THEME ============ */
 [data-theme="golden"] {
+  color-scheme: dark;
+
   --bg-canvas: #0F0E13;
   --bg-surface: #17151d;
   --bg-surface-hover: #26221b;
@@ -177,18 +109,38 @@ font-family: var(--font-display); text-transform: uppercase; letter-spacing: .04
   --border: #2a2620;
   --border-c: #854d0e;
   --border-focus: #EAB308;
-  --glow: var(--brand);
 
   --shadow: 0 1px 1px rgba(0, 0, 0, .4), 0 12px 32px rgba(0, 0, 0, .35);
   --box-shadow: 0 12px 32px rgba(234, 179, 8, .2);
-  --font-display: 'Plus Jakarta Sans', sans-serif;
+
+  /* Повторювані золоті акценти — в одному місці */
+  --brand-gradient: linear-gradient(135deg, #FACC15, #B45309);
+  --brand-edge: 1px solid rgba(255, 255, 255, .15);
 }
 
-* { box-sizing: border-box; }
+/* ==========================================
+   BASE
+========================================== */
+*, *::before, *::after { box-sizing: border-box; }
 
-/* Плавний перехід кольорів та фонів для всіх UI-компонентів при зміні тем */
-.card, .card_s, .btn, .tag, section, header, footer, body {
-  transition: background-color .4s ease, border-color .4s ease, color .4s ease, box-shadow .4s ease, filter .4s ease;
+html {
+  scroll-behavior: smooth;
+  /* Стандартна смуга прокручування (Chrome 121+, Firefox, Safari 18.2+) */
+  scrollbar-color: var(--brand) var(--bg-canvas);
+  scrollbar-width: thin;
+}
+
+/* Fallback лише для старих Webkit: у нових браузерах ::-webkit-scrollbar
+   ігнорується, якщо задано scrollbar-color/width */
+@supports not (scrollbar-color: auto) {
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: var(--bg-canvas); }
+  ::-webkit-scrollbar-thumb {
+    background: var(--brand);
+    border-radius: var(--radius-pill);
+    border: 2px solid var(--bg-canvas);
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--brand-hover); }
 }
 
 body {
@@ -197,7 +149,6 @@ body {
   color: var(--text-secondary);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
-  position: relative;
   text-rendering: optimizeLegibility;
 }
 
@@ -207,34 +158,55 @@ h1, h2, h3, .font-display {
   letter-spacing: -0.01em;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    transition-duration: .01ms !important;
-  }
+/* Плавний перехід кольорів для всіх UI-компонентів при зміні тем */
+.card, .card_s, .btn, .tag, section, header, footer, body {
+  transition: var(--t-colors);
 }
 
 :focus-visible {
   outline: 2px solid var(--border-focus);
   outline-offset: 2px;
-  border-radius: 4px;
 }
 
-/* cyber scanline backdrop (fixed overlay) */
+::selection { background: var(--brand); color: var(--brand-text); }
+
+/* Cyber: суцільний фон-підкладка (fixed).
+   z-index: -1, щоб не перекривати контент без власного z-index */
 [data-theme="cyber"] body::before {
   content: '';
-  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
   background: var(--bg-contrast);
 }
 
+/* ==========================================
+   LAYOUT
+========================================== */
+.wrap { max-width: 1152px; margin: 0 auto; padding: 0 24px; }
+section { padding: 88px 0; position: relative; z-index: 1; }
+@media (max-width: 768px) { section { padding: 60px 0; } }
+
+/* Fade-up: анімація появи + збереження переходу кольорів */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .6s ease, transform .6s ease, var(--t-colors);
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ==========================================
+   CARDS
+========================================== */
 .card, .card_s {
   background: var(--bg-surface);
-  border: 1px solid var(--text-secondary-c);
+  border: 1px solid var(--border);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow);
 }
-.card_s { overflow: visible; }
+
+.card_s { transition: var(--t-colors), transform .25s ease; }
 
 .card_s:hover {
   transform: translateY(-4px);
@@ -243,40 +215,36 @@ h1, h2, h3, .font-display {
   box-shadow: var(--box-shadow);
 }
 
-/* Налаштування селектора анімації карток */
+/* Картки з fade-up: швидші hover-переходи, повільна поява */
 .card_s.fade-up {
   transition: opacity .6s ease, transform .25s ease, border-color .25s ease,
               background-color .25s ease, box-shadow .25s ease;
 }
+/* .fade-up.visible має таку ж специфічність, як .card_s:hover — повторюємо hover */
 .card_s.fade-up.visible:hover { transform: translateY(-4px); }
 
-.card_s picture { display: block; }
-
-.card_s img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  background-color: var(--bg-surface-hover);
-  border-radius: var(--radius-img);
-}
-
-/* Зуми зображення залишаються всередині заокругленої рамки */
+/* Зображення: зум залишається всередині заокругленої рамки */
+.card_s picture,
 .card_s .img {
+  display: block;
   overflow: hidden;
   border-radius: var(--radius-img);
 }
 
-.card_s .img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.card_s img {
   display: block;
-  transition: transform .25s ease;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background-color: var(--bg-surface-hover);
+  border-radius: var(--radius-img);
+  transition: transform .25s ease, filter .25s ease;
 }
 
-.card_s:hover img {
-  transform: scale(1.03);
-}
+.card_s .img img { height: 100%; }
 
+.card_s:hover img { transform: scale(1.03); }
 
 .card-contrast {
   background: var(--bg-contrast);
@@ -286,351 +254,552 @@ h1, h2, h3, .font-display {
   --text-secondary: var(--text-secondary-c);
   --text-accent: var(--text-accent-c);
 }
-.card-contrast h1, .card-contrast h2, .card-contrast h3 { color: var(--text-primary-c); }
+.card-contrast :is(h1, h2, h3) { color: var(--text-primary-c); }
 
-
-
-/* Golden glass panels */
+/* Golden: скляні панелі */
 [data-theme="golden"] .card {
   background: linear-gradient(160deg, rgba(255,255,255,.045), rgba(255,255,255,.01));
-  backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
   border: 1px solid var(--border-c);
 }
 [data-theme="golden"] .card-contrast {
   background: linear-gradient(160deg, rgba(234,179,8,.08), rgba(15,14,19,.6));
+  -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
 }
 
+/* ==========================================
+   BUTTONS & TAGS
+========================================== */
 .btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 13px 24px; border-radius: 12px;
-  font-weight: 600; font-size: .94rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: .94rem;
   white-space: nowrap;
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--t-colors), transform .15s ease;
 }
 .btn:active { transform: scale(.97); }
+
 .btn-primary { background: var(--brand); color: var(--brand-text); }
 .btn-primary:hover { background: var(--brand-hover); }
-[data-theme="cyber"] .btn-primary { font-family: var(--font-display); box-shadow: 0 0 18px color-mix(in srgb, var(--brand) 45%, transparent); }
-[data-theme="golden"] .btn-primary { background: linear-gradient(135deg,#FACC15,#B45309); box-shadow: 0 0 0 1px rgba(255,255,255,.15) inset, 0 8px 20px rgba(234,179,8,.25); }
-[data-theme="golden"] .btn-primary:hover { filter: brightness(1.08); }
 
-.btn-outline { background: transparent; border: 1px solid var(--brand); color: var(--text-primary)!important; }
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--brand);
+  color: var(--text-primary) !important;
+}
 .btn-outline:hover { background: var(--bg-surface-hover); border-color: var(--brand-hover); }
+
 .btn-small { padding: 9px 16px; font-size: .85rem; border-radius: 9px; }
 
+[data-theme="cyber"] .btn-primary {
+  font-family: var(--font-display);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--brand) 45%, transparent);
+}
+[data-theme="golden"] .btn-primary {
+  background: var(--brand-gradient);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.15) inset, 0 8px 20px rgba(234,179,8,.25);
+}
+[data-theme="golden"] .btn-primary:hover { filter: brightness(1.08); }
+
 .tag {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: .78rem; font-weight: 500;
-  padding: 6px 12px; border-radius: var(--radius-pill);
-  border: 1px solid var(--border); color: var(--text-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .78rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  color: var(--text-accent);
   background: var(--bg-surface);
 }
 
-.status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--brand); position: relative; flex-shrink: 0; }
+.status-dot {
+  position: relative;
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--brand);
+}
 .status-dot::after {
-  content: ''; position: absolute; inset: -4px; border-radius: 50%;
-  border: 1px solid var(--brand); opacity: .5;
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid var(--brand);
+  opacity: .5;
   animation: pulse-ring 2.2s ease-out infinite;
 }
-@keyframes pulse-ring { 0% { transform: scale(.6); opacity: .6; } 100% { transform: scale(1.8); opacity: 0; } }
+@keyframes pulse-ring {
+  0%   { transform: scale(.6); opacity: .6; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
 
-.wrap { max-width: 1152px; margin: 0 auto; padding: 0 24px; }
-section { padding: 88px 0; position: relative; z-index: 1; }
+/* ==========================================
+   CYBER: augmented-ui
+========================================== */
+[data-theme="cyber"] [data-augmented-ui] {
+  border: 0 !important;
+  border-radius: 0 !important;
+  --aug-border-all: 1px;
+  --aug-border-bg: var(--border);
+  --aug-tl: 12px;
+  --aug-br: 12px;
+}
 
+/* Теги та зображення: менший зріз */
+[data-theme="cyber"] .tag[data-augmented-ui],
+[data-theme="cyber"] .img[data-augmented-ui] { --aug-tl: 8px; --aug-br: 8px; }
 
-@media (max-width: 768px) { section { padding: 60px 0; } }
-.fade-up { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
-.fade-up.visible { opacity: 1; transform: translateY(0); }
-/* Theme dropdown */
+[data-theme="cyber"] .btn-primary[data-augmented-ui] { --aug-border-bg: var(--brand-hover); }
+[data-theme="cyber"] .btn-primary[data-augmented-ui]:hover { --aug-border-bg: var(--brand); }
+[data-theme="cyber"] .btn-outline[data-augmented-ui] { --aug-border-bg: var(--brand); }
+[data-theme="cyber"] .btn-outline[data-augmented-ui]:hover { --aug-border-bg: var(--brand-hover); }
+
+[data-theme="cyber"] .card-contrast[data-augmented-ui] { --aug-border-bg: var(--border-c); }
+
+/* clip-path (augmented-ui) обрізає зовнішні тіні — вимикаємо їх на картках,
+   а світіння при hover робимо внутрішнім */
+[data-theme="cyber"] .card[data-augmented-ui],
+[data-theme="cyber"] .card_s[data-augmented-ui] {
+  box-shadow: none !important;
+}
+[data-theme="cyber"] .card_s[data-augmented-ui]:hover {
+  --aug-border-bg: var(--brand);
+  box-shadow: inset 0 0 22px color-mix(in srgb, var(--brand) 45%, transparent) !important;
+}
+
+/* Hover: світіння навколо зображення + легке підсвічування */
+[data-theme="cyber"] .card_s picture { transition: filter .25s ease; }
+[data-theme="cyber"] .card_s:hover picture {
+  filter: drop-shadow(0 0 8px color-mix(in srgb, var(--brand) 55%, transparent));
+}
+[data-theme="cyber"] .card_s:hover img { filter: brightness(1.08) saturate(1.1); }
+
+/* ==========================================
+   UI: theme menu, language switch, toast
+========================================== */
 .theme-menu {
-position: absolute; top: calc(100% + 10px); right: 0;
-background: var(--bg-surface); border: 1px solid var(--border);
-border-radius: 14px; box-shadow: var(--shadow);
-min-width: 120px; padding: 6px; display: none; z-index: 60;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 60;
+  display: none;
+  min-width: 120px;
+  padding: 6px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
 }
 .theme-menu.open { display: block; }
+
 .theme-option {
-display: flex; align-items: center; gap: 10px;
-width: 100%; padding: 10px 12px; border-radius: 9px;
-font-size: .88rem; color: var(--text-primary); background: transparent; border: none; text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--text-primary);
+  font: inherit;
+  font-size: .88rem;
+  text-align: left;
+  cursor: pointer;
 }
 .theme-option:hover { background: var(--bg-surface-hover); }
-.theme-swatch { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; border: 1px solid rgba(0,0,0,.1); }
-/* Language switcher */
+
+.theme-swatch {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, .1);
+}
+
 .lang-switch {
-display: flex; align-items: center; border: 1px solid var(--border);
-border-radius: var(--radius-pill); padding: 3px; gap: 2px; flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
 }
 [data-theme="cyber"] .lang-switch { border-radius: 2px; }
-/* Посилання-кнопки для мультиязичності сторінок */
+.lang-switch .lang-icon { margin-left: 8px; color: var(--text-secondary); }
+
+/* Посилання-кнопки для мультимовності */
 .lang-btn {
-display: inline-flex; align-items: center; justify-content: center;
-padding: 6px 11px; border-radius: var(--radius-pill); border: none; background: transparent;
-font-size: .76rem; font-weight: 700; letter-spacing: .02em; color: var(--text-secondary);
-cursor: pointer; text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 11px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  cursor: pointer;
+  text-decoration: none !important;
 }
 [data-theme="cyber"] .lang-btn { border-radius: 1px; font-family: var(--font-display); }
 .lang-btn[aria-pressed="true"] { background: var(--brand); color: var(--brand-text); }
-/* Toast */
+
 #toast {
-position: fixed; bottom: 28px; left: 50%; transform: translate(-50%, 20px);
-background: var(--bg-contrast); color: var(--text-primary-c);
-border: 1px solid var(--border-c);
-padding: 12px 20px; border-radius: 12px; font-size: .88rem; font-weight: 500;
-opacity: 0; pointer-events: none; transition: opacity .25s ease, transform .25s ease;
-z-index: 100; display: flex; align-items: center; gap: 8px;
+  position: fixed;
+  bottom: var(--fab-offset);
+  left: 50%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: var(--bg-contrast);
+  color: var(--text-primary-c);
+  border: 1px solid var(--border-c);
+  border-radius: 12px;
+  font-size: .88rem;
+  font-weight: 500;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 20px);
+  transition: opacity .25s ease, transform .25s ease;
 }
 #toast.show { opacity: 1; transform: translate(-50%, 0); }
-/* Timeline */
+
+/* ==========================================
+   TIMELINE & ACCORDION
+========================================== */
 .timeline { position: relative; padding-left: 30px; }
-.timeline::before { content: ''; position: absolute; left: 5px; top: 6px; bottom: 6px; width: 1px; background: var(--border); }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: var(--border);
+}
 .timeline-item { position: relative; padding-bottom: 32px; }
 .timeline-item:last-child { padding-bottom: 0; }
 .timeline-item::before {
-content: ''; position: absolute; left: -30px; top: 22px; width: 11px; height: 11px; border-radius: 50%;
-background: var(--bg-canvas); border: 2px solid var(--brand);
+  content: '';
+  position: absolute;
+  left: -30px;
+  top: 22px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--bg-canvas);
+  border: 2px solid var(--brand);
 }
+
+.accordion-trigger { cursor: pointer; background: transparent; border: none; font: inherit; }
 .accordion-body { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
 .accordion.open .accordion-body { max-height: 400px; }
-/* Accordion plus/minus icon */
+
+/* Іконка плюс/мінус */
 .accordion-icon { position: relative; width: 18px; height: 18px; flex-shrink: 0; }
 .accordion-icon .bar { position: absolute; background: currentColor; border-radius: 2px; }
 .accordion-icon .bar-h { top: 50%; left: 0; width: 100%; height: 2px; transform: translateY(-50%); }
-.accordion-icon .bar-v { left: 50%; top: 0; width: 2px; height: 100%; transform: translateX(-50%); transition: transform .3s ease; }
-.accordion.open .accordion-icon .bar-v { transform: translateX(-50%) scaleY(0); }
-.accordion-trigger { cursor: pointer; background: transparent; border: none; font: inherit; }
-::selection { background: var(--brand); color: var(--brand-text); }
-/* ===================== HERO PHOTO — theme adaptive ===================== */
-.photo-card {
-position: relative; width: 256px; height: 256px; flex-shrink: 0;
-transition: background-color .4s ease, border-color .4s ease, box-shadow .4s ease, padding .3s ease;
+.accordion-icon .bar-v {
+  left: 50%;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  transform: translateX(-50%);
+  transition: transform .3s ease;
 }
-.photo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.accordion.open .accordion-icon .bar-v { transform: translateX(-50%) scaleY(0); }
+
+/* ==========================================
+   HERO PHOTO — адаптація під теми
+========================================== */
+.photo-card {
+  --photo-cut: 15.2px;
+  --photo-clip: polygon(0 var(--photo-cut), var(--photo-cut) 0, 100% 0,
+                        100% calc(100% - var(--photo-cut)), calc(100% - var(--photo-cut)) 100%, 0 100%);
+  position: relative;
+  flex-shrink: 0;
+  width: 256px;
+  height: 256px;
+  transition: background-color .4s ease, border-color .4s ease, box-shadow .4s ease, padding .3s ease;
+}
+.photo-img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.photo-frame { position: relative; width: 100%; height: 100%; }
+.photo-scan,
+.hud-corner,
+.hud-caption { display: none; }
+.photo-badge-row { display: flex; align-items: center; gap: 8px; }
+
 /* Classic */
 [data-theme="classic"] .photo-card {
-border-radius: 24px; padding: 0;
-background: linear-gradient(160deg, #0B2417 0%, var(--bg-canvas) 100%);
-box-shadow: var(--shadow);
+  border-radius: 24px;
+  background: linear-gradient(160deg, #0B2417 0%, var(--bg-canvas) 100%);
+  box-shadow: var(--shadow);
 }
-[data-theme="classic"] .photo-img { border-radius: 24px; border: 2px solid rgba(21,128,61,.3); }
-/* cyber */
-.photo-frame { position: relative; width: 100%; height: 100%; }
-.photo-scan { display: none; }
-[data-theme="cyber"] .photo-card { border-radius: 2px; padding: 0; background: transparent; }
+[data-theme="classic"] .photo-img {
+  border-radius: 24px;
+  border: 2px solid rgba(21, 128, 61, .3);
+}
+
+/* Cyber */
+[data-theme="cyber"] .photo-card { border-radius: 2px; background: transparent; }
 [data-theme="cyber"] .photo-frame {
-padding: 2px;
-background: #050507;
---aug-tl: 18px; --aug-br: 18px;
---aug-border-all: 2px; --aug-border-bg: var(--brand-hover); /*I change color in code-x */
+  padding: 2px;
+  background: var(--bg-contrast);
+  --aug-tl: 18px;
+  --aug-br: 18px;
+  --aug-border-all: 2px;
+  --aug-border-bg: var(--brand-hover);
 }
-/* Внутрішній зріз фото з вендорними префіксами для стабільної підтримки Safari */
-[data-theme="cyber"] .photo-img {
--webkit-clip-path: polygon(0 15.2px, 15.2px 0, 100% 0, 100% calc(100% - 15.2px), calc(100% - 15.2px) 100%, 0 100%);
-clip-path: polygon(0 15.2px, 15.2px 0, 100% 0, 100% calc(100% - 15.2px), calc(100% - 15.2px) 100%, 0 100%);
-}
+[data-theme="cyber"] .photo-img { clip-path: var(--photo-clip); }
+
 [data-theme="cyber"] .photo-scan {
-display: block; position: absolute; inset: 2px; pointer-events: none; z-index: 2;
--webkit-clip-path: polygon(0 15.2px, 15.2px 0, 100% 0, 100% calc(100% - 15.2px), calc(100% - 15.2px) 100%, 0 100%);
-clip-path: polygon(0 15.2px, 15.2px 0, 100% 0, 100% calc(100% - 15.2px), calc(100% - 15.2px) 100%, 0 100%);
-background-image: repeating-linear-gradient(0deg, rgba(0,240,255,.09) 0px, rgba(0,240,255,.09) 1px, transparent 1px, transparent 3px);
-mix-blend-mode: screen;
+  display: block;
+  position: absolute;
+  inset: 2px;
+  z-index: 2;
+  pointer-events: none;
+  clip-path: var(--photo-clip);
+  background-image: repeating-linear-gradient(0deg, rgba(0,240,255,.09) 0 1px, transparent 1px 3px);
+  mix-blend-mode: screen;
 }
-.hud-corner { display: none; }
+
 [data-theme="cyber"] .hud-corner {
-display: block; position: absolute; width: 14px; height: 14px; z-index: 3; border-color: #FCEE09; border-style: solid; border-width: 0;
+  display: block;
+  position: absolute;
+  z-index: 3;
+  width: 14px;
+  height: 14px;
+  border: 0 solid var(--brand);
 }
 [data-theme="cyber"] .hud-corner.tr { top: 8px; right: 8px; border-top-width: 2px; border-right-width: 2px; }
 [data-theme="cyber"] .hud-corner.bl { bottom: 8px; left: 8px; border-bottom-width: 2px; border-left-width: 2px; }
-.hud-caption { display: none; }
+
 [data-theme="cyber"] .hud-caption {
-display: block; position: absolute; bottom: -24px; left: 1px; white-space: nowrap;
-font-family: 'JetBrains Mono', monospace; font-size: .64rem; letter-spacing: .04em; color: var(--brand-hover); /*I change color in code-x */
+  display: block;
+  position: absolute;
+  bottom: -24px;
+  left: 1px;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-size: .64rem;
+  letter-spacing: .04em;
+  color: var(--brand-hover);
 }
 
 /* Golden */
 [data-theme="golden"] .photo-card {
-border-radius: 24px; padding: 0;
-backdrop-filter: blur(14px); 
--webkit-backdrop-filter: blur(14px);
-background: rgba(255,255,255,.08);
-border: 2px solid rgba(251,191,36,.4);
-box-shadow: 0 0 25px rgba(234,179,8,.25);
+  border-radius: 24px;
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, .08);
+  border: 2px solid rgba(251, 191, 36, .4);
+  box-shadow: 0 0 25px rgba(234, 179, 8, .25);
 }
 [data-theme="golden"] .photo-img {
-border-radius: 24px;
-box-shadow: inset 0 0 0 1px rgba(255,255,255,.12);
+  border-radius: 24px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12);
 }
 [data-theme="golden"] .photo-card::after {
-content: ''; position: absolute; inset: 0; border-radius: 24px; pointer-events: none;
-background: linear-gradient(155deg, rgba(255,255,255,.18), rgba(255,255,255,0) 40%);
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  pointer-events: none;
+  background: linear-gradient(155deg, rgba(255,255,255,.18), rgba(255,255,255,0) 40%);
 }
-.photo-badge-row { display: flex; align-items: center; gap: 8px; }
-/* ===================== НАВІГАЦІЯ: hover-ефекти по темах ===================== */
-[data-theme="classic"], .classic {
---btn-hover-bg: #15803D;
---btn-hover-text: #ffffff;
-}
-[data-theme="golden"], .golden {
---btn-hover-bg: #eab308;
---btn-hover-text: #1a1408;
-}
-[data-theme="cyber"], .cyber {
---btn-hover-bg: var(--brand-hover); /*I change color in code-x */
---btn-hover-text: #000000;
-}
+
+/* ==========================================
+   НАВІГАЦІЯ: hover-ефекти по темах
+========================================== */
+[data-theme="classic"], .classic { --btn-hover-bg: #15803D; --btn-hover-text: #ffffff; }
+[data-theme="golden"],  .golden  { --btn-hover-bg: #eab308; --btn-hover-text: #1a1408; }
+[data-theme="cyber"],   .cyber   { --btn-hover-bg: var(--brand-hover); --btn-hover-text: #000000; }
+
 .btn-theme-target {
-text-decoration: none;
-color: inherit;
-display: inline-block;
-padding: 6px 8px;
-white-space: nowrap;
-}
-[data-theme="classic"] .btn-theme-target,
-.classic .btn-theme-target,
-[data-theme="golden"] .btn-theme-target,
-.golden .btn-theme-target {
-border-radius: 8px;
+  display: inline-block;
+  padding: 6px 8px;
+  border-radius: 8px;
+  color: inherit;
+  white-space: nowrap;
+  text-decoration: none;
 }
 [data-theme="cyber"] .btn-theme-target,
-.cyber .btn-theme-target {
-border-radius: 0 !important;
-}
+.cyber .btn-theme-target { border-radius: 0 !important; }
+
 .btn-theme-target:hover {
-background-color: var(--btn-hover-bg) !important;
-color: var(--btn-hover-text) !important;
-text-decoration: none !important;
-text-shadow: 0.5px 0 0 currentColor, -0.5px 0 0 currentColor !important;
+  background-color: var(--btn-hover-bg) !important;
+  color: var(--btn-hover-text) !important;
+  text-decoration: none !important;
+  text-shadow: .5px 0 0 currentColor, -.5px 0 0 currentColor !important;
 }
+
 /* ==========================================
-КНОПКА ВГОРУ (АДАПТИВНА ПІД 3 ТЕМИ)
+   КНОПКА «ВГОРУ» (адаптивна під 3 теми)
 ========================================== */
 .btn-to-top {
-position: fixed;
-bottom: 28px;
-right: 28px;
-width: 46px;
-height: 46px;
-z-index: 99;
-border: none;
-cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 1.3rem;
-font-weight: bold;
-opacity: 0;
-visibility: hidden;
-transform: translateY(15px);
-transition: opacity .3s ease, transform .3s ease, visibility .3s ease, background-color .25s ease, color .25s ease;
-background: var(--brand);
-color: var(--brand-text);
-box-shadow: var(--shadow);
+  position: fixed;
+  right: var(--fab-offset);
+  bottom: var(--fab-offset);
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--fab-size);
+  height: var(--fab-size);
+  border: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: bold;
+  background: var(--brand);
+  color: var(--brand-text);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: opacity .3s ease, transform .3s ease, visibility .3s ease,
+              background-color .25s ease, color .25s ease;
 }
-[data-theme="classic"] .btn-to-top,
-[data-theme="golden"] .btn-to-top {
-border-radius: var(--radius-card);
-}
-[data-theme="cyber"] .btn-to-top {
-border-radius: 0 !important;
---aug-tl: 9px; --aug-br: 9px;
---aug-border-all: 2px; --aug-border-bg: var(--brand-hover);
-}
-[data-theme="golden"] .btn-to-top {
-background: linear-gradient(135deg, #FACC15, #B45309);
-border: 1px solid rgba(255,255,255,.15);
-}
-.btn-to-top:hover {
-background: var(--brand-hover);
-}
-[data-theme="cyber"] .btn-to-top:hover {
-background: var(--brand-hover);
---aug-border-bg: var(--brand);
-}
-/* Позиціонування для плаваючих елементів */
-.btn-to-top[data-augmented-ui], .tg-fab__btn[data-augmented-ui] { position: relative; }
-.btn-to-top[data-augmented-ui] { position: fixed; }
+.btn-to-top:hover { background: var(--brand-hover); }
+
 /* Клас, який додає скрипт при прокручуванні сторінки */
-.btn-to-top.show {
-opacity: 1;
-visibility: visible;
-transform: translateY(0);
-}
+.btn-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
 .btn-to-top.show:hover { transform: translateY(-3px); }
+
+[data-theme="classic"] .btn-to-top,
+[data-theme="golden"] .btn-to-top { border-radius: var(--radius-card); }
+
+[data-theme="golden"] .btn-to-top {
+  background: var(--brand-gradient);
+  border: var(--brand-edge);
+}
+[data-theme="golden"] .btn-to-top:hover { background: var(--brand-hover); }
+
+[data-theme="cyber"] .btn-to-top {
+  border-radius: 0;
+  --aug-tl: 9px;
+  --aug-br: 9px;
+  --aug-border-all: 2px;
+  --aug-border-bg: var(--brand-hover);
+}
+[data-theme="cyber"] .btn-to-top:hover { --aug-border-bg: var(--brand); }
+
+/* augmented-ui виставляє position: relative — не даємо зламати fixed */
+.btn-to-top[data-augmented-ui] { position: fixed; }
+.tg-fab__btn[data-augmented-ui] { position: relative; }
+
 /* ==========================================
-TELEGRAM-БОТ: ПЛАВАЮЧА КНОПКА З GLOW
+   TELEGRAM-БОТ: ПЛАВАЮЧА КНОПКА З GLOW
 ========================================== */
 .tg-fab {
-position: fixed;
-right: 28px;
-bottom: calc(28px + 46px + 16px);
-z-index: 99;
---tg-glow: var(--brand);
-filter:
-drop-shadow(0 0 5px color-mix(in srgb, var(--tg-glow) 75%, transparent))
-drop-shadow(0 0 16px color-mix(in srgb, var(--tg-glow) 45%, transparent));
-animation: tg-glow 3.2s ease-in-out infinite;
+  --tg-glow: var(--brand);
+  position: fixed;
+  right: var(--fab-offset);
+  bottom: calc(var(--fab-offset) + var(--fab-size) + var(--fab-gap));
+  z-index: 99;
+  filter:
+    drop-shadow(0 0 5px color-mix(in srgb, var(--tg-glow) 75%, transparent))
+    drop-shadow(0 0 16px color-mix(in srgb, var(--tg-glow) 45%, transparent));
+  animation: tg-glow 3.2s ease-in-out infinite;
 }
+.tg-fab:hover,
+.tg-fab:focus-within { animation-play-state: paused; }
+
 @keyframes tg-glow {
-0%, 100% {
-filter:
-drop-shadow(0 0 4px color-mix(in srgb, var(--tg-glow) 65%, transparent))
-drop-shadow(0 0 12px color-mix(in srgb, var(--tg-glow) 35%, transparent));
+  0%, 100% {
+    filter:
+      drop-shadow(0 0 4px color-mix(in srgb, var(--tg-glow) 65%, transparent))
+      drop-shadow(0 0 12px color-mix(in srgb, var(--tg-glow) 35%, transparent));
+  }
+  50% {
+    filter:
+      drop-shadow(0 0 7px color-mix(in srgb, var(--tg-glow) 90%, transparent))
+      drop-shadow(0 0 24px color-mix(in srgb, var(--tg-glow) 60%, transparent));
+  }
 }
-50% {
-filter:
-drop-shadow(0 0 7px color-mix(in srgb, var(--tg-glow) 90%, transparent))
-drop-shadow(0 0 24px color-mix(in srgb, var(--tg-glow) 60%, transparent));
-}
-}
-.tg-fab:hover, .tg-fab:focus-within { animation-play-state: paused; }
+
 .tg-fab__btn {
-display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-height: 46px; min-width: 46px; padding: 0 14px;
-border-radius: var(--radius-card);
-font-family: var(--font-display); font-weight: 700; font-size: .86rem;
-text-decoration: none; white-space: nowrap; cursor: pointer;
-background: var(--brand); color: var(--brand-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: var(--fab-size);
+  min-width: var(--fab-size);
+  padding: 0 14px;
+  border-radius: var(--radius-card);
+  background: var(--brand);
+  color: var(--brand-text);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: .86rem;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color .25s ease, transform .15s ease;
 }
 .tg-fab__btn:hover { background: var(--brand-hover); transform: translateY(-2px); }
 .tg-fab__btn:active { transform: scale(.97); }
 .tg-fab__label { display: none; }
+
 @media (min-width: 640px) {
-.tg-fab__btn { padding: 0 18px 0 16px; }
-.tg-fab__label { display: inline; }
+  .tg-fab__btn { padding: 0 18px 0 16px; }
+  .tg-fab__label { display: inline; }
 }
+
 [data-theme="golden"] .tg-fab { --tg-glow: #EAB308; }
-[data-theme="golden"] .tg-fab__btn {
-background: linear-gradient(135deg, #FACC15, #B45309);
-border: 1px solid rgba(255,255,255,.15);}
+[data-theme="golden"] .tg-fab__btn { background: var(--brand-gradient); border: var(--brand-edge); }
 [data-theme="golden"] .tg-fab__btn:hover { background: linear-gradient(135deg, #FDE047, #CA8A04); }
 
-[data-theme="cyber"] .tg-fab { --tg-glow: var(--brand); }
 [data-theme="cyber"] .tg-fab__btn {
-border-radius: 0 !important;
-color: var(--brand-text); /*I change color in code-x */
---aug-tl: 10px; --aug-br: 10px; --aug-border-all: 2px;
-  --aug-border-bg: none  !important;
+  border-radius: 0;
+  --aug-tl: 10px;
+  --aug-br: 10px;
+  --aug-border-all: 2px;
+  --aug-border-bg: transparent;
 }
-[data-theme="cyber"] .tg-fab__btn:hover {
-  background: var(--brand-hover); /*I change color in code-x */ 
-  --aug-border-bg: var(--brand); }
-@media (prefers-reduced-motion: reduce) { .tg-fab { animation: none; } }
+[data-theme="cyber"] .tg-fab__btn:hover { --aug-border-bg: var(--brand); }
+
 /* ==========================================
-АНІМОВАНІ ІКОНКИ (animateicons.in)
-Резервуємо контейнери для запобігання CLS
+   АНІМОВАНІ ІКОНКИ (animateicons.in)
+   Резервуємо контейнери для запобігання CLS
 ========================================== */
 animate-icons { display: inline-flex; flex: none; width: 18px; height: 18px; line-height: 0; }
 animate-icons[size="16"] { width: 16px; height: 16px; }
 animate-icons[size="20"] { width: 20px; height: 20px; }
 animate-icons[size="22"] { width: 22px; height: 22px; }
-/* Фікс для стабільного масштабування SVG-елементів всередині кастомних тегів */
+
+/* Стабільне масштабування SVG всередині кастомних тегів */
 animate-icons svg,
-animate-icons i {
-display: block;
-width: 100%;
-height: 100%;
-}
+animate-icons i { display: block; width: 100%; height: 100%; }
+
 .icon-accent { color: var(--text-accent); }
 .hl-icon { color: var(--text-accent-c); }
-.lang-switch .lang-icon { margin-left: 8px; color: var(--text-secondary); }
+
+/* ==========================================
+   REDUCED MOTION (в кінці, щоб мати пріоритет)
+========================================== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .tg-fab { animation: none; }
+}
