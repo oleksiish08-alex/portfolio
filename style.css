@@ -367,7 +367,7 @@ section { padding: 88px 0; position: relative; z-index: 1; }
 
 [data-theme="cyber"] .card-contrast[data-augmented-ui] 
 { --aug-border-bg: var(--border-c);
-background: var(--bg-surface);}
+background: var(--bg-contrast);}
 
 /* clip-path (augmented-ui) обрізає зовнішні тіні — вимикаємо їх на картках,
    а світіння при hover робимо внутрішнім */
