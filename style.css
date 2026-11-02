@@ -57,7 +57,8 @@
   --bg-canvas: #0D0E12;
   --bg-surface: #101218;
   --bg-surface-hover: #22262f;
-  --bg-contrast: #050507;
+  --bg-surface-hover_c: #13130c;
+  --bg-contrast: #13130c;
   --bg-contrast-hover: #0a0a0d;
 
   --text-primary: #EAF6F8;
@@ -211,7 +212,7 @@ section { padding: 88px 0; position: relative; z-index: 1; }
 .card_s:hover {
   transform: translateY(-4px);
   border-color: var(--brand);
-  background: var(--bg-surface-hover);
+  background: var(--bg-surface-hover_c);
   box-shadow: var(--box-shadow);
 }
 
