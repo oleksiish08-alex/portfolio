@@ -60,8 +60,8 @@ html {
   --font-display: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* ============ CYBERPUNK THEME ============ */
-[data-theme="cyberpunk"] {
+/* ============ Cyber THEME ============ */
+[data-theme="cyber"] {
   --bg-canvas: #0D0E12;
   --bg-surface: #101218;
   --bg-surface-hover: #22262f;
@@ -91,8 +91,8 @@ html {
   --radius-img: 0; /* без заокруглень на зображеннях карток */
 }
 
-/* ============ CYBERPUNK: augmented-ui ============ */
-[data-theme="cyberpunk"] [data-augmented-ui] {
+/* ============ cyber: augmented-ui ============ */
+[data-theme="cyber"] [data-augmented-ui] {
   border: 0 !important;
   border-radius: 0 !important;
   --aug-border-all: 1px;
@@ -101,27 +101,26 @@ html {
   --aug-br: 12px;
 }
 
-/* Кнопки та теги: менший зріз */
-[data-theme="cyberpunk"] .btn[data-augmented-ui],
-[data-theme="cyberpunk"] .tag[data-augmented-ui] 
+/* Tеги: менший зріз */
+[data-theme="cyber"] .tag[data-augmented-ui] 
 { --aug-tl: 8px; --aug-br: 8px;
 font-family: var(--font-display); text-transform: uppercase; letter-spacing: .04em; font-size: .7rem;}
 
-[data-theme="cyberpunk"] .btn-primary[data-augmented-ui] { --aug-border-bg: var(--brand-hover); }
-[data-theme="cyberpunk"] .btn-primary[data-augmented-ui]:hover { --aug-border-bg: var(--brand); }
-[data-theme="cyberpunk"] .btn-outline[data-augmented-ui] { --aug-border-bg: var(--brand); }
-[data-theme="cyberpunk"] .btn-outline[data-augmented-ui]:hover { --aug-border-bg: var(--brand-hover); }
+[data-theme="cyber"] .btn-primary[data-augmented-ui] { --aug-border-bg: var(--brand-hover); }
+[data-theme="cyber"] .btn-primary[data-augmented-ui]:hover { --aug-border-bg: var(--brand); }
+[data-theme="cyber"] .btn-outline[data-augmented-ui] { --aug-border-bg: var(--brand); }
+[data-theme="cyber"] .btn-outline[data-augmented-ui]:hover { --aug-border-bg: var(--brand-hover); }
 
 /* Зображення в картках: лише зріз, без рамки */
-[data-theme="cyberpunk"] .img[data-augmented-ui] { 
+[data-theme="cyber"] .img[data-augmented-ui] { 
   --aug-tl: 8px; --aug-br: 8px; }
 
-[data-theme="cyberpunk"] .card-contrast[data-augmented-ui] { 
+[data-theme="cyber"] .card-contrast[data-augmented-ui] { 
 --aug-border-bg: var(--border-c); }
 
 /* Специфічний фікс для карток з augmented-ui у кіберпанк темі */
-[data-theme="cyberpunk"] .card[data-augmented-ui],
-[data-theme="cyberpunk"] .card_s[data-augmented-ui] {
+[data-theme="cyber"] .card[data-augmented-ui],
+[data-theme="cyber"] .card_s[data-augmented-ui] {
   border: 0 !important;
   background: var(--bg-surface);
   box-shadow: none !important;
@@ -130,26 +129,26 @@ font-family: var(--font-display); text-transform: uppercase; letter-spacing: .04
 /* Cyber glow для карток із зображенням.
    clip-path (augmented-ui) обрізає зовнішні тіні, тому світіння — внутрішнє */
 
-[data-theme="cyberpunk"] .card_s[data-augmented-ui]:hover {
-  background: var(--bg-hover);
+[data-theme="cyber"] .card_s[data-augmented-ui]:hover {
+  background: var(--bg-surface-hover);
   --aug-border-bg: var(--brand);
   --glow: var(--brand);
   box-shadow: inset 0 0 22px color-mix(in srgb, var(--glow) 45%, transparent) !important;
 }
 /* Hover: світіння навколо зображення + легке підсвічування */
-[data-theme="cyberpunk"] .card_s picture {
+[data-theme="cyber"] .card_s picture {
   transition: filter .25s ease;
 }
-[data-theme="cyberpunk"] .card_s:hover picture {
+[data-theme="cyber"] .card_s:hover picture {
   filter: drop-shadow(0 0 8px color-mix(in srgb, var(--brand) 55%, transparent));
 }
-[data-theme="cyberpunk"] .card_s:hover img {
+[data-theme="cyber"] .card_s:hover img {
   filter: brightness(1.08) saturate(1.1);
 }
 /* Зображення в картках — без рамки та заокруглень */
-[data-theme="cyberpunk"] .card_s img,
-[data-theme="cyberpunk"] .card_s .img,
-[data-theme="cyberpunk"] .card_s picture {
+[data-theme="cyber"] .card_s img,
+[data-theme="cyber"] .card_s .img,
+[data-theme="cyber"] .card_s picture {
   border: 0 !important;
   border-radius: 0 !important;
 }
@@ -222,8 +221,8 @@ h1, h2, h3, .font-display {
   border-radius: 4px;
 }
 
-/* Cyberpunk scanline backdrop (fixed overlay) */
-[data-theme="cyberpunk"] body::before {
+/* cyber scanline backdrop (fixed overlay) */
+[data-theme="cyber"] body::before {
   content: '';
   position: fixed; inset: 0; pointer-events: none; z-index: 0;
   background: var(--bg-contrast);
@@ -312,7 +311,7 @@ h1, h2, h3, .font-display {
 .btn:active { transform: scale(.97); }
 .btn-primary { background: var(--brand); color: var(--brand-text); }
 .btn-primary:hover { background: var(--brand-hover); }
-[data-theme="cyberpunk"] .btn-primary { font-family: var(--font-display); box-shadow: 0 0 18px color-mix(in srgb, var(--brand) 45%, transparent); }
+[data-theme="cyber"] .btn-primary { font-family: var(--font-display); box-shadow: 0 0 18px color-mix(in srgb, var(--brand) 45%, transparent); }
 [data-theme="golden"] .btn-primary { background: linear-gradient(135deg,#FACC15,#B45309); box-shadow: 0 0 0 1px rgba(255,255,255,.15) inset, 0 8px 20px rgba(234,179,8,.25); }
 [data-theme="golden"] .btn-primary:hover { filter: brightness(1.08); }
 
@@ -363,7 +362,7 @@ font-size: .88rem; color: var(--text-primary); background: transparent; border: 
 display: flex; align-items: center; border: 1px solid var(--border);
 border-radius: var(--radius-pill); padding: 3px; gap: 2px; flex-shrink: 0;
 }
-[data-theme="cyberpunk"] .lang-switch { border-radius: 2px; }
+[data-theme="cyber"] .lang-switch { border-radius: 2px; }
 /* Посилання-кнопки для мультиязичності сторінок */
 .lang-btn {
 display: inline-flex; align-items: center; justify-content: center;
@@ -371,7 +370,7 @@ padding: 6px 11px; border-radius: var(--radius-pill); border: none; background: 
 font-size: .76rem; font-weight: 700; letter-spacing: .02em; color: var(--text-secondary);
 cursor: pointer; text-decoration: none !important;
 }
-[data-theme="cyberpunk"] .lang-btn { border-radius: 1px; font-family: var(--font-display); }
+[data-theme="cyber"] .lang-btn { border-radius: 1px; font-family: var(--font-display); }
 .lang-btn[aria-pressed="true"] { background: var(--brand); color: var(--brand-text); }
 /* Toast */
 #toast {
@@ -415,22 +414,22 @@ background: linear-gradient(160deg, #0B2417 0%, var(--bg-canvas) 100%);
 box-shadow: var(--shadow);
 }
 [data-theme="classic"] .photo-img { border-radius: 24px; border: 2px solid rgba(21,128,61,.3); }
-/* Cyberpunk */
+/* cyber */
 .photo-frame { position: relative; width: 100%; height: 100%; }
 .photo-scan { display: none; }
-[data-theme="cyberpunk"] .photo-card { border-radius: 2px; padding: 0; background: transparent; }
-[data-theme="cyberpunk"] .photo-frame {
+[data-theme="cyber"] .photo-card { border-radius: 2px; padding: 0; background: transparent; }
+[data-theme="cyber"] .photo-frame {
 padding: 2px;
 background: #050507;
 --aug-tl: 18px; --aug-br: 18px;
 --aug-border-all: 2px; --aug-border-bg: var(--brand-hover); /*I change color in code-x */
 }
 /* Внутрішній зріз фото з вендорними префіксами для стабільної підтримки Safari */
-[data-theme="cyberpunk"] .photo-img {
+[data-theme="cyber"] .photo-img {
 -webkit-clip-path: polygon(0 15.2px, 15.2px 0, 100% 0, 100% calc(100% - 15.2px), calc(100% - 15.2px) 100%, 0 100%);
 clip-path: polygon(0 15.2px, 15.2px 0, 100% 0, 100% calc(100% - 15.2px), calc(100% - 15.2px) 100%, 0 100%);
 }
-[data-theme="cyberpunk"] .photo-scan {
+[data-theme="cyber"] .photo-scan {
 display: block; position: absolute; inset: 2px; pointer-events: none; z-index: 2;
 -webkit-clip-path: polygon(0 15.2px, 15.2px 0, 100% 0, 100% calc(100% - 15.2px), calc(100% - 15.2px) 100%, 0 100%);
 clip-path: polygon(0 15.2px, 15.2px 0, 100% 0, 100% calc(100% - 15.2px), calc(100% - 15.2px) 100%, 0 100%);
@@ -438,13 +437,13 @@ background-image: repeating-linear-gradient(0deg, rgba(0,240,255,.09) 0px, rgba(
 mix-blend-mode: screen;
 }
 .hud-corner { display: none; }
-[data-theme="cyberpunk"] .hud-corner {
+[data-theme="cyber"] .hud-corner {
 display: block; position: absolute; width: 14px; height: 14px; z-index: 3; border-color: #FCEE09; border-style: solid; border-width: 0;
 }
-[data-theme="cyberpunk"] .hud-corner.tr { top: 8px; right: 8px; border-top-width: 2px; border-right-width: 2px; }
-[data-theme="cyberpunk"] .hud-corner.bl { bottom: 8px; left: 8px; border-bottom-width: 2px; border-left-width: 2px; }
+[data-theme="cyber"] .hud-corner.tr { top: 8px; right: 8px; border-top-width: 2px; border-right-width: 2px; }
+[data-theme="cyber"] .hud-corner.bl { bottom: 8px; left: 8px; border-bottom-width: 2px; border-left-width: 2px; }
 .hud-caption { display: none; }
-[data-theme="cyberpunk"] .hud-caption {
+[data-theme="cyber"] .hud-caption {
 display: block; position: absolute; bottom: -24px; left: 1px; white-space: nowrap;
 font-family: 'JetBrains Mono', monospace; font-size: .64rem; letter-spacing: .04em; color: var(--brand-hover); /*I change color in code-x */
 }
@@ -476,7 +475,7 @@ background: linear-gradient(155deg, rgba(255,255,255,.18), rgba(255,255,255,0) 4
 --btn-hover-bg: #eab308;
 --btn-hover-text: #1a1408;
 }
-[data-theme="cyberpunk"], .cyberpunk {
+[data-theme="cyber"], .cyber {
 --btn-hover-bg: var(--brand-hover); /*I change color in code-x */
 --btn-hover-text: #000000;
 }
@@ -493,8 +492,8 @@ white-space: nowrap;
 .golden .btn-theme-target {
 border-radius: 8px;
 }
-[data-theme="cyberpunk"] .btn-theme-target,
-.cyberpunk .btn-theme-target {
+[data-theme="cyber"] .btn-theme-target,
+.cyber .btn-theme-target {
 border-radius: 0 !important;
 }
 .btn-theme-target:hover {
@@ -532,7 +531,7 @@ box-shadow: var(--shadow);
 [data-theme="golden"] .btn-to-top {
 border-radius: var(--radius-card);
 }
-[data-theme="cyberpunk"] .btn-to-top {
+[data-theme="cyber"] .btn-to-top {
 border-radius: 0 !important;
 --aug-tl: 9px; --aug-br: 9px;
 --aug-border-all: 2px; --aug-border-bg: var(--brand-hover);
@@ -544,7 +543,7 @@ border: 1px solid rgba(255,255,255,.15);
 .btn-to-top:hover {
 background: var(--brand-hover);
 }
-[data-theme="cyberpunk"] .btn-to-top:hover {
+[data-theme="cyber"] .btn-to-top:hover {
 background: var(--brand-hover);
 --aug-border-bg: var(--brand);
 }
@@ -606,14 +605,14 @@ background: linear-gradient(135deg, #FACC15, #B45309);
 border: 1px solid rgba(255,255,255,.15);}
 [data-theme="golden"] .tg-fab__btn:hover { background: linear-gradient(135deg, #FDE047, #CA8A04); }
 
-[data-theme="cyberpunk"] .tg-fab { --tg-glow: var(--brand); }
-[data-theme="cyberpunk"] .tg-fab__btn {
+[data-theme="cyber"] .tg-fab { --tg-glow: var(--brand); }
+[data-theme="cyber"] .tg-fab__btn {
 border-radius: 0 !important;
 color: var(--brand-text); /*I change color in code-x */
 --aug-tl: 10px; --aug-br: 10px; --aug-border-all: 2px;
   --aug-border-bg: none  !important;
 }
-[data-theme="cyberpunk"] .tg-fab__btn:hover {
+[data-theme="cyber"] .tg-fab__btn:hover {
   background: var(--brand-hover); /*I change color in code-x */ 
   --aug-border-bg: var(--brand); }
 @media (prefers-reduced-motion: reduce) { .tg-fab { animation: none; } }
