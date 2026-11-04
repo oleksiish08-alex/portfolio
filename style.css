@@ -108,7 +108,7 @@
   --brand-text: #1a1408;
 
   --border: #2a2620;
-  --border-c: #854d0e;
+  --border-c: #713f12;
   --border-focus: #EAB308;
 
   --shadow: 0 1px 1px rgba(0, 0, 0, .4), 0 12px 32px rgba(0, 0, 0, .35);
@@ -694,7 +694,6 @@ section { padding: 88px 0; position: relative; z-index: 1; }
 
 [data-theme="golden"] .btn-to-top {
   background: var(--brand-gradient);
-  border: var(--brand-edge);
 }
 [data-theme="golden"] .btn-to-top:hover { background: var(--brand-hover); }
 
@@ -770,7 +769,7 @@ section { padding: 88px 0; position: relative; z-index: 1; }
 }
 
 [data-theme="golden"] .tg-fab { --tg-glow: #EAB308; }
-[data-theme="golden"] .tg-fab__btn { background: var(--brand-gradient); border: var(--brand-edge); }
+[data-theme="golden"] .tg-fab__btn { background: var(--brand-gradient); }
 [data-theme="golden"] .tg-fab__btn:hover { background: linear-gradient(135deg, #FDE047, #CA8A04); }
 
 [data-theme="cyber"] .tg-fab__btn {
