@@ -263,6 +263,10 @@ section { padding: 88px 0; position: relative; z-index: 1; }
   backdrop-filter: blur(18px);
   border: 1px solid var(--border-c);
 }
+
+[data-theme="golden"] .card_s {
+   border: 1px solid var(--border-c);
+}
 [data-theme="golden"] .card-contrast {
   background: linear-gradient(160deg, rgba(234,179,8,.08), rgba(15,14,19,.6));
   -webkit-backdrop-filter: blur(18px);
