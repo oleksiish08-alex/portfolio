@@ -1,0 +1,390 @@
+{
+ "en": {
+  "title": "Designer with an engineer’s mind",
+  "role": "UI/UX Designer",
+  "focus": [
+   "FinTech",
+   "AI Products",
+   "Web & Mobile",
+   "Accessibility"
+  ],
+  "summary": "I help FinTech and AI-powered businesses scale by turning intricate system logic into effortless, high-converting digital products. With 10+ years in design and a strong foundation in Systems Engineering, I ensure every solution is optimized for both user adoption and technical execution.",
+  "facts": [
+   [
+    "Location",
+    "Lviv, Ukraine · Remote"
+   ],
+   [
+    "Experience",
+    "10+ years in design"
+   ],
+   [
+    "Education",
+    "Systems Engineering"
+   ],
+   [
+    "Languages",
+    "Ukrainian, English"
+   ]
+  ],
+  "value_h": "How I add value to your team",
+  "value": [
+   [
+    "Faster Time-to-Market",
+    "Engineering-minded design approach that reduces dev handoff friction and prevents costly redesigns."
+   ],
+   [
+    "User-Centric ROI",
+    "Crafting accessible (WCAG-compliant), cross-platform interfaces that boost engagement, trust, and user retention."
+   ],
+   [
+    "Product Architecture",
+    "Structuring scalable design systems and frictionless flows built for rapid growth and long-term maintainability."
+   ]
+  ],
+  "exp_h": "Professional experience",
+  "lbl": {
+   "goal": "Goal",
+   "impact": "My impact",
+   "result": "Result"
+  },
+  "xp": [
+   {
+    "role": "Independent UI/UX Designer",
+    "org": "Selected contract projects (long project-based)",
+    "date": "May 2014 – Present",
+    "projects": [
+     {
+      "name": "E-commerce website",
+      "goal": "Designing an end-to-end wine e-commerce platform from scratch, featuring interactive taste profiling, intuitive catalog discovery, and a seamless checkout flow.",
+      "impact": "UI/UX Designer, Web designer. Executed full-cycle product design from wireframing and user testing to UI animation and CRO optimization; established component libraries and responsive UI layouts.",
+      "result": "Reduced cart abandonment rate by ~14%; improved user navigation satisfaction score to 92%; increased promotional campaign engagement by 20% using dynamic visual assets."
+     },
+     {
+      "name": "Logistics & Package Tracking CRM System",
+      "goal": "Building in Figma a scalable logistics CRM featuring data visualization, interactive tables, and role-tailored interfaces for admins and end-users.",
+      "impact": "UI/UX Designer. Designed role-based UX flows (Admin/User), a data-dense design system, advanced interactive tables (filters, bulk actions), and analytical dashboards.",
+      "result": "Accelerated package processing speed by ~34% through optimized admin table workflows; reduced onboarding time for new admin operators; decreased user interface friction and status-check queries by delivering a simplified, clear package tracking portal."
+     }
+    ]
+   },
+   {
+    "role": "UI/UX Designer, Product Designer",
+    "org": "Glorium Technologies (Contract / AI Product Sprint)",
+    "date": "Jun 2025 – Aug 2025",
+    "projects": [
+     {
+      "name": "Mobile application with artificial intelligence integration (AI-Driven Mobile UX)",
+      "goal": "Creating intuitive AI-powered interfaces to lower the barrier to product interaction, reduce task completion time, and accelerate the transfer of graphic assets to development.",
+      "impact": "UI/UX Designer. Designed the logic and UI for AI features; standardized internal asset libraries; developed comprehensive sets of adaptive components and interactive mockups for stakeholder alignment.",
+      "result": "Reduced Time on Task (ToT) by 24% across core app features, significantly accelerating user workflows and improving overall satisfaction."
+     }
+    ]
+   },
+   {
+    "role": "UI/UX Designer",
+    "org": "NDA (Food Tech Platform)",
+    "date": "Apr 2021 – Apr 2022",
+    "projects": [
+     {
+      "name": "iOS food delivery application (UX/UI iOS Food delivery)",
+      "goal": "Creation and optimization of the checkout flow interface to eliminate customer churn and increase the rate of successful registration of new users.",
+      "impact": "Completely redesigned mobile navigation for the cart and payment; developed multi-scenario interactive prototypes for the new onboarding walkthrough; applied principles of visual psychology to build product trust.",
+      "result": "Reduced user drop-off (churn rate) at the critical checkout stage by ~16%; the rate of successful initial onboarding of new customers was increased; overall product metrics of platform ecosystem engagement improved."
+     }
+    ]
+   },
+   {
+    "role": "UI/UX Designer, Web designer",
+    "org": "PrivatBank",
+    "date": "Jan 2013 – Apr 2014",
+    "projects": [
+     {
+      "name": "Internet banking and mobile banking ecosystems (FinTech)",
+      "goal": "Creating web product designs for B2B/B2C, corporate financial tools, and native mobile app interfaces. Focused on business adaptation, digital accounting, and corporate service flows to increase the bank’s customers.",
+      "impact": "UI/UX Designer, Web designer. Executed web & mobile UI design for the primary bank website, B2B business services, and digital accounting platforms; built modular UI components and responsive layouts.",
+      "result": "Improved navigation clarity on the main bank domain; simplified complex tax/invoicing workflows for SMEs; boosted engagement across business service pages. Designed responsive web pages and mobile app layouts while scaling a unified design system; ensured 100% cross-platform consistency and accessibility compliance."
+     }
+    ]
+   }
+  ],
+  "skills_h": "Core skills",
+  "skills": [
+   [
+    "Product & UX",
+    [
+     "Research",
+     "User Journey Mapping",
+     "IA",
+     "User Flows",
+     "Wireframing",
+     "Prototyping"
+    ]
+   ],
+   [
+    "UI & Systems",
+    [
+     "UI Design",
+     "Design Systems",
+     "Responsive Design",
+     "iOS/Android"
+    ]
+   ],
+   [
+    "Accessibility",
+    [
+     "WCAG 2.2",
+     "Inclusive Design",
+     "Developer Handoff"
+    ]
+   ]
+  ],
+  "tools_h": "Tools",
+  "tools": [
+   [
+    "Design & Systems",
+    [
+     "Figma",
+     "Design Systems",
+     "Component Libraries",
+     "UI Kits"
+    ]
+   ],
+   [
+    "Motion",
+    [
+     "After Effects",
+     "Adobe Premiere Pro",
+     "Adobe Media Encoder"
+    ]
+   ]
+  ],
+  "cert_h": "Certifications",
+  "certs": [
+   "UI/UX Design",
+   "Web Accessibility",
+   "WCAG (Web Content Accessibility Guidelines)",
+   "Graphic Design"
+  ],
+  "edu_h": "Education",
+  "edu": [
+   "Specialist in Systems Engineering",
+   "Dnipro University of Technology",
+   "Computer engineering, systems architecture and visualization.",
+   "Specialized UI/UX design courses"
+  ],
+  "lang_h": "Languages",
+  "langs": [
+   [
+    "English",
+    "Upper Intermediate"
+   ],
+   [
+    "Ukrainian",
+    "Native"
+   ]
+  ],
+  "links_h": "Portfolio & contact",
+  "cta": "Let’s build something together",
+  "cta_rotate": [
+   "Your idea becomes a new interface.",
+   "Have a project or a task? Write to me.",
+   "Your product becomes easy to use and accessible",
+   "Tell me about your project."
+  ]
+ },
+ "ua": {
+  "title": "Дизайнер з інженерним мисленням",
+  "role": "UI/UX дизайнер",
+  "focus": [
+   "Фінтех",
+   "ШІ-продукти",
+   "Веб і мобільні застосунки",
+   "Доступність"
+  ],
+  "summary": "Я допомагаю фінтех- та ШІ-компаніям масштабуватися, перетворюючи складну логіку систем на зрозумілі цифрові продукти з високою конверсією. Маючи 10+ років у дизайні та міцну базу в системній інженерії, я стежу, щоб кожне рішення було оптимальним і для користувачів, і для технічної реалізації.",
+  "facts": [
+   [
+    "Локація",
+    "Львів, Україна · Віддалено"
+   ],
+   [
+    "Досвід",
+    "10+ років у дизайні"
+   ],
+   [
+    "Освіта",
+    "Системна інженерія"
+   ],
+   [
+    "Мови",
+    "Українська, англійська"
+   ]
+  ],
+  "value_h": "Яку цінність я приношу вашій команді",
+  "value": [
+   [
+    "Швидший вихід на ринок",
+    "Інженерний підхід до дизайну зменшує тертя під час передачі розробникам і запобігає дорогим редизайнам."
+   ],
+   [
+    "Користувацький ROI",
+    "Доступні (відповідно до WCAG) кросплатформні інтерфейси, що підвищують залученість, довіру та утримання користувачів."
+   ],
+   [
+    "Архітектура продукту",
+    "Масштабовані дизайн-системи та безперешкодні флоу, створені для швидкого зростання й довгострокової підтримуваності."
+   ]
+  ],
+  "exp_h": "Професійний досвід",
+  "lbl": {
+   "goal": "Мета",
+   "impact": "Мій внесок",
+   "result": "Результат"
+  },
+  "xp": [
+   {
+    "role": "Незалежний UI/UX дизайнер",
+    "org": "Обрані контрактні проєкти (довгострокові)",
+    "date": "Тра 2014 – дотепер",
+    "projects": [
+     {
+      "name": "E-commerce вебсайт",
+      "goal": "Проєктування з нуля повноцінної платформи для продажу вина з інтерактивним профілем смаку, інтуїтивним пошуком у каталозі та безшовним чекаутом.",
+      "impact": "UI/UX дизайнер, веб-дизайнер. Повний цикл продуктового дизайну: від вайрфреймів і тестування з користувачами до UI-анімації та CRO-оптимізації; створення бібліотек компонентів і адаптивних UI-макетів.",
+      "result": "Зменшив частку покинутих кошиків на ~14%; підвищив оцінку задоволеності навігацією до 92%; збільшив залученість у промокампаніях на 20% завдяки динамічним візуальним матеріалам."
+     },
+     {
+      "name": "CRM-система для логістики та відстеження посилок",
+      "goal": "Створення у Figma масштабованої логістичної CRM з візуалізацією даних, інтерактивними таблицями та інтерфейсами під ролі адміністраторів і кінцевих користувачів.",
+      "impact": "UI/UX дизайнер. Розробив рольові UX-флоу (адмін/користувач), дизайн-систему для даних високої щільності, просунуті інтерактивні таблиці (фільтри, масові дії) та аналітичні дашборди.",
+      "result": "Прискорив обробку посилок на ~34% завдяки оптимізованим табличним флоу адміністратора; скоротив час онбордингу нових операторів; зменшив тертя в інтерфейсі та кількість запитів про статус завдяки простому й зрозумілому порталу відстеження."
+     }
+    ]
+   },
+   {
+    "role": "UI/UX дизайнер, продуктовий дизайнер",
+    "org": "Glorium Technologies (контракт / ШІ-спринт)",
+    "date": "Чер 2025 – сер 2025",
+    "projects": [
+     {
+      "name": "Мобільний застосунок з інтеграцією штучного інтелекту (AI-Driven Mobile UX)",
+      "goal": "Створення інтуїтивних інтерфейсів на основі ШІ, щоб знизити бар'єр взаємодії з продуктом, скоротити час виконання завдань і прискорити передачу графічних матеріалів у розробку.",
+      "impact": "UI/UX дизайнер. Розробив логіку та UI для ШІ-функцій; стандартизував внутрішні бібліотеки асетів; створив комплексні набори адаптивних компонентів та інтерактивні макети для узгодження зі стейкхолдерами.",
+      "result": "Скоротив час на виконання завдань (ToT) на 24% у ключових функціях застосунку, суттєво прискоривши користувацькі сценарії та підвищивши загальне задоволення."
+     }
+    ]
+   },
+   {
+    "role": "UI/UX дизайнер",
+    "org": "NDA (фудтех-платформа)",
+    "date": "Кві 2021 – кві 2022",
+    "projects": [
+     {
+      "name": "iOS-застосунок доставки їжі (UX/UI iOS Food delivery)",
+      "goal": "Створення та оптимізація інтерфейсу чекауту, щоб зменшити відтік клієнтів і збільшити частку успішних реєстрацій нових користувачів.",
+      "impact": "Повністю перепроєктував мобільну навігацію кошика й оплати; розробив багатосценарні інтерактивні прототипи нового онбордингу; застосував принципи візуальної психології для формування довіри до продукту.",
+      "result": "Зменшив відтік користувачів на критичному етапі чекауту на ~16%; збільшилась частка успішного первинного онбордингу нових клієнтів; покращились загальні показники залученості в екосистемі платформи."
+     }
+    ]
+   },
+   {
+    "role": "UI/UX дизайнер, веб-дизайнер",
+    "org": "ПриватБанк",
+    "date": "Січ 2013 – кві 2014",
+    "projects": [
+     {
+      "name": "Екосистеми інтернет-банкінгу та мобільного банкінгу (фінтех)",
+      "goal": "Створення вебпродуктів для B2B/B2C, корпоративних фінансових інструментів та інтерфейсів нативних мобільних застосунків. Фокус на адаптації бізнесу, цифровій бухгалтерії та корпоративних сервісних флоу для збільшення кількості клієнтів банку.",
+      "impact": "UI/UX дизайнер, веб-дизайнер. Виконав веб- і мобільний UI-дизайн основного сайту банку, B2B-сервісів для бізнесу та платформ цифрової бухгалтерії; створив модульні UI-компоненти й адаптивні макети.",
+      "result": "Покращив зрозумілість навігації на головному домені банку; спростив складні процеси податків і виставлення рахунків для МСБ; збільшив залученість на сторінках бізнес-сервісів. Проєктував адаптивні вебсторінки та макети мобільних застосунків, масштабуючи єдину дизайн-систему; забезпечив 100% кросплатформну узгодженість і відповідність вимогам доступності."
+     }
+    ]
+   }
+  ],
+  "skills_h": "Ключові навички",
+  "skills": [
+   [
+    "Продукт і UX",
+    [
+     "Дослідження",
+     "Мапи шляху користувача",
+     "Інформаційна архітектура",
+     "Юзер-флоу",
+     "Вайрфрейми",
+     "Прототипування"
+    ]
+   ],
+   [
+    "UI та системи",
+    [
+     "UI-дизайн",
+     "Дизайн-системи",
+     "Адаптивний дизайн",
+     "iOS/Android"
+    ]
+   ],
+   [
+    "Доступність",
+    [
+     "WCAG 2.2",
+     "Інклюзивний дизайн",
+     "Передача розробникам"
+    ]
+   ]
+  ],
+  "tools_h": "Інструменти",
+  "tools": [
+   [
+    "Дизайн і системи",
+    [
+     "Figma",
+     "Дизайн-системи",
+     "Бібліотеки компонентів",
+     "UI-кіти"
+    ]
+   ],
+   [
+    "Моушн",
+    [
+     "After Effects",
+     "Adobe Premiere Pro",
+     "Adobe Media Encoder"
+    ]
+   ]
+  ],
+  "cert_h": "Сертифікати",
+  "certs": [
+   "UI/UX дизайн",
+   "Вебдоступність",
+   "WCAG (Web Content Accessibility Guidelines)",
+   "Графічний дизайн"
+  ],
+  "edu_h": "Освіта",
+  "edu": [
+   "Спеціаліст із системної інженерії",
+   "Дніпровський політехнічний університет",
+   "Комп'ютерна інженерія, системна архітектура та візуалізація.",
+   "Спец. курси по UI/UX дизайну"
+  ],
+  "lang_h": "Мови",
+  "langs": [
+   [
+    "Англійська",
+    "Вище середнього"
+   ],
+   [
+    "Українська",
+    "Рідна"
+   ]
+  ],
+  "links_h": "Портфоліо та контакти",
+  "cta": "Створімо щось разом",
+  "cta_rotate": [
+   "Ідея стане новим інтерфейсом.",
+   "Є проєкт або задача? Напишіть.",
+   "Продукт стане зручним і доступним",
+   "Розкажіть про ваш проєкт."
+  ]
+ }
+}
