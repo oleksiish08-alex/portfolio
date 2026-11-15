@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://oleksiish08-alex.github.io/portfolio/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oleksiish08-alex.github.io/portfolio/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://oleksiish08-alex.github.io/portfolio/ua/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://oleksiish08-alex.github.io/portfolio/"/>
+  </url>
+  <url>
+    <loc>https://oleksiish08-alex.github.io/portfolio/ua/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oleksiish08-alex.github.io/portfolio/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://oleksiish08-alex.github.io/portfolio/ua/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://oleksiish08-alex.github.io/portfolio/"/>
+  </url>
+  <url>
+    <loc>https://oleksiish08-alex.github.io/portfolio/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oleksiish08-alex.github.io/portfolio/about/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://oleksiish08-alex.github.io/portfolio/ua/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://oleksiish08-alex.github.io/portfolio/about/"/>
+  </url>
+  <url>
+    <loc>https://oleksiish08-alex.github.io/portfolio/ua/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oleksiish08-alex.github.io/portfolio/about/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://oleksiish08-alex.github.io/portfolio/ua/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://oleksiish08-alex.github.io/portfolio/about/"/>
+  </url>
+</urlset>

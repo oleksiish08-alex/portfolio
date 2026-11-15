@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://oleksiish08-alex.github.io/portfolio/sitemap.xml
