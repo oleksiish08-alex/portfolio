@@ -4,7 +4,6 @@ Static site (GitHub Pages). English at `/`, Ukrainian at `/ua/`.
 
 ## Structure
 - `index.html`, `ua/index.html` — home pages (generated)
-- `projects/food-delivery/`, `ua/projects/food-delivery/` — interactive case study (generated)
 - `style.css` — design tokens + components (3 themes: Classic = light, Cyber + Golden = dark)
 - `js/site.js` — theme, tabs, count-up, lightbox, menu (no dependencies)
 - `tools/build.py` — generator; `tools/content/*.json` — all copy (EN/UA) and case-study data
