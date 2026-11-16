@@ -188,7 +188,7 @@
 
   /* ---------- Fade-in text rotator ([data-rotator]) — swaps every data-interval ms while visible ---------- */
   $$('[data-rotator]').forEach(function (box) {
-    var items = $$('.rotator__item', box), n = 0, every = parseInt(box.getAttribute('data-interval'), 10) || 16000, timer = 0, swap = 0, seen = false;
+    var items = $$('.rotator__item', box), n = 0, every = parseInt(box.getAttribute('data-interval'), 10) || 6000, timer = 0, swap = 0, seen = false;
     if (items.length < 2) { return; }
     function show(k) {
       n = k;
