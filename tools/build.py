@@ -26,6 +26,7 @@ BEHANCE_FOOD = 'https://www.behance.net/gallery/131573945/UXUI-IOs-Food-delivery
 OG_HOME = 'ai-platform.png'
 ROTATE_MS = 6000   # how often the rotating headline changes (Home + About), in milliseconds — 6000 = 6 seconds
 
+
 def load(name):
     with open(join(CONTENT, name), encoding='utf-8') as f:
         return json.load(f)
@@ -406,7 +407,7 @@ def section_contact(c):
     <div class="card card-contrast contact__card has-visual fade-up" {AUG}>
       <div class="contact__body">
         <p class="tag" style="margin-bottom:20px;background:transparent;border-color:var(--border-c)" {AUG}>{T('contact_tag')}</p>
-        <h2>{T('contact_title')}</h2><p style="color:var(--text-secondary-c)">{T('contact_sub')}</p>
+        {rotator([c.raw('contact_title')] + load('rotator.json')[c.lang]['home'])}<p style="color:var(--text-secondary-c)">{T('contact_sub')}</p>
         <div class="btn-row"><a href="mailto:oleksii.sh08@gmail.com" class="btn btn-primary" {AUG}>{ic('mail-open')}<span>{T('contact_email_btn')}</span></a>
         <a href="{CALENDLY}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost-c" {AUG}>{ic('calendar-check')}<span>{T('contact_book_time')}</span></a></div>
       </div>
@@ -442,7 +443,7 @@ def rotator(texts):
         words = ''.join(f'<span class="w" style="--i:{i}">{esc(w)}</span> ' for i, w in enumerate(t.split()))
         hid = '' if n == 0 else ' aria-hidden="true"'
         items += f'<span class="rotator__item{" is-active" if n == 0 else ""}"{hid}>{words}</span>'
-    return f'<h2 class="rotator" data-rotator data-interval="16000">{items}</h2>'
+    return f'<h2 class="rotator" data-rotator data-interval="{ROTATE_MS}">{items}</h2>'
 
 
 def about_page(lang):
@@ -507,7 +508,7 @@ def about_page(lang):
 </div></section>
 <section style="padding-top:0"><div class="wrap-wide"><div class="card card-contrast contact__card has-visual fade-up" {AUG}>
   <div class="contact__body">
-  {rotator(A['cta_rotate'])}<p style="color:var(--text-secondary-c)">{T('contact_sub')}</p>
+  {rotator(load('rotator.json')[lang]['about'])}<p style="color:var(--text-secondary-c)">{T('contact_sub')}</p>
   <div class="btn-row"><a href="mailto:oleksii.sh08@gmail.com" class="btn btn-primary" {AUG}>{ic('mail-open')}<span>{T('contact_email_btn')}</span></a>
   <a href="{CALENDLY}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost-c" {AUG}>{ic('calendar-check')}<span>{T('contact_book_time')}</span></a></div>
   <p style="margin:24px auto 8px;text-align:center;max-width:none;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-secondary-c)">{esc(A['links_h'])}</p><div class="btn-row social-links" style="margin-top:0">{links}</div></div>
