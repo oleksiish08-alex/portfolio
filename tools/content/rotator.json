@@ -1,0 +1,30 @@
+{
+ "en": {
+  "home": [
+   "Your idea becomes a new interface.",
+   "Have a project or a task? Write to me.",
+   "Your product becomes easy to use and accessible",
+   "Tell me about your project."
+  ],
+  "about": [
+   "Your idea becomes a new interface.",
+   "Have a project or a task? Write to me.",
+   "Your product becomes easy to use and accessible",
+   "Tell me about your project."
+  ]
+ },
+ "ua": {
+  "home": [
+   "Ідея стане новим інтерфейсом.",
+   "Є проєкт або задача? Напишіть.",
+   "Продукт стане зручним і доступним",
+   "Розкажіть про ваш проєкт."
+  ],
+  "about": [
+   "Ідея стане новим інтерфейсом.",
+   "Є проєкт або задача? Напишіть.",
+   "Продукт стане зручним і доступним",
+   "Розкажіть про ваш проєкт."
+  ]
+ }
+}
