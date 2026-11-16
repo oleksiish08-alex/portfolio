@@ -24,7 +24,7 @@ LANGS = {
 }
 BEHANCE_FOOD = 'https://www.behance.net/gallery/131573945/UXUI-IOs-Food-delivery'
 OG_HOME = 'ai-platform.png'
-
+ROTATE_MS = 6000   # how often the rotating headline changes (Home + About), in milliseconds — 6000 = 6 seconds
 
 def load(name):
     with open(join(CONTENT, name), encoding='utf-8') as f:
