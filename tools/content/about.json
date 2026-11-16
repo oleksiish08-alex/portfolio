@@ -185,13 +185,7 @@
    ]
   ],
   "links_h": "Portfolio & contact",
-  "cta": "Let’s build something together",
-  "cta_rotate": [
-   "Your idea becomes a new interface.",
-   "Have a project or a task? Write to me.",
-   "Your product becomes easy to use and accessible",
-   "Tell me about your project."
-  ]
+  "cta": "Let’s build something together"
  },
  "ua": {
   "title": "Дизайнер з інженерним мисленням",
@@ -379,12 +373,6 @@
    ]
   ],
   "links_h": "Портфоліо та контакти",
-  "cta": "Створімо щось разом",
-  "cta_rotate": [
-   "Ідея стане новим інтерфейсом.",
-   "Є проєкт або задача? Напишіть.",
-   "Продукт стане зручним і доступним",
-   "Розкажіть про ваш проєкт."
-  ]
+  "cta": "Створімо щось разом"
  }
 }
