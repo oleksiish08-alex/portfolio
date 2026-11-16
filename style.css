@@ -1299,7 +1299,7 @@ html:not(.js) .tabpanel[hidden], html:not(.js) .step__panel[hidden] { display: b
 /* ---------- Cyber nav: Flowbite "tabs with underline" — flat, square, no rounded line ---------- */
 [data-theme="cyber"] .nav-primary { align-self: stretch; align-items: stretch; gap: 2px; }
 [data-theme="cyber"] .nav-primary a {
-  display: inline-flex; align-items: center; padding: 0 12px; border-radius: 0; background: transparent;
+  display: inline-flex; align-items: center; padding: 0 16px; border-radius: 0; background: transparent;
   border-bottom: 2px solid transparent; box-shadow: none; transition: color var(--dur-2) ease, border-color var(--dur-2) ease;
 }
 [data-theme="cyber"] .nav-primary a:hover { background: transparent; color: var(--text-primary); border-bottom-color: color-mix(in srgb, var(--brand) 45%, transparent); }
