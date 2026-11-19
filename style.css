@@ -1061,6 +1061,17 @@ html[data-theme="golden"] .palette-dot span { background: var(--brand-gradient);
 .contact__card { padding: clamp(28px, 6vw, 72px); text-align: center; margin-top: var(--sp-7); }
 .contact__card h2 { font-size: var(--fs-h2); font-weight: 800; line-height: 1.1; max-width: 22ch; margin-inline: auto; }
 .contact__card p { margin: var(--sp-4) auto 0; max-width: 46ch; }
+.contact__card .contact__tag {
+  position: absolute;
+  top: clamp(18px, 3vw, 28px);
+  left: clamp(18px, 3vw, 28px);
+  z-index: 2;
+  margin: 0;
+  max-width: none;
+  background: transparent;
+  border-color: var(--border-c);
+}
+.contact__card--labeled .contact__body { padding-top: clamp(18px, 2.5vw, 26px); }
 .btn-row { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sp-3); margin-top: var(--sp-6); }
 .btn-ghost-c { border: 1px solid var(--border-c); color: var(--text-primary-c); }
 .btn-ghost-c:hover { background: color-mix(in srgb, var(--brand) 12%, transparent); }
@@ -1128,21 +1139,20 @@ html:not(.js) .tabpanel[hidden], html:not(.js) .step__panel[hidden] { display: b
 .link-more:hover { text-decoration: underline; }
 .footer__logo { display: inline-flex; width: 44px; height: 44px; margin-bottom: var(--sp-3); border-radius: 12px; align-items: center; justify-content: center; background: var(--brand); color: var(--brand-text); font: 800 1rem var(--font-display); text-decoration: none; transition: transform var(--dur-2) var(--ease); }
 .footer__logo:hover { transform: rotate(-6deg) scale(1.06); }
-[data-theme="cyber"] .footer__logo,
-.footer__logo:hover { border-radius: 0; 
-   --aug-tl: 12px;
-   --aug-br: 12px; }
 
 /* OS monogram is the About-page link; always visible */
 .brand__mono { display: inline-flex !important; text-decoration: none; flex-shrink: 0; transition: transform var(--dur-2) var(--ease); }
 .brand__mono:hover { transform: rotate(-6deg) scale(1.05); }
+
+/* Cyber theme: clipped top and bottom logos */
+[data-theme="cyber"] .brand__mono,
+[data-theme="cyber"] .footer__logo {
+  border-radius: 0;
+  --aug-tl: 9px;
+  --aug-br: 9px;
+}
 .brand__text { text-decoration: none; }
 @media (max-width: 479px) { .brand__text { display: none; } }
-[data-theme="cyber"] .brand__mono,
-.brand__mono:hover {
-   --aug-tl: 9px;
-    --aug-br: 9px;
-}
 
 /* Shared entrance keyframes (used by .rise and the workflow panels) */
 @keyframes panel-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
@@ -1307,7 +1317,7 @@ html:not(.js) .tabpanel[hidden], html:not(.js) .step__panel[hidden] { display: b
 /* ---------- Cyber nav: Flowbite "tabs with underline" — flat, square, no rounded line ---------- */
 [data-theme="cyber"] .nav-primary { align-self: stretch; align-items: stretch; gap: 2px; }
 [data-theme="cyber"] .nav-primary a {
-  display: inline-flex; align-items: center; padding: 0 16px; border-radius: 0; background: transparent;
+  display: inline-flex; align-items: center; padding: 0 12px; border-radius: 0; background: transparent;
   border-bottom: 2px solid transparent; box-shadow: none; transition: color var(--dur-2) ease, border-color var(--dur-2) ease;
 }
 [data-theme="cyber"] .nav-primary a:hover { background: transparent; color: var(--text-primary); border-bottom-color: color-mix(in srgb, var(--brand) 45%, transparent); }
@@ -1354,10 +1364,24 @@ html:not(.js) .tabpanel[hidden], html:not(.js) .step__panel[hidden] { display: b
 [data-theme="cyber"] .mobile-menu a:hover, [data-theme="cyber"] .mobile-menu a:focus-visible { box-shadow: inset 4px 0 0 #FCEE09; }
 .mobile-menu a:focus-visible { outline-offset: -3px; }
 
-/* ---------- Social buttons (LinkedIn · Behance · Vimeo): one row on mobile ---------- */
+/* ---------- Social buttons: stacked vertically on mobile, like the contact actions ---------- */
 @media (max-width: 639px) {
-  .social-links { flex-wrap: nowrap; justify-content: stretch; gap: 8px; }
-  .social-links .btn { flex: 1 1 0; min-width: 0; width: auto; padding-inline: 6px; gap: 6px; font-size: .84rem; justify-content: center; }
+  .social-links {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: var(--sp-3);
+    width: 100%;
+  }
+  .social-links .btn {
+    flex: 0 0 auto;
+    min-width: 0;
+    width: 100%;
+    padding-inline: 16px;
+    gap: 8px;
+    justify-content: center;
+  }
 }
 
 /* ---------- "How I work": previous / next inside the stage card ---------- */
