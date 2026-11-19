@@ -24,7 +24,6 @@ LANGS = {
 }
 BEHANCE_FOOD = 'https://www.behance.net/gallery/131573945/UXUI-IOs-Food-delivery'
 OG_HOME = 'ai-platform.png'
-ROTATE_MS = 6000   # how often the rotating headline changes (Home + About), in milliseconds — 6000 = 6 seconds
 
 
 def load(name):
@@ -77,6 +76,7 @@ SUN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="
 MOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>'
 ARROW = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>'
 AUG = 'data-aug="tl-clip br-clip border"'
+AUG_LOGO = 'data-aug="tl-clip br-clip"'
 
 
 # ------------------------------------------------------------------ HEAD / SEO
@@ -153,7 +153,7 @@ def header(c, alt_paths):
     return f'''<header class="site-header">
   <div class="wrap-wide site-header__row">
     <div class="brand">
-      <a class="brand__mono" href="{h or './'}" aria-label="{c.t('home_logo_aria')}">OS</a>
+      <a class="brand__mono" {AUG_LOGO} href="{h or './'}" aria-label="{c.t('home_logo_aria')}">OS</a>
       <a class="brand__text" href="{h or './'}#hero"><span class="brand__name">{c.t('f_name_s_name')}</span>
       <span class="brand__status"><span class="status-dot"></span>{c.t('status_available')}</span></a>
     </div>
@@ -183,7 +183,7 @@ def footer(c):
     return f'''<footer class="site-footer">
   <div class="wrap-wide">
     <div class="footer__grid">
-      <div class="footer__brand"><a class="footer__logo" href="{about_href(c)}" aria-label="{c.t('about_logo_aria')}">OS</a><br><span class="brand__name font-display">{c.t('f_name_s_name')}</span><p class="muted">{c.t('footer_tagline')}</p><p class="muted">{c.t('location_line')}</p></div>
+      <div class="footer__brand"><a class="footer__logo" {AUG_LOGO} href="{about_href(c)}" aria-label="{c.t('about_logo_aria')}">OS</a><br><span class="brand__name font-display">{c.t('f_name_s_name')}</span><p class="muted">{c.t('footer_tagline')}</p><p class="muted">{c.t('location_line')}</p></div>
       <nav aria-label="{c.t('nav_footer')}"><p class="footer__h">{c.t('nav_footer')}</p><div class="footer__nav">{nav}</div></nav>
       <div><p class="footer__h">{c.t('footer_contact')}</p>
         <div class="footer__list"><a href="mailto:oleksii.sh08@gmail.com">oleksii.sh08@gmail.com</a>
@@ -404,10 +404,10 @@ def section_contact(c):
 </section>
 <section id="contact" style="padding-top:0">
   <div class="wrap-wide">
-    <div class="card card-contrast contact__card has-visual fade-up" {AUG}>
+    <div class="card card-contrast contact__card contact__card--labeled has-visual fade-up" {AUG}>
+      <p class="tag contact__tag" {AUG}>{T('contact_tag')}</p>
       <div class="contact__body">
-        <p class="tag" style="margin-bottom:20px;background:transparent;border-color:var(--border-c)" {AUG}>{T('contact_tag')}</p>
-        {rotator([c.raw('contact_title')] + load('rotator.json')[c.lang]['home'])}<p style="color:var(--text-secondary-c)">{T('contact_sub')}</p>
+        <h2>{T('contact_title')}</h2><p style="color:var(--text-secondary-c)">{T('contact_sub')}</p>
         <div class="btn-row"><a href="mailto:oleksii.sh08@gmail.com" class="btn btn-primary" {AUG}>{ic('mail-open')}<span>{T('contact_email_btn')}</span></a>
         <a href="{CALENDLY}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost-c" {AUG}>{ic('calendar-check')}<span>{T('contact_book_time')}</span></a></div>
       </div>
@@ -443,7 +443,7 @@ def rotator(texts):
         words = ''.join(f'<span class="w" style="--i:{i}">{esc(w)}</span> ' for i, w in enumerate(t.split()))
         hid = '' if n == 0 else ' aria-hidden="true"'
         items += f'<span class="rotator__item{" is-active" if n == 0 else ""}"{hid}>{words}</span>'
-    return f'<h2 class="rotator" data-rotator data-interval="{ROTATE_MS}">{items}</h2>'
+    return f'<h2 class="rotator" data-rotator data-interval="16000">{items}</h2>'
 
 
 def about_page(lang):
@@ -506,9 +506,10 @@ def about_page(lang):
   <div class="card fade-up" {AUG}><h3 class="scard__head">{esc(A['cert_h'])}</h3>{pills(A['certs'])}</div>
   <div class="card fade-up" {AUG}><h3 class="scard__head">{esc(A['lang_h'])}</h3><ul class="lang-list">{langs}</ul></div>
 </div></section>
-<section style="padding-top:0"><div class="wrap-wide"><div class="card card-contrast contact__card has-visual fade-up" {AUG}>
+<section style="padding-top:0"><div class="wrap-wide"><div class="card card-contrast contact__card contact__card--labeled has-visual fade-up" {AUG}>
+  <p class="tag contact__tag" {AUG}>{T('contact_tag')}</p>
   <div class="contact__body">
-  {rotator(load('rotator.json')[lang]['about'])}<p style="color:var(--text-secondary-c)">{T('contact_sub')}</p>
+  {rotator(A['cta_rotate'])}<p style="color:var(--text-secondary-c)">{T('contact_sub')}</p>
   <div class="btn-row"><a href="mailto:oleksii.sh08@gmail.com" class="btn btn-primary" {AUG}>{ic('mail-open')}<span>{T('contact_email_btn')}</span></a>
   <a href="{CALENDLY}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost-c" {AUG}>{ic('calendar-check')}<span>{T('contact_book_time')}</span></a></div>
   <p style="margin:24px auto 8px;text-align:center;max-width:none;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-secondary-c)">{esc(A['links_h'])}</p><div class="btn-row social-links" style="margin-top:0">{links}</div></div>
