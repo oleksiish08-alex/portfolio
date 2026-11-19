@@ -1128,13 +1128,21 @@ html:not(.js) .tabpanel[hidden], html:not(.js) .step__panel[hidden] { display: b
 .link-more:hover { text-decoration: underline; }
 .footer__logo { display: inline-flex; width: 44px; height: 44px; margin-bottom: var(--sp-3); border-radius: 12px; align-items: center; justify-content: center; background: var(--brand); color: var(--brand-text); font: 800 1rem var(--font-display); text-decoration: none; transition: transform var(--dur-2) var(--ease); }
 .footer__logo:hover { transform: rotate(-6deg) scale(1.06); }
-[data-theme="cyber"] .footer__logo { border-radius: 0; }
+[data-theme="cyber"] .footer__logo,
+.footer__logo:hover { border-radius: 0; 
+   --aug-tl: 12px;
+   --aug-br: 12px; }
 
 /* OS monogram is the About-page link; always visible */
 .brand__mono { display: inline-flex !important; text-decoration: none; flex-shrink: 0; transition: transform var(--dur-2) var(--ease); }
 .brand__mono:hover { transform: rotate(-6deg) scale(1.05); }
 .brand__text { text-decoration: none; }
 @media (max-width: 479px) { .brand__text { display: none; } }
+[data-theme="cyber"] .brand__mono,
+.brand__mono:hover {
+   --aug-tl: 9px;
+    --aug-br: 9px;
+}
 
 /* Shared entrance keyframes (used by .rise and the workflow panels) */
 @keyframes panel-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
