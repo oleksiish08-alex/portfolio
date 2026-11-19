@@ -928,7 +928,7 @@ html[data-theme="golden"] .palette-dot span { background: var(--brand-gradient);
 .hero { padding-top: clamp(24px, 4vw, 48px); padding-bottom: clamp(8px, 2vw, 24px); }
 .hero__grid { display: grid; gap: clamp(28px, 5vw, 56px); align-items: center; }
 @media (min-width: 960px) { .hero__grid { grid-template-columns: minmax(0, 1fr) auto; } }
-.hero__title { font-size: var(--fs-hero); font-weight: 800; line-height: 1.03; letter-spacing: -.035em; max-width: 19ch; }
+.hero__title { font-size: var(--fs-hero); font-weight: 640; line-height: 1.03; letter-spacing: -.035em; max-width: 19ch; }
 .hero__title em { font-style: normal; color: var(--text-accent); }
 .hero__sub { margin-top: var(--sp-5); font-size: var(--fs-lead); max-width: 52ch; }
 .hero__value { margin-top: var(--sp-3); font-size: var(--fs-sm); max-width: 60ch; }
